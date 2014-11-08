@@ -87,10 +87,11 @@
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug">
+      buildConfiguration = "Release">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "All About Olaf"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

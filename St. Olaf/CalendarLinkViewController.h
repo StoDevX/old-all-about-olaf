@@ -7,8 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GoogCal.h"
+#import <EventKit/EventKit.h>
 
-@interface CalendarLinkViewController : UIViewController
-@property (strong, nonatomic) id detailItem;
+@interface CalendarLinkViewController : UITableViewController<UIActionSheetDelegate>
+{
+    NSMutableArray *_EventArray;
+    UIActionSheet *AddEventSheet;
+    NSInteger selectedRow;
+}
+
+@property (nonatomic, assign) NSInteger selectedRow;
+@property (strong, nonatomic) GoogCal *detailItem;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+-(void)LoadCalendarData;
+-(void)AddEventToCalendar;
+-(IBAction)cancel:(id)sender;
+
+
 @end

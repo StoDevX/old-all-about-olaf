@@ -830,6 +830,10 @@
 
     [self.myMapView addAnnotations:locations];
     
+    // Set width and height of view to be full screen
+    CGRect frame = [[UIScreen mainScreen] bounds];
+    myMapView.frame = frame;
+    
     
     // Set-up for the center map button
     [centerMap addTarget:self action:@selector(centerMap:) forControlEvents:UIControlEventTouchUpInside];
@@ -865,6 +869,8 @@
 }
 
 -(void) viewDidAppear:(BOOL)animated {
+    
+    // Handling location information (permissions...)
     __myLocationManager = [[CLLocationManager alloc] init];
     __myLocationManager.delegate = self;
     

@@ -15,6 +15,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
    
+    [NSThread sleepForTimeInterval:0.5]; //add 0.5 seconds longer to start image
+
     // This allows us to customize the text color of our UINaviagtionBar
     [[UINavigationBar appearance]  setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil]];
     // This allows us to customize the color of our UINavigationBar navigation item

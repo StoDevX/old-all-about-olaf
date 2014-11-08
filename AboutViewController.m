@@ -35,14 +35,13 @@
     
     // We are in the support
     if(indexPath.row == 4){
-        
         if ([MFMailComposeViewController canSendMail]){
-        MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
-        controller.mailComposeDelegate = self;
-        NSArray *toRecipients = [NSArray arrayWithObjects:@"support@drewvolz.com",nil];
-        [controller setToRecipients:toRecipients];
-        [controller setSubject:@"Support"];
-        [controller setMessageBody:@"" isHTML:YES];
+            MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+            controller.mailComposeDelegate = self;
+            NSArray *toRecipients = [NSArray arrayWithObjects:@"support@drewvolz.com",nil];
+            [controller setToRecipients:toRecipients];
+            [controller setSubject:@"Support"];
+            [controller setMessageBody:@"" isHTML:YES];
             if (controller) [self presentViewController:controller animated:YES completion:nil];
         }
     }

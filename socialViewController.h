@@ -31,4 +31,6 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forward;
 
 @property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
+
 @end

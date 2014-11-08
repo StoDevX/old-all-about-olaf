@@ -14,6 +14,7 @@
 
 @implementation FirstViewController
 @synthesize arrayTag;
+@synthesize tableView;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -71,7 +72,6 @@
         _data = [[NSMutableDictionary alloc] init];
         
         // write our data into it
-        [_data setObject: [NSNumber numberWithInt:0]               forKey:@"hasSeenTip"];
         [_data setObject: [NSString stringWithString: printMoney]  forKey:@"printMoney"];
         [_data setObject: [NSString stringWithString: oleDollars]  forKey:@"oleDollars"];
         [_data setObject: [NSString stringWithString: flexDollars] forKey:@"flexDollars"];
@@ -79,6 +79,35 @@
 
         [_data writeToFile: _path atomically:YES];
     }
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    /*
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+
+    // If we are pushing the menu webview, make it full screen
+    if( indexPath.row == 0) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    */
+    
+}
+
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    // Clear selection of rows
+    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];
+}
+
+
+
+// Height of each table cell
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 45.5;
 }
 
 
@@ -103,32 +132,6 @@
     return NO;
 }
 
-
-// Current hack to hide rows
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    
-    if (indexPath.row == 8 || indexPath.row == 9) {
-        cell.hidden = YES;
-        return 0.0;
-    }
-    else {
-        cell.hidden = NO;
-        return 45.5;
-    }
-}
-
-// Current hack to hide rows
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-
-    if (indexPath.row == 8 || indexPath.row == 9) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.textLabel.text = @"";
-        cell.detailTextLabel.text = @"";
-    }
-    return cell;
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

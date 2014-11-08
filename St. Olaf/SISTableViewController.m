@@ -110,7 +110,6 @@
         _data = [[NSMutableDictionary alloc] init];
         
         // write our data into it
-        [_data setObject: [NSNumber numberWithInt:0]               forKey:@"hasSeenTip"];
         [_data setObject: [NSNumber numberWithInt:0]               forKey:@"loggedIn"];
         [_data setObject: [NSString stringWithString: printMoney]  forKey:@"printMoney"];
         [_data setObject: [NSString stringWithString: oleDollars]  forKey:@"oleDollars"];
@@ -125,6 +124,10 @@
     
     if([[_savedInfo objectForKey:@"loggedIn"] intValue] == 1) {
         loginButton.title = @"Logout";
+        
+        // Log the user-in
+        [self refreshTable];
+        
     } else {
         loginButton.title = @"Login";
     }
@@ -269,10 +272,18 @@
 }
 
 -(BOOL) textFieldShouldEndEditing:(UITextField *)textField {
-    //Refresh your data
-    [prefs setObject:username.text forKey:@"userName"];
-    [prefs setObject:password.text forKey:@"password"];
-    [prefs synchronize];
+    
+    // Pull the user's credentials from NSUserDefaults
+    NSString *tokenUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
+    NSString *tokenPass = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
+    
+    // If the credentials have changed then save the update
+    if( !([tokenUser isEqual: username.text]) || (!([tokenPass isEqual: password.text] ) ) ) {
+        [prefs setObject:username.text forKey:@"userName"];
+        [prefs setObject:password.text forKey:@"password"];
+        [prefs synchronize];
+    }
+       
     return YES;
 }
 
@@ -286,15 +297,22 @@
 
 // Loggin-in with the user's credentials with POST data
 - (bool)tryLoggingUserIn {
+    
+    // Pull the user's credentials from NSUserDefaults
+    NSString *tokenUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
+    NSString *tokenPass = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
+    
+
+    
     // if we have a username and password
-    if(username.text != NULL && ![username.text isEqual: @""] && password.text != NULL && ![password.text isEqual: @""]) {
+    if((tokenUser != NULL && ![tokenUser  isEqual: @""] && tokenPass != NULL && ![tokenPass  isEqual: @""])) {
         [self logMeIn];
     }
     else {
         // stop the spinner
         [refreshControl endRefreshing];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could Not Log-In" message:@"Please provide your username and password and try again." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could Not Log-In!" message:@"Please provide your username and password and try again." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
         // optional - add more buttons:
         [alert show];
     }
@@ -304,14 +322,13 @@
 // Handling the response from logging-in
 - (BOOL)logMeIn
 {
-    //Refresh your data
-    [prefs setObject:username.text forKey:@"userName"];
-    [prefs setObject:password.text forKey:@"password"];
-    [prefs synchronize];
     
     // Pull the user's credentials from NSUserDefaults
     NSString *tokenUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
     NSString *tokenPass = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
+    
+    NSLog(@"\n%@%@%@",tokenUser, @"\n", password.text);
+
     
     // Our POST data for when we sign-in
     NSString *post = [NSString stringWithFormat:@"login=%@&passwd=%@", tokenUser, tokenPass];

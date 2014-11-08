@@ -37,7 +37,7 @@
 // Cell heights
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 60;
 }
 
 // Customizing cells in sections
@@ -54,21 +54,18 @@
 {
     if(indexPath.section == 0) {
         if(indexPath.row == 0){
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://5077863666"]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://5076454475"]];
         }
         if(indexPath.row == 1){
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://18002221222"]];
         }
-    }
-    
-    if(indexPath.section == 1) {
-        if(indexPath.row == 0){
+        if(indexPath.row == 2){
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://5077863666"]];
         }
-        if(indexPath.row == 1){
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://5076454475"]];
+        if(indexPath.row == 3){
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://5077863666"]];
         }
-        if(indexPath.row == 2){
+        if(indexPath.row == 4){
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://5077863777"]];
         }
     }

@@ -43,6 +43,22 @@
     
     else {
         
+        
+        //Define a date
+        NSDate *theDate;
+        
+        //Initialise it
+        theDate = [[NSDate alloc] init];
+        
+        //Format the date
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        
+        //Get the hour
+        [dateFormatter setDateFormat:@"HH"];
+        int hour = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+        
+        
+        
         //Load screen...
         CGRect frame = [[UIScreen mainScreen] bounds];
         _overlayView = [[UIView alloc] initWithFrame:frame];
@@ -54,7 +70,22 @@
         
         [_mobileSite setDelegate:self];
         _mobileSite.scrollView.scrollEnabled = TRUE;
-        NSString *urlString = @"http://stolaf.cafebonappetit.com/hungry/stav-hall/#menu-items";
+        
+        // Set width and height of view to be full screen
+        _mobileSite.frame = frame;
+        
+        
+        NSString *urlString;
+        
+        // If it is before 2pm...load lunch menu
+        if (hour < 14) {
+            urlString = @"http://stolaf.cafebonappetit.com/cafe/stav-hall/#Lunch";
+        }
+        // If it is after 2pm...load dinner menu
+        else {
+            urlString = @"http://stolaf.cafebonappetit.com/cafe/stav-hall/#Dinner";
+        }
+
         //2
         NSURL *url = [NSURL URLWithString:urlString];
         //3

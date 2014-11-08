@@ -55,7 +55,7 @@ bool shouldDisplayLoading = true;
         
         [_mobileSite setDelegate:self];
         _mobileSite.scrollView.scrollEnabled = TRUE;
-        NSString *urlString = @"http://stolaf.cafebonappetit.com/hungry/the-cage/#menu-items";
+        NSString *urlString = @"http://stolaf.cafebonappetit.com/hungry/the-cage/";
         //2
         NSURL *url = [NSURL URLWithString:urlString];
         //3
@@ -178,7 +178,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 {
 	//stop the activity indicator when done loading
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    //_mobileSite.scrollView.contentOffset = CGPointMake(0,1000);
     [self.overlayView removeFromSuperview];
     [_loadingMenuText setHidden: YES];
     [_loadingMenuSpinner setHidden: YES];

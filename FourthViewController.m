@@ -28,8 +28,11 @@
     return self;
 }
 
-- (void)viewDidLoad
+
+- (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     if([self hasConnectivity] == NO) {
         
         CGRect frame = [[UIScreen mainScreen] bounds];
@@ -71,6 +74,10 @@
                                    else if (error != nil) NSLog(@"Error: %@", error);
                                }];
         
+        // Set width and height of view to be full screen
+        _webView.frame = screenRect;
+
+        
         // Set-up the forward/backward buttons for the webview
         UIToolbar *toolbar = [UIToolbar new];
         // create a bordered style button with custom title
@@ -90,11 +97,18 @@
         CGFloat toolbarHeight = [toolbar frame].size.height;
         CGRect mainViewBounds = self.view.bounds;
         [toolbar setFrame:CGRectMake(CGRectGetMinX(mainViewBounds),
-                                     CGRectGetMinY(mainViewBounds) + CGRectGetHeight(mainViewBounds) - (toolbarHeight)*2,
+                                     CGRectGetMinY(mainViewBounds) + CGRectGetHeight(mainViewBounds) - (toolbarHeight),
                                      CGRectGetWidth(mainViewBounds),
                                      toolbarHeight)];
         [self.view addSubview:toolbar];
     }
+
+    
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
 }
 
 /*
@@ -150,10 +164,9 @@
     return NO;
 }
 
-- (void)alertView:(UIAlertView *)alertView
-clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0){
-        self.tabBarController.selectedIndex = 0;
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

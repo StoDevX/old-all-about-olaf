@@ -244,7 +244,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     return _objects.count;
 }
 
@@ -275,54 +274,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     cell.textLabel.numberOfLines = 0;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    if([object.title rangeOfString:@"IR/"].location != NSNotFound){
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.textLabel.attributedText = none;
-        cell.textLabel.text = @"";
-        cell.detailTextLabel.text = @"";
-        theRealDeal = @"";
-        theRealDeal2 = @"";
-    }
-    
-    if([object.title rangeOfString:@"IS/"].location != NSNotFound){
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.textLabel.attributedText = none;
-        cell.textLabel.text = @"";
-        cell.detailTextLabel.text = @"";
-        theRealDeal = @"";
-        theRealDeal2 = @"";
-    }
-    
-    if([object.title rangeOfString:@"Academic Internship"].location != NSNotFound){
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.textLabel.attributedText = none;
-        cell.textLabel.text = @"";
-        cell.detailTextLabel.text = @"";
-        theRealDeal = @"";
-        theRealDeal2 = @"";
-    }
-    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     RSSItem3 *object = _objects[indexPath.row];
 
-    if([object.title rangeOfString:@"IR/"].location != NSNotFound){
-        return 0.0;
-    }
-       
-    else if([object.title rangeOfString:@"IS/"].location != NSNotFound){
-        return 0.0;
-    }
-    
-    else if([object.title rangeOfString:@"Academic Internship"].location != NSNotFound){
-        return 0.0;
-    }
-    
-    else{
         return 94.0;
-    }
 }
 
 - (IBAction)changeWebsite {

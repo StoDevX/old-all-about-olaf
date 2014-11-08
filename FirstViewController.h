@@ -11,6 +11,8 @@
 @interface FirstViewController : UITableViewController{
     
 }
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 @property (weak, nonatomic) IBOutlet UITableViewCell *newsButton;
 @property (weak, nonatomic) IBOutlet UITableViewCell *buildingButton;
 @property (weak, nonatomic) IBOutlet UITableViewCell *aboutButton;

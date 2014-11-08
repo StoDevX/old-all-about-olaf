@@ -10,4 +10,5 @@
 
 @interface SecondViewController : UITableViewController
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end

@@ -11,6 +11,8 @@
 @interface PrivacyViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *legalText;
 
+@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
 
 
 @end

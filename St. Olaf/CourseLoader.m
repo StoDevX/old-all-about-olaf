@@ -46,6 +46,7 @@
         dictArray = [[NSMutableArray alloc] init];
         
         
+        // debugging HTML in a string instead of from a URL, plug in HTML into fakeURLRequest string
         //NSString *fakeURLRequest = @"";
         //NSData* fakeData = [fakeURLRequest dataUsingEncoding:NSUTF8StringEncoding];
         //NSString *urlDataStr = [NSString stringWithUTF8String:[fakeData bytes]];
@@ -133,6 +134,7 @@
                 // get outta here
                 NSMutableArray *myExitArray = [NSMutableArray array];
                 [myExitArray addObject:@"exitNow"];
+                // return statement for the block
                 c(myExitArray);
             }
             

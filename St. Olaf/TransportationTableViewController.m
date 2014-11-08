@@ -51,7 +51,6 @@
     [urlArrBus addObject: [NSURL URLWithString:@"http://youarriveontime.com"]];
     [urlArrBus addObject: [NSURL URLWithString:@"http://www.threeriverscap.org/transportation/hiawathaland-transit/northfield-service-area"]];
     [urlArrBus addObject: [NSURL URLWithString:@"http://wp.stolaf.edu/sa/transportation/localexpressbus/"]];
-    [urlArrBus addObject: [NSURL URLWithString:@"http://wp.stolaf.edu/sa/transportation/moviebus/"]];
     [urlArrBus addObject: [NSURL URLWithString:@"http://www.northfieldlines.com/content/stop-location-maps"]];
     [urlArrBus addObject: [NSURL URLWithString:@"http://van-go.info/schedule/"]];
 }
@@ -154,14 +153,10 @@
             cell.detailTextLabel.text = @"Free route bus that stops at both colleges, Division Street, Target/Cub, and El Tequila/Culvers.";
         }
         else if (indexPath.row == 4){
-            cell.textLabel.text = @"Movie Bus";
-            cell.detailTextLabel.text = @"This bus operates on Saturday Evenings only and goes to the Muller Family Theater in Lakeville. See more for the movie bus schedule";
-        }
-        else if (indexPath.row == 5){
             cell.textLabel.text = @"Northfield Metro Express";
             cell.detailTextLabel.text = @"Shuttle service 3 times daily/7 days a week that stops at Carleton, St. Olaf, Northfield Park & Ride, and MSP Airport.";
         }
-        else if (indexPath.row == 6){
+        else if (indexPath.row == 5){
             cell.textLabel.text = @"Van-GO!";
             cell.detailTextLabel.text = @"Van service that operates Monday - Friday from 7 a.m. to 6 p.m. Business use only.";
         }

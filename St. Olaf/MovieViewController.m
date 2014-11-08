@@ -9,6 +9,7 @@
 #import "MovieViewController.h"
 #import "XPathQuery.h"
 #import "TFHpple.h"
+#import "NSString_stripHtml.h"
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <sys/socket.h>
 #import <netinet/in.h>
@@ -86,7 +87,7 @@ NSString *trailer = @"";
 
     //Get the URL we want to parse and throw that baby into a NSURL
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:
-                             [NSURL URLWithString:[NSString stringWithFormat:@"http://www.oleville.com/new/wp-content/themes/o/movies/movie.php"]]];
+                             [NSURL URLWithString:[NSString stringWithFormat:@"http://oleville.com/sac/sac-movies/"]]];
     
     //Error object in case we get one...
     NSError *error;
@@ -98,19 +99,22 @@ NSString *trailer = @"";
     TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:urlData];
     
     //We tell the parser where to look in the HTML code
-    NSArray *movieInfo = [xpathParser searchWithXPathQuery:@"//table[@class='movieData']/tr/td[3]"];
-    NSArray *movieInfo2 = [xpathParser searchWithXPathQuery:@"//div[@class='movieLink']"];
+    NSArray *movieInfo = [xpathParser searchWithXPathQuery:@"//div[@id='movieData']"];
+    NSArray *movieInfo2 = [xpathParser searchWithXPathQuery:
+                           @"//div[@class='movieLinkDiv']/iframe[@class='movieLink']"];
 
     //TITLE
-    //The parser looks for the "h4" tag which contains the movie title
+    //The parser looks for the "movieTitle" class which contains the movie title
     for (TFHppleElement * element in movieInfo) {
-        title = [element firstChildWithTagName:@"h4"].text;
+        title = [element firstChildWithClassName:@"movieTitle"].text;
     }
+        
     //DATE
-    //The parser looks for the "p" tag which contains the showing date
+    //The parser looks for the "showtimeText" class which contains the showing date
     for (TFHppleElement * element in movieInfo) {
         //Formatting: get rid of everything we do not want to show up
-        date = [NSString stringWithFormat:@"%@", [element childrenWithClassName:@"pickMe"]];
+        date = [NSString stringWithFormat:@"%@", [element childrenWithClassName:@"showtimeText"]];
+        date = [date stringByReplacingOccurrencesOfString:@"showtimeText" withString:@""];
         date = [date stringByReplacingOccurrencesOfString:@"nodeName" withString:@""];
         date = [date stringByReplacingOccurrencesOfString:@"}" withString:@""];
         date = [date stringByReplacingOccurrencesOfString:@"{" withString:@""];
@@ -147,27 +151,35 @@ NSString *trailer = @"";
         date = [date stringByReplacingOccurrencesOfString:@"\"" withString:@""];
         date = [date stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         date = [date stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        date = [date stripHtml];
     }
+        
     //Length
-    //The parser looks for the "h5" tag which contains the movie length in minutes
+    //The parser looks for the "movieRuntime" class which contains the movie length in minutes
     for (TFHppleElement * element in movieInfo) {
         //Formatting for our multiple-lined cell
-        length = [element firstChildWithTagName:@"h5"].text;
+        length = [element firstChildWithClassName:@"movieRuntime"].text;
+        
         //Formatting: get rid of parens
         length = [length stringByReplacingOccurrencesOfString:@"(" withString:@""];
         length = [length stringByReplacingOccurrencesOfString:@")" withString:@""];
+        
         //Formatting: get rid of "mns"...and replace it with "minutes"
         length = [length stringByReplacingOccurrencesOfString:@"mns" withString:@"minutes"];
     }
+        
+    //Location
+    //The parser looks for the "iframe" tag which contains the movie trailer
+    for (TFHppleElement * element in movieInfo) {
+        //Formatting for our multiple-lined cell
+        location = [element firstChildWithClassName:@"movieLocation"].text;
+    }
+        
     //Trailer
     //The parser looks for the "iframe" tag which contains the movie trailer
     for (TFHppleElement * element in movieInfo2) {
         //Formatting for our multiple-lined cell
-        trailer = [element firstChildWithTagName:@"iframe"].text;
-        trailer = [trailer stringByReplacingOccurrencesOfString:@"/embed/" withString:@"/v/"];
-        trailer = [trailer stringByReplacingOccurrencesOfString:@"//www" withString:@"http://www"];
-        //NSLog(@"%@", trailer);
-
+        trailer = [element objectForKey:@"src"];
     }
 
     
@@ -179,7 +191,7 @@ NSString *trailer = @"";
     //Variable to calculate screen width
     CGFloat width = CGRectGetWidth(self.view.bounds);
     //Now embed the youtube trailer for the movie onto the screen
-    UIWebView * youTubeWebView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 240, width, 210)];
+    UIWebView * youTubeWebView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 200, width, 250)];
     youTubeWebView.allowsInlineMediaPlayback=YES;
     youTubeWebView.mediaPlaybackRequiresUserAction=NO;
     youTubeWebView.mediaPlaybackAllowsAirPlay=YES;
@@ -194,7 +206,7 @@ NSString *trailer = @"";
     <html><head>\
     <style type=\"text/css\">\
     body {\
-    background-color:black; transparent-color: white;}\\</style>\\</head><body style=\"margin:0\">\\<embed webkit-playsinline id=\"yt\" src=\"%@\" type=\"application/x-shockwave-flash\" \\width=\"100\" height=\"210\"></embed>\\</body></html>";
+    background-color:black; transparent-color: white;}\\</style>\\</head><body style=\"margin:0\">\\<embed webkit-playsinline id=\"yt\" src=\"%@\" type=\"application/x-shockwave-flash\" \\width=\"100\" height=\"250\"></embed>\\</body></html>";
     //A new string with our embedHTML string and our linkObj put together so that it appears as if it were an HTML document
     NSString *html = [NSString stringWithFormat:embedHTML, linkObj];
     [youTubeWebView loadHTMLString:html baseURL:nil];
@@ -227,7 +239,7 @@ NSString *trailer = @"";
     }
     //Location
     else if (indexPath.row == 0 && indexPath.section == 2){
-        cell.textLabel.text = @"All showings in Viking Theater";
+        cell.textLabel.text = location;
         cell.textLabel.font = [UIFont systemFontOfSize:15.0];
     }
     
