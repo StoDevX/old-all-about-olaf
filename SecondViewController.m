@@ -93,14 +93,6 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    /*
-     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-     
-     // If we are pushing the menu webview, make it full screen
-     if( indexPath.row == 0) {
-     self.hidesBottomBarWhenPushed = NO;
-     }
-     */
     
     // Clear selection of rows
     [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];

@@ -1550,6 +1550,7 @@
                         <outlet property="rolvaagCircle" destination="A61-O1-eH2" id="bGj-VM-RBp"/>
                         <outlet property="skoglundCircle" destination="vQM-So-qET" id="FRr-4v-oCt"/>
                         <outlet property="stavCircle" destination="raS-2D-UjA" id="GBy-Nc-Jug"/>
+                        <outlet property="tableView" destination="dz8-sS-wGH" id="fkk-Ra-Rnl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9GR-hw-jZy" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -127,6 +127,10 @@
             urlDataStr = [urlDataStr stringByReplacingOccurrencesOfString: @"<td nowrap class=\"sis-instructorname\"> </td>"
                                                                withString:@"<td nowrap class=\"sis-instructorname\"><a class=\"sis-nounderline\"></a></td>"];
             
+            //Replace "Staff" instructor td with empty instructor links
+            urlDataStr = [urlDataStr stringByReplacingOccurrencesOfString: @"<td class=\"sis-instructorname\">Staff  </td>"
+                                                               withString:@"<td class=\"sis-instructorname\"><a class=\"sis-nounderline\">Staff</a></td>"];
+            
             
             
             //Check to see if we have holds on our account, blocking our view...
@@ -179,7 +183,7 @@
                 for (TFHppleElement * element in courseNamesArr) {
                     // Be sure that the time exists/is not NULL
                     if([[element firstChild] content] == NULL || [[[element firstChild] content]  isEqual: @""] || [[[element firstChild] content]  isEqual: @" "]
-                       || [[[element firstChild] content]  isEqual: @"&nbsp;"]) {
+                       || [[[element firstChild] content]  isEqual: @"&nbsp;"] || [[[element firstChild] content]  isEqual: @"Staff"]) {
                         [courseNames addObject: @"Name not listed"];
                     } else {
                         [courseNames addObject:[[element firstChild] content]];

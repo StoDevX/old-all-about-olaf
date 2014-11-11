@@ -24,6 +24,7 @@
 @synthesize convenienceStore;
 @synthesize postOfficeCircle;
 @synthesize skoglundCircle;
+@synthesize tableView;
 
 //enum of days of week (easier to read)
 typedef enum dayOfWeek : NSInteger dayOfWeekType;
@@ -90,7 +91,14 @@ enum numberOfMinutesPastMidnightType : NSInteger {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    // Clear selection of rows
+    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -1210,22 +1218,5 @@ enum numberOfMinutesPastMidnightType : NSInteger {
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    self.hidesBottomBarWhenPushed = NO;
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    self.hidesBottomBarWhenPushed = NO;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    if(indexPath.row == 1 && indexPath.section == 4) {
-        self.hidesBottomBarWhenPushed = YES;
-    }
-}
 
 @end

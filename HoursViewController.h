@@ -10,6 +10,8 @@
 
 @interface HoursViewController : UITableViewController
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 //***************************
 // These are the image files
 //***************************

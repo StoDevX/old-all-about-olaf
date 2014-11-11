@@ -118,7 +118,9 @@
     }
     else {
         [subView removeFromSuperview];
-        
+        [noInterimText removeFromSuperview];
+        [noSemester2Text removeFromSuperview];
+
  
         // We must check that we have the courses we want to display... so see if the contents are the same.
         // If they are the same, that means that we do not have that term yet. So display something else!
