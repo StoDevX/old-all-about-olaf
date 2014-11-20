@@ -8,8 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "Course.h"
+#import <EventKit/EventKit.h>
 
-@interface CourseDetailTableViewController : UITableViewController
+@interface CourseDetailTableViewController : UITableViewController<UIActionSheetDelegate>
+{
+    UIActionSheet *AddEventSheet;
+    NSInteger selectedRow;
+}
+
 @property (strong, nonatomic) Course * detailCourse;
+
+@property (nonatomic, assign) NSInteger selectedRow;
+
+-(void)LoadCalendarData;
+-(void)AddEventToCalendar;
+-(IBAction)cancel:(id)sender;
 
 @end

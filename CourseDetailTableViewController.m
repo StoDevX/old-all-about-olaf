@@ -9,11 +9,15 @@
 #import "CourseDetailTableViewController.h"
 #import "MyCoursesTableViewController.h"
 #import "Course.h"
+#import "GoogCal.h"
+#import "ISO8601DateFormatter.h"
+
 @interface CourseDetailTableViewController ()
 
 @end
 
 @implementation CourseDetailTableViewController
+@synthesize detailCourse;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -134,6 +138,96 @@
 {
     return UIInterfaceOrientationMaskPortrait;
 }
+
+/*
+-(IBAction)ShowEventAddSheet:(id)sender
+{
+    NSInteger tid = ((UIControl*)sender).tag;
+    selectedRow = tid;
+    AddEventSheet = [[UIActionSheet alloc] initWithTitle:@"Add this event to your calendar?"
+                                                delegate:self
+                                       cancelButtonTitle:@"Cancel"
+                                  destructiveButtonTitle:nil
+                                       otherButtonTitles:@"Add to calendar", nil];
+    // Show the sheet
+    [AddEventSheet showInView:self.view];
+    
+}
+
+#pragma mark - Action Sheet delegate
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        [self AddEventToCalendar];
+    }
+}
+
+-(void)AddEventToCalendar
+{
+    EKEventStore *es = [[EKEventStore alloc] init];
+    EKAuthorizationStatus authorizationStatus = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
+    BOOL needsToRequestAccessToEventStore = (authorizationStatus == EKAuthorizationStatusNotDetermined);
+    
+    if (needsToRequestAccessToEventStore) {
+        [es requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+            if (granted) {
+                // Access granted
+                [es requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError *error) {
+                    if (!granted) {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Calendar Permissions" message:@"Please change your permissions in Settings > Privacy > Calendar to allow this app access." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                        // optional - add more buttons:
+                        [alert show];
+                    } else {
+                        
+                        EKEvent *event  = [EKEvent eventWithEventStore:es];
+                        
+                        event.title     = detailCourse.courseName;
+                        event.location  = detailCourse.courseLoc;
+                        event.startDate = detailCourse.courseTime;
+                        
+                        [event setCalendar:[es defaultCalendarForNewEvents]];
+                        NSError *err;
+                        [es saveEvent:event span:EKSpanThisEvent error:&err];
+                    }
+                }];
+            } else {
+                // Denied
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Calendar Permissions" message:@"Please change your permissions in Settings > Privacy > Calendar to allow this app access." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                // optional - add more buttons:
+                [alert show];
+            }
+        }];
+    } else {
+        BOOL granted = (authorizationStatus == EKAuthorizationStatusAuthorized);
+        if (granted) {
+            // Access granted
+            GoogCal *calEvent = (GoogCal*)self.detailItem;
+            
+            EKEvent *event  = [EKEvent eventWithEventStore:es];
+            event.title     = calEvent.Title;
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"The event has been added to your calendar." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            // optional - add more buttons:
+            [alert show];
+            
+            event.startDate = calEvent.StartDate;
+            event.endDate   = calEvent.EndDate;
+            [event setLocation:calEvent.Location];
+            
+            [event setCalendar:[es defaultCalendarForNewEvents]];
+            NSError *err;
+            [es saveEvent:event span:EKSpanThisEvent error:&err];
+            
+        } else {
+            // Denied
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Calendar Permissions" message:@"Please change your permissions in Settings > Privacy > Calendar to allow this app access." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            // optional - add more buttons:
+            [alert show];
+        }
+    }
+}
+*/
 
 
 @end

@@ -48,6 +48,7 @@
     // Remove line separator
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    
     if([self hasConnectivity] == NO) {
         
         CGRect frame = [[UIScreen mainScreen] bounds];
@@ -163,8 +164,8 @@
     {
         [v removeFromSuperview];
     }
-    
-    
+   
+
     // Configure the cell...
     GoogCal *eventLcl = (GoogCal *)[_EventArray objectAtIndex:[indexPath row]];
     
@@ -184,7 +185,7 @@
     NSString *hourStart = [dateFormat stringFromDate:eventLcl.StartDate];
     NSString *hourEnd = [dateFormat stringFromDate:eventLcl.EndDate];
     
-    
+
     // The header view
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 23)];
     // Create custom view to display section header
@@ -240,7 +241,7 @@
      */
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    
+
     return cell;
 }
 
@@ -262,13 +263,12 @@
 {
     dispatch_sync(kBgQueue, ^{
         NSData* data = [NSData dataWithContentsOfURL: kGoogleCalendarURL];
-
         
         if ( !( data == NULL)) {
             [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
         }
         else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Available" message:@"Please connect to a network." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"A Problem Occurred" message:@"Please try again later." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
             // optional - add more buttons:
             [alert show];
         }
@@ -277,9 +277,11 @@
 }
 
 
+
+
 - (void)fetchedData:(NSData *)responseData {
     _EventArray = [[NSMutableArray alloc]init];
-    
+
     //parse out the json data
     NSError* error;
     NSDictionary* json = [NSJSONSerialization
@@ -288,19 +290,22 @@
                           error:&error];
 
     
-    NSDictionary* latestEvents = [json objectForKey:@"feed"];
-
-    NSArray* arrEvent = [latestEvents objectForKey:@"entry"];
+    NSDictionary* latestEvents = [json objectForKey:@"items"];
     
-    for (NSDictionary *event in arrEvent)
+    for (NSDictionary *event in latestEvents)
     {
+        // Calendar object
         GoogCal *googCalObj = [[GoogCal alloc]init];
         
-        NSDictionary *title = [event objectForKey:@"title"];
-        googCalObj.Title = [title objectForKey:@"$t"];
+        // Event title
+        googCalObj.Title = [event objectForKey:@"summary"];
+        
         // Clean up the HTML (if any) in the title
         googCalObj.Title = [googCalObj.Title stripHtml];
-
+        // Clean up whitespace (if any) in the title
+        googCalObj.Title = [googCalObj.Title stringByTrimmingCharactersInSet:
+                            [NSCharacterSet whitespaceCharacterSet]];
+        
         // Convert string to date object
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         NSLocale *enUSPOSIXLocale;
@@ -310,35 +315,58 @@
         [dateFormat setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
         
         
-        //dates are stored in an array
-        NSArray *dateArr = [event objectForKey:@"gd$when"];
+        // Dictionary to hold a start date
+        NSMutableDictionary *dateArrStart2 = [event objectForKey:@"start"];
+        // Start date
+        NSString *dateStart;
         
-        for(NSDictionary *dateDict in dateArr)
-        {
-            NSLocale *enUSPOSIXLocale;
-            enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-            ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
-            
-            NSDate *endDate = [formatter dateFromString:[dateDict objectForKey:@"endTime"]];
-            NSDate *startDate = [formatter dateFromString:[dateDict objectForKey:@"startTime"]];
-            
-            formatter = nil;
-            
-            googCalObj.EndDate = endDate; //[endDate addTimeInterval:-3600*6];
-            googCalObj.StartDate = startDate; //[startDate addTimeInterval:-3600*6];
+        // If it does not contain a time (aka multiple day-spanning event...)
+        if( [dateArrStart2 objectForKey:@"dateTime"] == NULL ) {
+            dateStart = [dateArrStart2 objectForKey:@"date"];
         }
+        // If it does contain a time...
+        else {
+            dateStart = [dateArrStart2 objectForKey:@"dateTime"];
+        }
+        // Convert back to a date
+        enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
+        
+        NSDate *startDate = [formatter dateFromString:dateStart];
+
+        
+        
+        // Dictionary to hold an end date
+        NSMutableDictionary *dateArrEnd = [event objectForKey:@"end"];
+        // Start date
+        NSString *dateEnd;
+        
+        // If it does not contain a time (aka multiple day-spanning event...)
+        if( [dateArrEnd objectForKey:@"dateTime"] == NULL ) {
+            dateEnd = [dateArrEnd objectForKey:@"date"];
+        }
+        // If it does contain a time...
+        else {
+            dateEnd = [dateArrEnd objectForKey:@"dateTime"];
+        }
+        // Convert back to a date
+        enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        formatter = [[ISO8601DateFormatter alloc] init];
+        
+        NSDate *endDate = [formatter dateFromString:dateEnd];
+        dateFormat = nil;
+        
+            
+        googCalObj.StartDate = startDate; //[startDate addTimeInterval:-3600*6];
+        googCalObj.EndDate = endDate; //[endDate addTimeInterval:-3600*6];
         
         
         //locations are stored in a dictionary
-        NSDictionary *locs = [event objectForKey:@"gd$where"][0];
-        googCalObj.Location = [locs objectForKey:@"valueString"];
-        
-        //content is stored in a dictionary
-        NSDictionary *content = [event objectForKey:@"content"];
-        googCalObj.Description = [content objectForKey:@"$t"];
-
+        NSString *loc = [event objectForKey:@"location"];
+        googCalObj.Location = loc;
         
         [_EventArray addObject:googCalObj];
+  
     }
 }
 
@@ -360,11 +388,9 @@
     calEvent = [_EventArray objectAtIndex:selectedRow];
     EKEvent *event  = [EKEvent eventWithEventStore:eventStore];
     event.title     = calEvent.Title;
-    
     event.startDate = calEvent.StartDate;
     event.endDate   = calEvent.EndDate;
     [event setLocation:calEvent.Location];
-    [event setNotes:calEvent.Description];
 
     [event setCalendar:[eventStore defaultCalendarForNewEvents]];
     NSError *err;

@@ -452,8 +452,8 @@ enum numberOfMinutesPastMidnightType : NSInteger {
         //Fri
         if(currentWeekday == Friday)
         {
-            //Pause closes at 12:00 a.m.
-            if ((numberOfMinutesPastMidnight >= Eleven_fifty_nine_pm - 20) && (numberOfMinutesPastMidnight <= Eleven_fifty_nine_pm))
+            //Pause closes at 02:00 a.m.
+            if((numberOfMinutesPastMidnight >= Two_am - 20) && (numberOfMinutesPastMidnight < Two_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
                 pauseCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
@@ -463,8 +463,9 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 //If the current time falls between these calculations, set the circle to be yellow
                 pauseCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
             }
-                //Pause  10:30 a.m. – 12:00 a.m.
-            else if ((numberOfMinutesPastMidnight >= Ten_thirty_am) && (numberOfMinutesPastMidnight <= Eleven_fifty_nine_pm))
+                //Pause  10:30 a.m. – 11:59 p.m. or 12:00 a.m. – 1:39 a.m.
+            else if (((numberOfMinutesPastMidnight >= Ten_thirty_am) && (numberOfMinutesPastMidnight <= Eleven_fifty_nine_pm)) ||
+                     ((numberOfMinutesPastMidnight >= Twelve_am) && (numberOfMinutesPastMidnight <= Two_am - 19)))
             {
                 //If the current time falls between these calculations, set the circle to be green
                 pauseCircle.image = [UIImage imageNamed: @"green-circle.png"];
@@ -542,11 +543,11 @@ enum numberOfMinutesPastMidnightType : NSInteger {
         
         
         
-        //Tue-Thur
+        //Mon-Thur
         if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
         {
-            //Rolvaag Library closes at 12:00 a.m.
-            if ((numberOfMinutesPastMidnight >= Eleven_fifty_nine_pm - 20) && (numberOfMinutesPastMidnight < Eleven_fifty_nine_pm))
+            //Rolvaag Library closes at 02:00 a.m.
+            if ((numberOfMinutesPastMidnight >= Two_am - 20) && (numberOfMinutesPastMidnight < Two_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
                 rolvaagCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
@@ -556,12 +557,21 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 //If the current time falls between these calculations, set the circle to be yellow
                 rolvaagCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
             }
-                //Rolvaag Library  07:45 a.m. – 12:00 a.m.
+                //Rolvaag Library  07:45 a.m. – 02:00 a.m.
             else if ((numberOfMinutesPastMidnight >= Seven_fourty_five_am) && (numberOfMinutesPastMidnight < Eleven_fifty_nine_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
                 rolvaagCircle.image = [UIImage imageNamed: @"green-circle.png"];
             }
+                //Rolvaag Library  12:00 a.m. – 02:00 a.m.
+            else if(((numberOfMinutesPastMidnight >= Twelve_am) && (numberOfMinutesPastMidnight < Two_am - 21)) ||
+                    //Rolvaag  12:00 a.m – 02:00 a.m.
+                    ((numberOfMinutesPastMidnight >= Twelve_am) && (numberOfMinutesPastMidnight < Two_am - 21)))
+            {
+                //If the current time falls between these calculations, set the circle to be green
+                rolvaagCircle.image = [UIImage imageNamed: @"green-circle.png"];
+            }
+
             else{
                 //If the current time does not fall between these calculations, set the circle to be red
                 rolvaagCircle.image = [UIImage imageNamed: @"red-circle.png"];
