@@ -19,6 +19,7 @@
 @synthesize searchResults;
 @synthesize recipes;
 @synthesize myInt;
+@synthesize addWord;
 
 - (void)viewDidLoad
 {
@@ -26,7 +27,15 @@
 
     // Initialize the recipes array
     // NOTE: a hack has been implemented here....we check if a recipe has the "first" or "last" text in their position. Update as needed
-    // also, fix the counting if you feel so inclined.
+    // also, fix the counting (as in some of the defs are listed out-of-order but are in order in the dictionary) if you feel so inclined.
+    
+    
+    // Handling the plus button being pushed
+    addWord.target = self;
+    addWord.action = @selector(addWord:);
+    
+    // Hide the button as necessary as we are not finished
+    //[self.navigationItem setRightBarButtonItems:nil animated:YES];
     
     /***********************************
      A
@@ -39,6 +48,10 @@
     Recipe *recipe2 = [Recipe new];
     recipe2.name = @"ACE";
     recipe2.ingredients = [NSArray arrayWithObjects:@"Academic Civic Engagement is an approach to teaching and learning that encourages students to learn in community contexts. Students consider community-based experiences in relation to classroom learning and apply academic knowledge and skills to strengthen communities as an integrated component of an academic course.", nil];
+    
+    Recipe *recipe151 = [Recipe new];
+    recipe151.name = @"ACM";
+    recipe151.ingredients = [NSArray arrayWithObjects:@"The Association for Computing Machinery is an international organization supporting the field of Computer Science. The recently accredited student chapter at St. Olaf aims to foster the computing community on campus through social events, workshops, talks, contests, demonstrations, tutoring, and community service. The activities and overall direction of the ACM are largely determined by the student members.", nil];
     
     Recipe *recipe3 = [Recipe new];
     recipe3.name = @"ADC";
@@ -719,7 +732,7 @@
     recipe150.position = @"last";
     
     
-    recipes = [NSArray arrayWithObjects:recipe1, recipe2, recipe3, recipe4, recipe5, recipe6, recipe7, recipe8, recipe9, recipe10, recipe11, recipe12, recipe13, recipe14, recipe15, recipe16, recipe17, recipe19, recipe20, recipe21, recipe22, recipe23, recipe24, recipe25, recipe26, recipe27, recipe28, recipe29, recipe30, recipe32, recipe33, recipe34, recipe35, recipe36, recipe37, recipe38, recipe39, recipe40, recipe41, recipe42, recipe43, recipe44, recipe45, recipe46, recipe47, recipe48, recipe49, recipe50, recipe51, recipe52, recipe53, recipe54, recipe55, recipe56, recipe57, recipe58, recipe59, recipe60, recipe61, recipe62, recipe63, recipe64, recipe65, recipe66, recipe67, recipe68, recipe69, recipe70, recipe71, recipe72, recipe73, recipe74, recipe75, recipe76, recipe77, recipe78, recipe79, recipe80, recipe81, recipe82, recipe83,recipe84, recipe85, recipe86, recipe87, recipe88, recipe89, recipe90, recipe91, recipe92, recipe93, recipe94, recipe95, recipe96, recipe97, recipe98, recipe99, recipe100, recipe129, recipe101, recipe102, recipe130, recipe103, recipe104, recipe105, recipe106, recipe107, recipe108, recipe109, recipe110, recipe111, recipe112, recipe113, recipe114, recipe115, recipe116, recipe117, recipe118, recipe119, recipe120, recipe121, recipe122, recipe123, recipe136, recipe124, recipe125, recipe126, recipe127, recipe128, recipe131, recipe133, recipe134, recipe135, recipe137, recipe138, recipe139, recipe140, recipe141, recipe142, recipe143, recipe144, recipe145, recipe146, recipe147, recipe148, recipe149, recipe150, nil];
+    recipes = [NSArray arrayWithObjects:recipe1, recipe2, recipe151, recipe3, recipe4, recipe5, recipe6, recipe7, recipe8, recipe9, recipe10, recipe11, recipe12, recipe13, recipe14, recipe15, recipe16, recipe17, recipe19, recipe20, recipe21, recipe22, recipe23, recipe24, recipe25, recipe26, recipe27, recipe28, recipe29, recipe30, recipe32, recipe33, recipe34, recipe35, recipe36, recipe37, recipe38, recipe39, recipe40, recipe41, recipe42, recipe43, recipe44, recipe45, recipe46, recipe47, recipe48, recipe49, recipe50, recipe51, recipe52, recipe53, recipe54, recipe55, recipe56, recipe57, recipe58, recipe59, recipe60, recipe61, recipe62, recipe63, recipe64, recipe65, recipe66, recipe67, recipe68, recipe69, recipe70, recipe71, recipe72, recipe73, recipe74, recipe75, recipe76, recipe77, recipe78, recipe79, recipe80, recipe81, recipe82, recipe83,recipe84, recipe85, recipe86, recipe87, recipe88, recipe89, recipe90, recipe91, recipe92, recipe93, recipe94, recipe95, recipe96, recipe97, recipe98, recipe99, recipe100, recipe129, recipe101, recipe102, recipe130, recipe103, recipe104, recipe105, recipe106, recipe107, recipe108, recipe109, recipe110, recipe111, recipe112, recipe113, recipe114, recipe115, recipe116, recipe117, recipe118, recipe119, recipe120, recipe121, recipe122, recipe123, recipe136, recipe124, recipe125, recipe126, recipe127, recipe128, recipe131, recipe133, recipe134, recipe135, recipe137, recipe138, recipe139, recipe140, recipe141, recipe142, recipe143, recipe144, recipe145, recipe146, recipe147, recipe148, recipe149, recipe150, nil];
 }
 
 
@@ -811,6 +824,13 @@
                                                      selectedScopeButtonIndex]]];
     
     return YES;
+}
+
+
+// Handle adding a word button touched
+- (void)addWord:(id)sender {
+    [self performSegueWithIdentifier:@"addWord" sender:sender];
+
 }
 
 

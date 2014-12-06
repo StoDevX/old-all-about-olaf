@@ -262,6 +262,25 @@
 -(void)LoadCalendarData
 {
     dispatch_sync(kBgQueue, ^{
+        // We must construct a datetime stamp with a T in the middle
+        NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+        [DateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSString *dateIs = [DateFormatter stringFromDate:[NSDate date]];
+        [DateFormatter setDateFormat:@"HH:mm:ss"];
+        NSString *timeIs = [DateFormatter stringFromDate:[NSDate date]];
+
+        NSString *dateAndTimeIs = [NSString stringWithFormat:@"%@%@%@%@", dateIs, @"T", timeIs, @".03Z"];
+        
+        // URL to fetch 25 events
+        NSString *kGoogleCalendarStr = [NSString stringWithFormat:
+                             @"https://www.googleapis.com/calendar/v3/calendars/le6tdd9i38vgb7fcmha0hu66u9gjus2e@import.calendar.google.com/events?key=%@&orderBy=startTime&timeMin=%@&maxResults=25&singleEvents=true",
+                             key,
+                             dateAndTimeIs];
+        NSLog(@"%@", kGoogleCalendarStr);
+        
+        NSURL *kGoogleCalendarURL = [NSURL URLWithString: kGoogleCalendarStr];
+        
+        
         NSData* data = [NSData dataWithContentsOfURL: kGoogleCalendarURL];
         
         if ( !( data == NULL)) {

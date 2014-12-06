@@ -94,7 +94,7 @@
         return 54.0;
     }
     else{
-        return 44;
+        return 44.0;
     }
 }
 

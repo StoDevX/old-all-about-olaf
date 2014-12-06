@@ -46,10 +46,12 @@
         dictArray = [[NSMutableArray alloc] init];
         
         
-        // debugging HTML in a string instead of from a URL, plug in HTML into fakeURLRequest string
+        // debugging HTML in a string instead of from a URL, plug in HTML into fakeURLRequest string.
+        // be sure to put back slashes in front of every quote and paste into one line
         //NSString *fakeURLRequest = @"";
         //NSData* fakeData = [fakeURLRequest dataUsingEncoding:NSUTF8StringEncoding];
         //NSString *urlDataStr = [NSString stringWithUTF8String:[fakeData bytes]];
+        
         
         //Get the current date
         NSDate* date = [NSDate date];
@@ -94,6 +96,7 @@
             NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
             NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
             
+            
             // Make the request to the server to sign-in
             NSMutableURLRequest *request2 = [[NSMutableURLRequest alloc] init];
             [request2 setURL:[NSURL URLWithString:@"https://www.stolaf.edu/sis/st-courses.cfm?"]];
@@ -112,7 +115,11 @@
             
             //Convert from NSData to NSString to remove <br> tags from response (to make parsing children easier)
             NSString *urlDataStr = [NSString stringWithUTF8String:[urlData2 bytes]];
+            
+            // Use this for debugging when you use fakeData
+            //NSString *urlDataStr = [NSString stringWithUTF8String:[fakeData bytes]];
 
+        
             //Replace breaks and spaces (unescaped HTML)
             urlDataStr = [urlDataStr stringByReplacingOccurrencesOfString: @"<br>" withString:@"\n"];
             urlDataStr = [urlDataStr stringByReplacingOccurrencesOfString: @"&nbsp;" withString:@" "];
@@ -150,6 +157,10 @@
             //The awesome TFHpple object which parses all of our data
             TFHpple *xpathParser2 = [[TFHpple alloc] initWithHTMLData:urlDataFiltered];
             
+            // comment out above and uncomment below if you are debugging with fakeData
+            //TFHpple *xpathParser2 = [[TFHpple alloc] initWithHTMLData:fakeData];
+
+            
             //We tell the parser to look at table data with classes
             NSArray *courseNumsArr = [[NSArray alloc] init];
             NSArray *courseNamesArr = [[NSArray alloc] init];
@@ -164,7 +175,7 @@
             courseNamesArr =       [xpathParser2 searchWithXPathQuery:@"//td [@class='sis-coursename']/a"];
             courseTimesArr =       [xpathParser2 searchWithXPathQuery:@"//td [@class='sis-meetingtime']"];
             courseLocsArr =        [xpathParser2 searchWithXPathQuery:@"//td [@class='sis-meetinglocation']/a [@class='sis-nounderline'][1]"];
-            courseInstructorsArr = [xpathParser2 searchWithXPathQuery:@"//td [@class='sis-instructorname']/a [@class='sis-nounderline']"];
+            courseInstructorsArr = [xpathParser2 searchWithXPathQuery:@"//td [@class='sis-instructorname']/a [@class='sis-nounderline'][1]"];
             
             if(courseNamesArr.count > 0) {
                 // Course number
@@ -225,7 +236,7 @@
                     }
                 }
                 
-                // Debug our filtered arrays
+                // Debug print for our filtered arrays
                 /*
                 NSLog(@"%@", courseNums);
                 NSLog(@"%@", courseNames);
@@ -296,6 +307,7 @@
                         }
                     }
                 }
+                // Debug print for what was written to file
                 //NSLog(@"%@", dictArray);
 
                 // Write the final output to a file in json format
@@ -308,7 +320,7 @@
                 if(jsonData) {
                     //NSLog(@"Contents of json file: %@", jsonData);
                 } else {
-                    //NSLog(@"We don't have json file.");
+                    NSLog(@"We don't have a json file.");
                 }
                 
                 // clear the object before starting again

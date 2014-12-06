@@ -328,8 +328,6 @@
     NSString *tokenUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
     NSString *tokenPass = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
     
-    NSLog(@"\n%@%@%@",tokenUser, @"\n", password.text);
-
     
     // Our POST data for when we sign-in
     NSString *post = [NSString stringWithFormat:@"login=%@&passwd=%@", tokenUser, tokenPass];

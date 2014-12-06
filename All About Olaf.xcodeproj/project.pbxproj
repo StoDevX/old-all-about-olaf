@@ -50,6 +50,11 @@
 		3AAF0ED119B374BC00727937 /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF0ECF19B374BC00727937 /* HTMLParser.m */; };
 		3AAFB0D21876293F007819E0 /* AlumniHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAFB0D11876293F007819E0 /* AlumniHallViewController.m */; };
 		3AAFB0D618762E6B007819E0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAFB0D518762E6B007819E0 /* AudioToolbox.framework */; };
+		3AB910C01A2EF8E30053D1D4 /* AddWordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB910BF1A2EF8E30053D1D4 /* AddWordTableViewController.m */; };
+		3AB910C61A2F1BA10053D1D4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB910C21A2F1BA10053D1D4 /* Bolts.framework */; };
+		3AB910C71A2F1BA20053D1D4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB910C31A2F1BA10053D1D4 /* Parse.framework */; };
+		3AB910C81A2F1BA20053D1D4 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB910C41A2F1BA10053D1D4 /* ParseFacebookUtils.framework */; };
+		3AB910C91A2F1BA20053D1D4 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB910C51A2F1BA10053D1D4 /* ParseUI.framework */; };
 		3ABF1E1B190C037600D8F82E /* PrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABF1E1A190C037600D8F82E /* PrivacyViewController.m */; };
 		3AC92B5218F225D80027A156 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC92B4D18F225D80027A156 /* CustomCell.m */; };
 		3ACB4F1D17BC2C0F00C8C26D /* SafetyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB4F1C17BC2C0F00C8C26D /* SafetyViewController.m */; };
@@ -92,7 +97,6 @@
 		3ADFA67517B75D47008E6251 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADFA67417B75D47008E6251 /* libz.dylib */; };
 		3ADFA67917B75D54008E6251 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADFA67817B75D54008E6251 /* MessageUI.framework */; };
 		3ADFA67B17B75E1D008E6251 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ADFA67A17B75E1D008E6251 /* Main.storyboard */; };
-		3AE0DF9D18F084B3003B528A /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AAFB0DB1877915F007819E0 /* theme.mp3 */; };
 		3AE2254C17B961D4006762FE /* LegalTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2254B17B961D4006762FE /* LegalTextViewController.m */; };
 		3AE5647917BF385500949B9F /* NSString_stripHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5647817BF385500949B9F /* NSString_stripHtml.m */; };
 		3AEBB08618E0B25D00A47FE5 /* TransportationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEBB08518E0B25D00A47FE5 /* TransportationTableViewController.m */; };
@@ -225,7 +229,12 @@
 		3AAFB0D11876293F007819E0 /* AlumniHallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlumniHallViewController.m; sourceTree = "<group>"; };
 		3AAFB0D318762DE8007819E0 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		3AAFB0D518762E6B007819E0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		3AAFB0DB1877915F007819E0 /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme.mp3; sourceTree = "<group>"; };
+		3AB910BE1A2EF8E30053D1D4 /* AddWordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWordTableViewController.h; sourceTree = "<group>"; };
+		3AB910BF1A2EF8E30053D1D4 /* AddWordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddWordTableViewController.m; sourceTree = "<group>"; };
+		3AB910C21A2F1BA10053D1D4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		3AB910C31A2F1BA10053D1D4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		3AB910C41A2F1BA10053D1D4 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		3AB910C51A2F1BA10053D1D4 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		3ABF1E19190C037600D8F82E /* PrivacyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyViewController.h; sourceTree = "<group>"; };
 		3ABF1E1A190C037600D8F82E /* PrivacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyViewController.m; sourceTree = "<group>"; };
 		3AC92B4C18F225D80027A156 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
@@ -352,12 +361,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AB910C81A2F1BA20053D1D4 /* ParseFacebookUtils.framework in Frameworks */,
 				3ADFA5FC17B75B70008E6251 /* UIKit.framework in Frameworks */,
 				3ADFA5F817B75B70008E6251 /* Foundation.framework in Frameworks */,
 				3A3A7BEF19FAB79000D39E34 /* EventKit.framework in Frameworks */,
 				3A6DE1DB189C5545001B2A77 /* StoreKit.framework in Frameworks */,
 				3A6DE1D9189C553B001B2A77 /* Security.framework in Frameworks */,
+				3AB910C91A2F1BA20053D1D4 /* ParseUI.framework in Frameworks */,
 				3A34D6EC19A2E67A007B6063 /* Crashlytics.framework in Frameworks */,
+				3AB910C71A2F1BA20053D1D4 /* Parse.framework in Frameworks */,
+				3AB910C61A2F1BA10053D1D4 /* Bolts.framework in Frameworks */,
 				3A6DE1D7189C552E001B2A77 /* MobileCoreServices.framework in Frameworks */,
 				3A6DE1D5189C5521001B2A77 /* CoreLocation.framework in Frameworks */,
 				3ADFA5FA17B75B70008E6251 /* CoreGraphics.framework in Frameworks */,
@@ -548,6 +561,8 @@
 				3A58302E18E5D81D008583F8 /* RecipeDetailViewController.m */,
 				3A58302F18E5D81D008583F8 /* RecipeTableCell.h */,
 				3A58303018E5D81D008583F8 /* RecipeTableCell.m */,
+				3AB910BE1A2EF8E30053D1D4 /* AddWordTableViewController.h */,
+				3AB910BF1A2EF8E30053D1D4 /* AddWordTableViewController.m */,
 			);
 			name = Dictionary;
 			sourceTree = "<group>";
@@ -695,6 +710,17 @@
 			name = News;
 			sourceTree = "<group>";
 		};
+		3AB910C11A2F1BA10053D1D4 /* parse-library-1.5.0 */ = {
+			isa = PBXGroup;
+			children = (
+				3AB910C21A2F1BA10053D1D4 /* Bolts.framework */,
+				3AB910C31A2F1BA10053D1D4 /* Parse.framework */,
+				3AB910C41A2F1BA10053D1D4 /* ParseFacebookUtils.framework */,
+				3AB910C51A2F1BA10053D1D4 /* ParseUI.framework */,
+			);
+			path = "parse-library-1.5.0";
+			sourceTree = "<group>";
+		};
 		3ABF1E18190C035B00D8F82E /* Privacy */ = {
 			isa = PBXGroup;
 			children = (
@@ -762,7 +788,6 @@
 			isa = PBXGroup;
 			children = (
 				3AF70B7B18F9CDB2005CBD92 /* Images.xcassets */,
-				3AAFB0DB1877915F007819E0 /* theme.mp3 */,
 				3ADFA5FD17B75B70008E6251 /* St. Olaf */,
 				3ADFA61F17B75B70008E6251 /* St. OlafTests */,
 				3ADFA5F617B75B70008E6251 /* Frameworks */,
@@ -782,6 +807,7 @@
 		3ADFA5F617B75B70008E6251 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AB910C11A2F1BA10053D1D4 /* parse-library-1.5.0 */,
 				3A3A7BEE19FAB79000D39E34 /* EventKit.framework */,
 				3A34D6EB19A2E67A007B6063 /* Crashlytics.framework */,
 				3A6DE1DA189C5545001B2A77 /* StoreKit.framework */,
@@ -1069,7 +1095,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AE0DF9D18F084B3003B528A /* theme.mp3 in Resources */,
 				3AF70B7C18F9CDB2005CBD92 /* Images.xcassets in Resources */,
 				3ADFA67B17B75E1D008E6251 /* Main.storyboard in Resources */,
 				3ADFA60217B75B70008E6251 /* InfoPlist.strings in Resources */,
@@ -1175,6 +1200,7 @@
 				3AFB02841997F5AE00560AAC /* SBJsonUTF8Stream.m in Sources */,
 				3A75FAA817BBD60800FACF0B /* GeneralTableViewController.m in Sources */,
 				3A62D72E17BC997F00A1BF10 /* CalendarLinkViewController.m in Sources */,
+				3AB910C01A2EF8E30053D1D4 /* AddWordTableViewController.m in Sources */,
 				3A75FAA217BB5DAC00FACF0B /* TabBarController.m in Sources */,
 				3AFB027F1997F5AE00560AAC /* SBJsonStreamParserState.m in Sources */,
 				3AFB02831997F5AE00560AAC /* SBJsonTokeniser.m in Sources */,
@@ -1339,6 +1365,7 @@
 					Olaf,
 					2,
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/parse-library-1.5.0",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "St. Olaf/All About Olaf-Prefix.pch";
@@ -1377,6 +1404,7 @@
 					Olaf,
 					2,
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/parse-library-1.5.0",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "St. Olaf/All About Olaf-Prefix.pch";

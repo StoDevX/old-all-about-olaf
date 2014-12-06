@@ -12,4 +12,5 @@
 @property (strong,nonatomic) NSArray *recipes;
 @property (strong,nonatomic) NSArray *searchResults;
 @property (nonatomic, assign) int myInt;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addWord;
 @end

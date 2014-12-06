@@ -8,22 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/NSJSONSerialization.h>
-#import <UIKit/UIKit.h>
 #import "GoogCal.h"
 #import <EventKit/EventKit.h>
 
-// URL to fetch 25 events
-#define kGoogleCalendarURL [NSURL URLWithString: @"https://www.googleapis.com/calendar/v3/calendars/le6tdd9i38vgb7fcmha0hu66u9gjus2e%40import.calendar.google.com/events?key=AIzaSyDMqNx0x1pNZ80pmu2HvCMMFX-KVjdwbxs&orderBy=startTime&maxResults=25&singleEvents=true&futureevents=true"]
 // Queue priority
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) //1
-
+#define key @"AIzaSyDMqNx0x1pNZ80pmu2HvCMMFX-KVjdwbxs" // Google Developer Console API Key
 
 @interface SecondViewController : UITableViewController<UIActionSheetDelegate>
 {
     NSMutableArray *_EventArray;
     UIActionSheet *AddEventSheet;
     NSInteger selectedRow;
-    
 }
 
 @property (nonatomic, retain) NSMutableArray *EventArray;
