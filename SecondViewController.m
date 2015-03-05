@@ -276,7 +276,6 @@
                              @"https://www.googleapis.com/calendar/v3/calendars/le6tdd9i38vgb7fcmha0hu66u9gjus2e@import.calendar.google.com/events?key=%@&orderBy=startTime&timeMin=%@&maxResults=25&singleEvents=true",
                              key,
                              dateAndTimeIs];
-        NSLog(@"%@", kGoogleCalendarStr);
         
         NSURL *kGoogleCalendarURL = [NSURL URLWithString: kGoogleCalendarStr];
         
