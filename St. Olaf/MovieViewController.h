@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface MovieViewController : UITableViewController
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
+
+@interface MovieViewController : PFQueryTableViewController
 @property (nonatomic, retain) UIView *subView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 

@@ -14,7 +14,7 @@
 #import <sys/socket.h>
 #import <netinet/in.h>
 
-@interface MovieViewController ()
+@interface MovieViewController () 
 
 @end
 
@@ -50,12 +50,64 @@ NSString *trailer = @"";
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aCoder
+{
+    self = [super initWithCoder:aCoder];
+    if (self) {
+        // The className to query on
+        self.parseClassName = @"Movie";
+        
+        // The key of the PFObject to display in the label of the default cell style
+        //self.textKey = @"word";
+        
+        // Whether the built-in pull-to-refresh is enabled
+        self.pullToRefreshEnabled = YES;
+        
+        // Whether the built-in pagination is enabled
+        self.paginationEnabled = NO;
+        
+        // The number of objects to show per page
+        //self.objectsPerPage = 10;
+    }
+    return self;
+}
+
+- (PFQuery *)queryForTable
+{
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 1;
+
+    if ([self.objects count] == 0) {
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
+
+    return query;
+}
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     
     //Show activity indicators
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         [self.activityIndicator startAnimating];
+    
+    NSDictionary *movieObj = [[NSDictionary alloc] init];
+    
+    PFQuery *theQuery = [PFQuery queryWithClassName:self.parseClassName];
+    [theQuery orderByDescending:@"createdAt"];
+    theQuery.limit = 1;
+    
+    // Use countObjects instead of findObjects
+    [theQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        title =     objects[0][@"title"];
+        length =    [NSString stringWithFormat:@"%@%@", objects[0][@"length"], @" minutes"];
+        location =  objects[0][@"location"];
+        date =      [NSString stringWithFormat:@"%@%@%@", objects[0][@"showdates"], @"\n", objects[0][@"showtimes"]];
+        trailer =   objects[0][@"trailer"];
+    }];
+
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -63,24 +115,42 @@ NSString *trailer = @"";
     // Stop refresh control
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [self.activityIndicator stopAnimating];
+    
+    
+    //******************************
+    // Now display the trailer
+    //******************************
+    
+    //Variable to calculate screen width
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    //Now embed the youtube trailer for the movie onto the screen
+    UIWebView * youTubeWebView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 200, width, 250)];
+    youTubeWebView.allowsInlineMediaPlayback=YES;
+    youTubeWebView.mediaPlaybackRequiresUserAction=NO;
+    youTubeWebView.mediaPlaybackAllowsAirPlay=YES;
+    youTubeWebView.delegate=self;
+    youTubeWebView.scrollView.bounces=NO;
+    youTubeWebView.scrollView.scrollEnabled=NO;
+    
+    //All of the crazy-delicious formatting we want for our video... to show up as we want it to
+    NSString *embedHTML = @"\
+    <html><head>\
+    <style type=\"text/css\">\
+    body {\
+    background-color:black; transparent-color: white;}\\</style>\\</head><body style=\"margin:0\">\\<embed webkit-playsinline id=\"yt\" src=\"%@\" type=\"application/x-shockwave-flash\" \\width=\"100\" height=\"250\"></embed>\\</body></html>";
+    //A new string with our embedHTML string and our linkObj put together so that it appears as if it were an HTML document
+    NSLog(@"%@", trailer);
+    NSString *html = [NSString stringWithFormat:embedHTML, trailer];
+    [youTubeWebView loadHTMLString:html baseURL:nil];
+    [self.view addSubview:youTubeWebView];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    if([self hasConnectivity] == NO) {
-        CGRect frame = [[UIScreen mainScreen] bounds];
-        subView = [[UIView alloc] initWithFrame:frame];
-        subView.backgroundColor = [UIColor whiteColor];
-        [self.view addSubview:subView];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Available" message:@"Please connect to a network." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-        // optional - add more buttons:
-        [alert show];
-    }
-    else {
-
+    /*
     //********************************
     // Begin the web-scraping process
     //********************************
@@ -182,37 +252,7 @@ NSString *trailer = @"";
         trailer = [element objectForKey:@"src"];
     }
 
-    
-    
-    //******************************
-    // Now display the trailer
-    //******************************
-    
-    //Variable to calculate screen width
-    CGFloat width = CGRectGetWidth(self.view.bounds);
-    //Now embed the youtube trailer for the movie onto the screen
-    UIWebView * youTubeWebView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 200, width, 250)];
-    youTubeWebView.allowsInlineMediaPlayback=YES;
-    youTubeWebView.mediaPlaybackRequiresUserAction=NO;
-    youTubeWebView.mediaPlaybackAllowsAirPlay=YES;
-    youTubeWebView.delegate=self;
-    youTubeWebView.scrollView.bounces=NO;
-    youTubeWebView.scrollView.scrollEnabled=NO;
-    
-    //The youtube URL we want to embed
-    NSString *linkObj= trailer;
-    //All of the crazy-delicious formatting we want for our video... to show up as we want it to
-    NSString *embedHTML = @"\
-    <html><head>\
-    <style type=\"text/css\">\
-    body {\
-    background-color:black; transparent-color: white;}\\</style>\\</head><body style=\"margin:0\">\\<embed webkit-playsinline id=\"yt\" src=\"%@\" type=\"application/x-shockwave-flash\" \\width=\"100\" height=\"250\"></embed>\\</body></html>";
-    //A new string with our embedHTML string and our linkObj put together so that it appears as if it were an HTML document
-    NSString *html = [NSString stringWithFormat:embedHTML, linkObj];
-    [youTubeWebView loadHTMLString:html baseURL:nil];
-    [self.view addSubview:youTubeWebView];
-    }
-
+    */
 }
 
 
