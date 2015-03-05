@@ -38,7 +38,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 2;
+    return 3;
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    // Clear selection of rows
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
 }
 
 
@@ -57,6 +63,24 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Open the KSTO radio app if we have it downloaded...
+    if(indexPath.row == 0 && indexPath.section == 0) {
+        NSString *customURL = @"KSTORadio://";
+        
+        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:customURL]])
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:customURL]];
+        }
+        //...else, bring them to the store to download it
+        else
+        {
+            NSString *iTunesLink = @"itms://itunes.apple.com/us/app/ksto/id953916647";
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+        }
+    }
+}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
