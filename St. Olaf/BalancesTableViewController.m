@@ -18,6 +18,8 @@
 @synthesize printBalanceLabel;
 @synthesize oleBalanceLabel;
 @synthesize flexBalanceLabel;
+@synthesize dailyMealsLabel;
+@synthesize weeklyMealsLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -78,38 +80,64 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 3;
+    NSInteger theRows = 0;
+    if (section == 0)
+    {
+        theRows = 3;
+    }
+    else if (section == 1) {
+        theRows = 2;
+    }
+    
+    return theRows;
 }
 
 - (NSString *)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *theTitle = @"";
+
     if([[_savedInfo objectForKey:@"loggedIn"] intValue] == 0){
         return @"";
     } else {
-        return @"Balances";
+        if (section == 0) {
+            theTitle = @"Balances";
+        }
+        else if (section == 1) {
+            theTitle = @"Meal Plan";
+        }
     }
+    return theTitle;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     
-    // Configure the cell...
-    if (indexPath.row == 0 && indexPath.section == 1) {
+    // SECTION 1
+    if (indexPath.row == 0 && indexPath.section == 0) {
         flexBalanceLabel.text   = [_savedInfo objectForKey:@"flexDollars"];
     }
     
-    if (indexPath.row == 1 && indexPath.section == 1) {
+    if (indexPath.row == 1 && indexPath.section == 0) {
         oleBalanceLabel.text    = [_savedInfo objectForKey:@"oleDollars"];
     }
     
-    if (indexPath.row == 2 && indexPath.section == 1) {
+    if (indexPath.row == 2 && indexPath.section == 0) {
         printBalanceLabel.text  = [_savedInfo objectForKey:@"printMoney"];
     }
+    
+    // SECTION 2
+    if (indexPath.row == 0 && indexPath.section == 1) {
+        dailyMealsLabel.text  = [_savedInfo objectForKey:@"dailyMeals"];
+    }
+    
+    if (indexPath.row == 1 && indexPath.section == 1) {
+        weeklyMealsLabel.text  = [_savedInfo objectForKey:@"weeklyMeals"];
+    }
+    
     
     return cell;
 }

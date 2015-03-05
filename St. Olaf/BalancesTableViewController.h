@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *printBalanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *oleBalanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *flexBalanceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dailyMealsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *weeklyMealsLabel;
 
 @property (strong, nonatomic) NSArray *paths;
 @property (strong, nonatomic) NSString *documentsDirectory;

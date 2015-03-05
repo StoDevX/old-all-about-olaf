@@ -303,8 +303,6 @@
     NSString *tokenUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
     NSString *tokenPass = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
     
-
-    
     // if we have a username and password
     if((tokenUser != NULL && ![tokenUser  isEqual: @""] && tokenPass != NULL && ![tokenPass  isEqual: @""])) {
         [self logMeIn];
@@ -323,7 +321,7 @@
 // Handling the response from logging-in
 - (BOOL)logMeIn
 {
-    
+
     // Pull the user's credentials from NSUserDefaults
     NSString *tokenUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
     NSString *tokenPass = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
@@ -478,13 +476,86 @@
     }
 }
 
+- (void) getMealsLeft
+{
+    // Pull the user's credentials from NSUserDefaults
+    NSString *tokenUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
+    NSString *tokenPass = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
+    
+    // Start NSURLSession
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    
+    // POST parameters
+    NSURL *url = [NSURL URLWithString:@"https://www.stolaf.edu/apps/olecard/checkbalance/authenticate.cfm?"];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+    NSString *params = [NSString stringWithFormat:@"username=%@&password=%@",tokenUser,tokenPass];
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+
+    NSURLSessionDataTask *dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data,NSURLResponse *response,NSError *error) {
+        
+        // Handle response
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+        NSInteger statusCode = [httpResponse statusCode];
+        NSLog(@"%ld", (long)statusCode);
+
+        if(error == nil) {
+            
+            if (statusCode == 400) {}
+            else if (statusCode == 403) {}
+            else if (statusCode == 200) {
+                
+                NSString *html= [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                
+                NSError *error = nil;
+                HTMLParser *parser = [[HTMLParser alloc] initWithString:html error:&error];
+                
+                if (error) {
+                    NSLog(@"Error: %@", error);
+                    return;
+                }
+                
+                HTMLNode *bodyNode = [parser body];
+                
+                NSArray *tdNodes = [bodyNode findChildTags:@"td"];
+                NSMutableDictionary * balances = [[NSMutableDictionary alloc] init];
+                for (HTMLNode *tdNode in tdNodes) {
+                    // Daily meals left
+                    if ([[tdNode getAttributeNamed:@"id"] isEqualToString:@"mealsleftdaily"]) {
+                        NSString * final = @"NumMeals";
+                        HTMLNode * next  = [[tdNode nextSibling] nextSibling] ;
+                        NSString * value  = [next contents];
+                        value = [value stringByReplacingOccurrencesOfString:@" " withString:@""];
+                        [_data setObject:value   forKey:@"dailyMeals"];
+                    }
+                    // Weekly meals left
+                    if ([[tdNode getAttributeNamed:@"id"] isEqualToString:@"mealsleftweekly"]) {
+                        NSString * final2 = @"NumMeals";
+                        HTMLNode * next2  = [[tdNode nextSibling] nextSibling] ;
+                        NSString * value2  = [next2 contents];
+                        value2 = [value2 stringByReplacingOccurrencesOfString:@" " withString:@""];
+                        [_data setObject:value2  forKey:@"weeklyMeals"];
+                    }
+                    
+                    [_data writeToFile: _path atomically:YES];
+                }
+            } else {
+                NSLog(@"Error: %@", error);
+            }
+        } else {
+            NSLog(@"Error: %@", error);
+        }
+    }];
+    [dataTask resume];
+}
 
 // Get schedule data by using a block 
 - (void) getScheduleData
 {
     courseList = [[CourseLoader alloc] init];
     
-    [courseList fetchCourses:@"text"  // text param doesn't do anything
+    [courseList fetchCourses:@"text"  // text param doesn't do anything... just a away for me to get the function started... my lack of knowledge...
         complete:^(NSArray *results) {
 
             //completed fetching the data
@@ -509,6 +580,9 @@
                     else {
                         // UI code on the main queue
                         _objects = results;
+                        
+                        // And finally see how many meals we have left
+                        [self getMealsLeft];
                         
                         // Refresh UI
                         // stop the spinner

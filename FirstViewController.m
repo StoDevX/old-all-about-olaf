@@ -60,7 +60,9 @@
     NSString *printMoney = @"";
     NSString *oleDollars = @"";
     NSString *flexDollars = @"";
-    
+    NSString *dailyMeals = @"";
+    NSString *weeklyMeals = @"";
+
     
     if ([_fileManager fileExistsAtPath: _path])
     {
@@ -75,6 +77,9 @@
         [_data setObject: [NSString stringWithString: printMoney]  forKey:@"printMoney"];
         [_data setObject: [NSString stringWithString: oleDollars]  forKey:@"oleDollars"];
         [_data setObject: [NSString stringWithString: flexDollars] forKey:@"flexDollars"];
+        [_data setObject: [NSString stringWithString: dailyMeals] forKey:@"dailyMeals"];
+        [_data setObject: [NSString stringWithString: weeklyMeals] forKey:@"weeklyMeals"];
+        
         [_data setObject: [NSNumber numberWithInt:0]               forKey:@"loggedIn"];
 
         [_data writeToFile: _path atomically:YES];
