@@ -65,11 +65,18 @@
     [myTextFieldWord resignFirstResponder];
 }
 
-//Implement the below delegate method:
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
     self.currentResponder = textField;
 }
+
+// Resign the keyboard
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
+{
+    [textField resignFirstResponder];
+    return true;
+}
+
 
 #pragma mark - Table view data source
 
@@ -101,7 +108,6 @@
             [myTextFieldWord setClearButtonMode:UITextFieldViewModeWhileEditing];
             
             myTextFieldWord.keyboardType = UIKeyboardTypeDefault;
-            myTextFieldWord.returnKeyType = UIReturnKeyNext;
             
             myTextFieldWord.placeholder = @"Tap here to get started";
             
@@ -122,7 +128,6 @@
             myTextViewDef.autocapitalizationType = UITextAutocapitalizationTypeSentences;
             
             myTextViewDef.keyboardType = UIKeyboardTypeDefault;
-            myTextViewDef.returnKeyType = UIReturnKeyNext;
             
             cell.accessoryView = myTextViewDef;
             [tableView addSubview:myTextViewDef];
@@ -130,20 +135,6 @@
     }
   
     return cell;    
-}
-
-// Resign the keyboard
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    
-    if (indexPath.section == 0) {
-        [myTextViewDef becomeFirstResponder];
-        [myTextFieldWord resignFirstResponder];
-    }
-    if (indexPath.section == 1) {
-        [myTextViewDef resignFirstResponder];
-    }
-    return YES;
 }
 
 
@@ -179,7 +170,7 @@
     // check for input...
     if(myTextFieldWord.text.length > 0 || myTextViewDef.text.length > 0) {
         // alert the user
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Abandon your word?" message:@"You have started to write something. Are you absolutely sure you want to leave this screen?" delegate:self cancelButtonTitle:@"Stay" otherButtonTitles:@"Leave",nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Abandon your word?" message:@"You have started to write something. Are you sure you want to leave this screen?" delegate:self cancelButtonTitle:@"Stay" otherButtonTitles:@"Leave",nil];
         // optional - add more buttons:
         [alert show];
     }
@@ -206,26 +197,34 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 - (void)submit:(id)sender {
     
     // Check to make sure we can submit
-    if(myTextFieldWord.text.length > 0 && myTextViewDef.text.length > 0) {
-        
-        
+    if(myTextFieldWord.text.length > 0 && myTextViewDef.text.length > 0 &&
+       (([myTextFieldWord.text isEqualToString:@" "]) == false && ([myTextViewDef.text isEqualToString:@" "]) == false)) {
+    
         // Create a new Parse object
-        PFObject *post = [PFObject objectWithClassName:@"Dictionary"];
-        [post setObject:myTextFieldWord.text forKey:@"word"];
-        [post setObject:myTextViewDef.text forKey:@"def"];
-        [post setObject:false forKey:@"approved"];
+        PFObject *testObject    = [PFObject objectWithClassName:@"Dictionary"];
+        testObject[@"word"]     = myTextFieldWord.text;
+        testObject[@"def"]      = myTextViewDef.text;
+        testObject[@"approved"] = @"false";
 
         // Save it to Parse
-        [post saveInBackground];
-        
+        [testObject saveInBackground];
+
         
         // alert the user
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thanks" message:@"Your word will be sent in for review." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thanks" message:@"Your word will be reviewed soon. Thank you for helping grow the dictionary!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
         // optional - add more buttons:
         [alert show];
         
         // Get out now that we have submitted our definition
         [self dismissViewControllerAnimated:YES completion:nil];
+        
+        // Kickoff the Parse cloud code to send us an email
+        [PFCloud callFunctionInBackground:@"sendMail"
+                           withParameters:@{}
+                                    block:^(NSString *result, NSError *error) {
+                                        if (!error) {
+                                        }
+                                    }];
     }
     else {
         // alert the user
