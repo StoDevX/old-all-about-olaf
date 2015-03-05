@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
-#import <Crashlytics/Crashlytics.h>
 #import <Parse/Parse.h>
 
 @implementation AppDelegate
@@ -30,14 +29,9 @@
     // by creating a separate thread
     [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: nil];
     
-    
-    // This allows us to report crashes and know when we coded like a neanderthal
-    [Crashlytics startWithAPIKey:@"f5daef0b8fe278b14e264c26a53c0c30d514e6ea"];
-    
-    
     // This allows us to work with Parse in order to save information to the cloud
-    //[Parse setApplicationId:@"xtocr2xOZJojqHEtNRcF75JnLwJ3IRm2pzEBg9AF"
-    //              clientKey:@"NcIHdz219z3YFqUZk5fmqllXyiOJPXg0Am2lDem3"];
+    [Parse setApplicationId:@"xtocr2xOZJojqHEtNRcF75JnLwJ3IRm2pzEBg9AF"
+                  clientKey:@"NcIHdz219z3YFqUZk5fmqllXyiOJPXg0Am2lDem3"];
     
     return YES;
 }
