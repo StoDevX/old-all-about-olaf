@@ -150,7 +150,7 @@ BOOL thirdSelected = false;
             firstSelected = false;
             secondSelected = false;
             thirdSelected = true;
-            feedURL = [NSURL URLWithString:@"http://thepoliticole.com/feed/rss/"];
+            feedURL = [NSURL URLWithString:@"http://oleville.com/politicole/feed/"];
             
             //add refresh control to the table view
             refreshControl = [[UIRefreshControl alloc] init];
