@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
-@interface RecipeTableViewController : UITableViewController
+//@interface RecipeTableViewController : UITableViewController
+@interface RecipeTableViewController : PFQueryTableViewController
+
 @property (strong,nonatomic) NSArray *recipes;
-@property (strong,nonatomic) NSArray *searchResults;
 @property (nonatomic, assign) int myInt;
+@property (nonatomic, assign) int countOfParseObjs;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addWord;
+
+@property (nonatomic) int height;
+
+@property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) UISearchDisplayController *searchController;
+@property (nonatomic, strong) NSArray *searchResults;
 @end

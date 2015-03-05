@@ -53,7 +53,6 @@
         [self.navigationItem setRightBarButtonItem:rightButton animated:YES];
     }
     
-    
 	self.title = self.recipe.name;
     self.wordTitle.text = self.recipe.name;
     
@@ -65,43 +64,49 @@
     [self.ingredientsTextView setEditable:NO];
 }
 
-
+// Prevent modification of local text (although it is only changed on the view temporariliy)
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    
     return NO;
 }
 
 /***********************************
  Segmented control up and down
  **********************************/
-
 - (IBAction)segmentSwitch:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
     
     // This magical piece of code makes the segment reset. SWEETPOTATO BABY JESUS
     segmentedControl.momentary = YES;
+    
+    // Fix me... this is a bad example of how to program. Fix the problem instead of ignoring the error.
+    @try {
+        // Check if we are trying to go forward, and that we are not at the last word
+        if (selectedSegment == 0) {
+            // NEXT
+            count++;
+            self.recipe = recipeList[theIndex + count];
+            self.title = self.recipe.name;
+            self.wordTitle.text = self.recipe.name;
+            self.ingredientsTextView.text = self.recipe.ingredients[0];
+            [self.ingredientsTextView setEditable:NO];
+        }
+        // Check if we are trying to go backward, and that we are not at the fist word
+        else if (selectedSegment == 1) {
+            // PREV
+            count--;
+            self.recipe = recipeList[theIndex + count];
+            self.title = self.recipe.name;
+            self.wordTitle.text = self.recipe.name;
+            self.ingredientsTextView.text = self.recipe.ingredients[0];
+            [self.ingredientsTextView setEditable:NO];
+        }
+    }
+    @catch (NSException *e) {
 
-    // Check if we are trying to go forward, and that we are not at the last word
-    if (selectedSegment == 0 && ![self.recipe.position  isEqual: @"last"]) {
-        // NEXT
-        count++;
-        self.recipe = recipeList[theIndex + count];
-        self.title = self.recipe.name;
-        self.wordTitle.text = self.recipe.name;
-        self.ingredientsTextView.text = self.recipe.ingredients[0];
-        [self.ingredientsTextView setEditable:NO];
     }
-    // Check if we are trying to go backward, and that we are not at the fist word
-    else if (selectedSegment == 1 && ![self.recipe.position  isEqual: @"first"]) {
-        // PREV
-        count--;
-        self.recipe = recipeList[theIndex + count];
-        self.title = self.recipe.name;
-        self.wordTitle.text = self.recipe.name;
-        self.ingredientsTextView.text = self.recipe.ingredients[0];
-        [self.ingredientsTextView setEditable:NO];
-    }
+
+    
     // Disable selection of segment (for UI purposes... otherwise it "sticks"
     [nextPrevSegmentedControl setSelectedSegmentIndex:UISegmentedControlNoSegment];
 }

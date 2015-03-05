@@ -17,7 +17,7 @@
 @property (nonatomic, strong) UISegmentedControl* nextPrevSegmentedControl;
 
 @property (nonatomic, strong) Recipe *recipe;
-@property (nonatomic, strong) NSArray *recipeList;
+@property (nonatomic, strong) NSMutableArray *recipeList;
 @property (nonatomic, assign) int theIndex;
 @property (nonatomic, assign) int count;
 @property (nonatomic, assign) bool displaySegments;
