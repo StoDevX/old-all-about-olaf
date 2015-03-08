@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
 #import <Parse/Parse.h>
+#import <ParseCrashReporting/ParseCrashReporting.h>
 
 @implementation AppDelegate
 
@@ -29,10 +30,14 @@
     // by creating a separate thread
     [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: nil];
     
+    // This allows us to report crashes and know when we coded like a neanderthal
+    // Keep this commented out until we push an update...the console is a good-enough reporter
+    // [ParseCrashReporting enable];
+    
     // This allows us to work with Parse in order to save information to the cloud
     [Parse setApplicationId:@"xtocr2xOZJojqHEtNRcF75JnLwJ3IRm2pzEBg9AF"
                   clientKey:@"NcIHdz219z3YFqUZk5fmqllXyiOJPXg0Am2lDem3"];
-    
+
     return YES;
 }
 
