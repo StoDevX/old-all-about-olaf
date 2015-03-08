@@ -1215,7 +1215,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red-circle" translatesAutoresizingMaskIntoConstraints="NO" id="raS-2D-UjA" customClass="greencircle">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red-circle" translatesAutoresizingMaskIntoConstraints="NO" id="raS-2D-UjA">
                                                     <rect key="frame" x="245" y="5" width="35" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="35" id="noz-Az-3bC"/>
@@ -2967,7 +2967,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection id="miM-bP-nsd">
-                                <string key="headerTitle">Hours September 1 - May 31 
+                                <string key="headerTitle">Hours September 1 - May 31
 </string>
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="WZB-ZQ-c1N" detailTextLabel="2lg-Tv-7Yf" style="IBUITableViewCellStyleSubtitle" id="CEi-My-fKy">
@@ -3021,7 +3021,7 @@
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="Uti-vC-alb">
-                                <string key="headerTitle">Hours June 1 - August 31 
+                                <string key="headerTitle">Hours June 1 - August 31
 </string>
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xfS-sP-aaC" detailTextLabel="rEE-Ij-oU3" style="IBUITableViewCellStyleSubtitle" id="CNb-ME-t06">
