@@ -1130,7 +1130,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=/usr/local/bin:$PATH\ncd /Users/Drew/Dropbox/Apps/All\\ About\\ Olaf\\ Plugins/CloudCode/CloudCode/\n\nparse symbols \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"";
+			shellScript = "export PATH=/usr/local/bin:$PATH\ncd ./All\\ About\\ Olaf\\ Plugins/CloudCode/CloudCode/\n\nparse symbols \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1372,7 +1372,7 @@
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/Drew/Desktop/iPhone Dev/Git Repos/all-about-olaf/St. Olaf/All About Olaf-Prefix.pch";
+				GCC_PREFIX_HEADER = "./St. Olaf/All About Olaf-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
@@ -1409,7 +1409,7 @@
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/Drew/Desktop/iPhone Dev/Git Repos/all-about-olaf/St. Olaf/All About Olaf-Prefix.pch";
+				GCC_PREFIX_HEADER = "./St. Olaf/All About Olaf-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
