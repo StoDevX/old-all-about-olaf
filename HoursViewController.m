@@ -94,47 +94,20 @@ enum numberOfMinutesPastMidnightType : NSInteger {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 
     //Assign the time zone we want
-    NSTimeZone *zone = [NSTimeZone timeZoneWithName:@"CST"];
-
-    //Get the current time
-    NSDate *now = [[NSDate alloc] init];
-
-    //Force the timzone on our calendar object
-    [calendar setTimeZone:zone];
-
-    //Set up the necessary date components we want to use
-    NSDateComponents *comp = [calendar components:(NSWeekdayCalendarUnit) fromDate:now];
+    [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"CST"]];
 
     //Set up our tracker for seconds after midnight
-    NSDate *date = [NSDate date];
-    NSDateComponents *components = [calendar components:NSIntegerMax fromDate:date];
-    [components setHour:0];
-    [components setMinute:0];
-    [components setSecond:0];
+    NSDate *now = [NSDate date];
+    unsigned int unitFlags =  NSHourCalendarUnit | NSMinuteCalendarUnit | NSWeekdayCalendarUnit;
+    NSDateComponents *components = [calendar components:unitFlags fromDate:now];
 
-    NSDate *midnight = [[NSCalendar currentCalendar] dateFromComponents:components];
-    NSDateComponents *diff = [[NSCalendar currentCalendar] components:NSMinuteCalendarUnit fromDate:midnight toDate:date options:0];
-
-    //Adjust what "now" is and take the componesnts from them
-    now = [calendar dateFromComponents:comp];
+    // Just take the number of hours and minutes, and multiply them together ourselves.
+    self.numberOfMinutesPastMidnight = 60 * [components hour] + [components minute];
 
     //Assign the adjusted time components to the desired integer name
-    self.currentWeekday = [comp weekday];
-    self.numberOfMinutesPastMidnight = [diff minute];
-
-    //Get the current date to show which days do not have service
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd MMM, yyy"];
-    NSInteger units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
-    NSDateComponents *components2 = [calendar components:units fromDate:date];
-    NSInteger day = [components2 day];
-    NSDateFormatter *weekDay = [[NSDateFormatter alloc] init];
-    [weekDay setDateFormat:@"EEE,"];
-    NSDateFormatter *calMonth = [[NSDateFormatter alloc] init];
-    [calMonth setDateFormat:@"MMM"];
-
-    NSString *todayIs = [NSString stringWithFormat:@"%@%@%ld", [calMonth stringFromDate:date], @" ", (long)day];
-
+    self.currentWeekday = [components weekday];
+    //NSLog(@"Minutes past midnight: %ld", (long)self.numberOfMinutesPastMidnight);
+    //NSLog(@"Day of week: %ld", (long)self.currentWeekday);
 
     [super viewDidLoad];
 }
