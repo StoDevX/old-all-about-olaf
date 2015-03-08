@@ -36,6 +36,4 @@
 //Gym
 @property (weak, nonatomic) IBOutlet UIImageView *skoglundCircle;
 
-
-
 @end

@@ -174,7 +174,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 //If the current time falls between these calculations, set the circle to be yellow
                 stavCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
             }
-            
+
             //Opening soon
             //Stav Breakfast opens 07:00 a.m.
             else if (((numberOfMinutesPastMidnight >= Seven_am - 20)
@@ -204,8 +204,8 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 stavCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
-        
+
+
         //Sat
         if(currentWeekday == Saturday)
         {
@@ -220,7 +220,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 //If the current time falls between these calculations, set the circle to be yellow
                 stavCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
             }
-            
+
             //Opening soon
             //Stav Breakfast opens 07:00 a.m.
             else if (((numberOfMinutesPastMidnight >= Seven_am - 20)
@@ -249,7 +249,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 stavCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sun
         if(currentWeekday == Sunday)
         {
@@ -263,7 +263,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 //If the current time falls between these calculations, set the circle to be yellow
                 stavCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
             }
-            
+
             //Opening soon
             //Stav Breakfast opens 10:15 a.m.
             else if (((numberOfMinutesPastMidnight >= Ten_fifteen_am - 20)
@@ -277,7 +277,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 stavCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
             }
 
-            
+
                 //Stav Breakfast  08:30 a.m. – 10:15 a.m.
             else if (((numberOfMinutesPastMidnight >= Eight_thirty_am) && (numberOfMinutesPastMidnight < Ten_fifteen_am)) ||
                 //Stav Lunch      11:00 a.m. – 01:30 p.m.
@@ -294,13 +294,13 @@ enum numberOfMinutesPastMidnightType : NSInteger {
             }
         }
     }
-    
+
     if (indexPath.row == 1 && indexPath.section == 0){
 
         /////////////////////////
         // The Cage Calculations
         /////////////////////////
-        
+
         //Mon-Thur
         if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
         {
@@ -311,7 +311,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 //If the current time falls between these calculations, set the circle to be yellow
                 cageCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
             }
-            
+
             //Opening soon
             //Cage opens at 7:30 a.m.
             else if ((numberOfMinutesPastMidnight >= Seven_thirty_am - 20) && (numberOfMinutesPastMidnight < Seven_thirty_am))
@@ -331,7 +331,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 cageCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Fri
         if(currentWeekday == Friday)
         {
@@ -341,7 +341,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 //If the current time falls between these calculations, set the circle to be yellow
                 cageCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
             }
-            
+
             //Opening soon
             //Cage opens at 7:30 a.m.
             else if ((numberOfMinutesPastMidnight >= Seven_thirty_am - 20) && (numberOfMinutesPastMidnight < Seven_thirty_am))
@@ -361,7 +361,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 cageCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sat
         if(currentWeekday == Saturday)
         {
@@ -387,7 +387,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 cageCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sun
         if(currentWeekday == Sunday)
         {
@@ -401,7 +401,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 //If the current time falls between these calculations, set the circle to be yellow
                 cageCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
             }
-            
+
                 //Cage  09:00 a.m. – 11:00 p.m.
             else if ((numberOfMinutesPastMidnight >= Nine_am) && (numberOfMinutesPastMidnight < Eleven_pm))
             {
@@ -415,14 +415,14 @@ enum numberOfMinutesPastMidnightType : NSInteger {
             }
         }
     }
-    
+
     if (indexPath.row == 2 && indexPath.section == 0){
-        
+
         /////////////////////////
         // The Pause Calculations
         /////////////////////////
-        
-    
+
+
         //Sun - Thur
         if(currentWeekday ==  Sunday || currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
         {
@@ -448,7 +448,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 pauseCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Fri
         if(currentWeekday == Friday)
         {
@@ -475,7 +475,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 pauseCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sat
         if(currentWeekday == Saturday)
         {
@@ -503,7 +503,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 pauseCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sun
         if(currentWeekday == Sunday)
         {
@@ -532,16 +532,16 @@ enum numberOfMinutesPastMidnightType : NSInteger {
             }
         }
     }
-    
-    
-    
+
+
+
     if (indexPath.row == 0 && indexPath.section == 1){
-        
+
         ////////////////////////////////
         // Rolvaag Library Calculations
         ////////////////////////////////
-        
-        
+
+
         //Mon-Thur
         if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
         {
@@ -574,7 +574,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 rolvaagCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Fri
         if(currentWeekday == Friday)
         {
@@ -600,7 +600,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 rolvaagCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sat
         if(currentWeekday == Saturday)
         {
@@ -626,7 +626,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 rolvaagCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-    
+
         //Sun
         if(currentWeekday == Sunday)
         {
@@ -660,13 +660,13 @@ enum numberOfMinutesPastMidnightType : NSInteger {
             }
         }
     }
-    
+
     if (indexPath.row == 1 && indexPath.section == 1){
-        
+
         ////////////////////////////////
         // Husdtad Library Calculations
         ////////////////////////////////
-        
+
         //Mon-Thur
         if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
         {
@@ -692,7 +692,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 hustadCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Fri
         if(currentWeekday == Friday)
         {
@@ -718,7 +718,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 hustadCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sat
         if(currentWeekday == Saturday)
         {
@@ -744,7 +744,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 hustadCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sun
         if(currentWeekday == Sunday)
         {
@@ -772,14 +772,14 @@ enum numberOfMinutesPastMidnightType : NSInteger {
         }
     }
 
-    
-    
+
+
     if (indexPath.row == 2 && indexPath.section == 1){
-        
+
         //////////////////////////////////
         // Halvarson Library Calculations
         //////////////////////////////////
-        
+
         //Mon-Thur
         if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
         {
@@ -805,7 +805,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 halvarsonCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Fri
         if(currentWeekday == Friday)
         {
@@ -831,7 +831,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 halvarsonCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sat
         if(currentWeekday == Saturday)
         {
@@ -857,7 +857,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 halvarsonCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sun
         if(currentWeekday == Sunday)
         {
@@ -884,14 +884,14 @@ enum numberOfMinutesPastMidnightType : NSInteger {
             }
         }
     }
-    
-    
+
+
     if (indexPath.row == 0 && indexPath.section == 2){
-        
+
         ///////////////////////////
         // Book Store Calculations
         ///////////////////////////
-        
+
         //Mon-Fri
         if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday || currentWeekday == Friday)
         {
@@ -917,7 +917,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 bookStore.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sat
         if(currentWeekday == Saturday)
         {
@@ -944,14 +944,14 @@ enum numberOfMinutesPastMidnightType : NSInteger {
             }
         }
     }
-    
-    
+
+
     if (indexPath.row == 1 && indexPath.section == 2){
-        
+
         /////////////////////////////////
         // Convenience Store Calculations
         /////////////////////////////////
-        
+
         //Mon-Fri
         if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday || currentWeekday == Friday)
         {
@@ -977,7 +977,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 convenienceStore.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sat
         if(currentWeekday == Saturday)
         {
@@ -1003,7 +1003,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 convenienceStore.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sun
         if(currentWeekday == Sunday)
         {
@@ -1031,13 +1031,13 @@ enum numberOfMinutesPastMidnightType : NSInteger {
         }
 
     }
-    
+
     if (indexPath.row == 0 && indexPath.section == 3){
-        
+
         ////////////////////////////
         // Post Office Calculations
         ////////////////////////////
-        
+
         //Mon-Fri
         if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday || currentWeekday == Friday)
         {
@@ -1063,7 +1063,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 postOfficeCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sat
         if(currentWeekday == Saturday)
         {
@@ -1090,9 +1090,9 @@ enum numberOfMinutesPastMidnightType : NSInteger {
             }
         }
     }
-    
+
     if (indexPath.row == 0 && indexPath.section == 4){
-        
+
         ////////////////////
         // Gym Calculations
         ////////////////////
@@ -1122,7 +1122,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 skoglundCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Fri
         if(currentWeekday == Friday)
         {
@@ -1148,7 +1148,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 skoglundCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sat
         if(currentWeekday == Saturday)
         {
@@ -1174,7 +1174,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 skoglundCircle.image = [UIImage imageNamed: @"red-circle.png"];
             }
         }
-        
+
         //Sun
         if(currentWeekday == Sunday)
         {
@@ -1201,11 +1201,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
             }
         }
     }
-    
 
-    
-
-    
     return cell;
 }
 
