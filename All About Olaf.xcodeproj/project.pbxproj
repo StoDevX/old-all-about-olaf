@@ -1367,8 +1367,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library",
-					"/Users/Drew/Downloads/parse-library-1.6.2",
-					"/Users/Drew/Downloads/parse-library-1.6.4",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1404,8 +1402,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library",
-					"/Users/Drew/Downloads/parse-library-1.6.2",
-					"/Users/Drew/Downloads/parse-library-1.6.4",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
