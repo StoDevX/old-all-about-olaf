@@ -10,6 +10,8 @@
 
 @interface HoursViewController : UITableViewController
 
+@property (nonatomic) NSInteger currentWeekday;
+@property (nonatomic) NSInteger numberOfMinutesPastMidnight;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 //***************************

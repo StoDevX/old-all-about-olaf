@@ -90,19 +90,6 @@ enum numberOfMinutesPastMidnightType : NSInteger {
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    // Clear selection of rows
-    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     //Initialize a calendar
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     
@@ -132,9 +119,8 @@ enum numberOfMinutesPastMidnightType : NSInteger {
     now = [calendar dateFromComponents:comp];
 
     //Assign the adjusted time components to the desired integer name
-    enum dayOfWeek currentWeekday = [comp weekday];
-    NSInteger numberOfMinutesPastMidnight = [diff minute];
-    
+    self.currentWeekday = [comp weekday];
+    self.numberOfMinutesPastMidnight = [diff minute];
     
     //Get the current date to show which days do not have service
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -150,10 +136,24 @@ enum numberOfMinutesPastMidnightType : NSInteger {
     NSString *todayIs = [NSString stringWithFormat:@"%@%@%ld", [calMonth stringFromDate:date], @" ", (long)day];
 
     
+    [super viewDidLoad];
+}
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+    // Clear selection of rows
+    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    if (indexPath.row == 0 && indexPath.section == 0){
+    NSInteger currentWeekday = self.currentWeekday;
+    NSInteger numberOfMinutesPastMidnight = self.numberOfMinutesPastMidnight;
         
+    if (indexPath.row == 0 && indexPath.section == 0) {
         //////////////////////////
         // Stav Hall Calculations
         //////////////////////////
