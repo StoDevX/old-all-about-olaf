@@ -92,36 +92,36 @@ enum numberOfMinutesPastMidnightType : NSInteger {
 {
     //Initialize a calendar
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    
+
     //Assign the time zone we want
     NSTimeZone *zone = [NSTimeZone timeZoneWithName:@"CST"];
-    
+
     //Get the current time
     NSDate *now = [[NSDate alloc] init];
 
     //Force the timzone on our calendar object
     [calendar setTimeZone:zone];
-    
+
     //Set up the necessary date components we want to use
     NSDateComponents *comp = [calendar components:(NSWeekdayCalendarUnit) fromDate:now];
-    
+
     //Set up our tracker for seconds after midnight
     NSDate *date = [NSDate date];
     NSDateComponents *components = [calendar components:NSIntegerMax fromDate:date];
     [components setHour:0];
     [components setMinute:0];
     [components setSecond:0];
-    
+
     NSDate *midnight = [[NSCalendar currentCalendar] dateFromComponents:components];
     NSDateComponents *diff = [[NSCalendar currentCalendar] components:NSMinuteCalendarUnit fromDate:midnight toDate:date options:0];
-    
+
     //Adjust what "now" is and take the componesnts from them
     now = [calendar dateFromComponents:comp];
 
     //Assign the adjusted time components to the desired integer name
     self.currentWeekday = [comp weekday];
     self.numberOfMinutesPastMidnight = [diff minute];
-    
+
     //Get the current date to show which days do not have service
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd MMM, yyy"];
@@ -132,10 +132,10 @@ enum numberOfMinutesPastMidnightType : NSInteger {
     [weekDay setDateFormat:@"EEE,"];
     NSDateFormatter *calMonth = [[NSDateFormatter alloc] init];
     [calMonth setDateFormat:@"MMM"];
-    
+
     NSString *todayIs = [NSString stringWithFormat:@"%@%@%ld", [calMonth stringFromDate:date], @" ", (long)day];
 
-    
+
     [super viewDidLoad];
 }
 
@@ -152,14 +152,14 @@ enum numberOfMinutesPastMidnightType : NSInteger {
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     NSInteger currentWeekday = self.currentWeekday;
     NSInteger numberOfMinutesPastMidnight = self.numberOfMinutesPastMidnight;
-        
+
     if (indexPath.row == 0 && indexPath.section == 0) {
         //////////////////////////
         // Stav Hall Calculations
         //////////////////////////
-        
+
         //Mon-Fri
-        if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday || currentWeekday == Friday)
+        if (currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday || currentWeekday == Friday)
         {
 
             //Closing soon
