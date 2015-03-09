@@ -242,21 +242,19 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 {
     //stop the activity indicator when done loading
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    //_mobileSite.scrollView.contentOffset = CGPointMake(0,1720);
     [self.overlayView removeFromSuperview];
     [_loadingMenuText setHidden: YES];
     [_loadingMenuSpinner setHidden: YES];
     [_loadingMenuSpinner stopAnimating];
     
     //canGoBack and canGoForward are properties which indicate if there is any forward or backward history
-	if(_mobileSite.canGoBack == YES)
-	{
-		_back.enabled = YES;
-	}
-	if(_mobileSite.canGoForward == YES)
-	{
-		_forward.enabled = YES;
-	}
+    if(_mobileSite.canGoBack == YES) {
+	_back.enabled = YES;
+    }
+    if(_mobileSite.canGoForward == YES)
+    {
+        _forward.enabled = YES;
+    }
 }
 
 

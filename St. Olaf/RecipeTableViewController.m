@@ -84,6 +84,7 @@ NSMutableArray *parseArr;
 {
     // the array we're going to store our converted pfquery objects into recipes in
     parseArr = [[NSMutableArray alloc] init];
+    [super viewWillAppear:animated];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -108,6 +109,7 @@ NSMutableArray *parseArr;
             [parseArr addObject:recipe];
         }
     }];
+    [super viewDidAppear:animated];
 }
 
 
@@ -136,8 +138,7 @@ NSMutableArray *parseArr;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
     static NSString *CellIdentifier = @"CustomTableCell";
-    RecipeTableCell *cell = (RecipeTableCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+    RecipeTableCell *cell;
     
     Recipe *recipe = [[Recipe alloc] init];
     if ([tableView isEqual: self.searchDisplayController.searchResultsTableView]) {
@@ -164,7 +165,6 @@ NSMutableArray *parseArr;
     
     cell.nameLabel.font = [cell.textLabel.font fontWithSize:16];
     cell.nameLabel.text = recipe.name;
-
     
     return cell;
 }

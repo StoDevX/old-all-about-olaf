@@ -207,12 +207,10 @@
         _path = [_documentsDirectory stringByAppendingPathComponent:fileName];
         
         // saved json file from CourseLoader
-        NSData *jsonData2 = [[NSData alloc] init];
-        jsonData2 = [[NSData alloc] initWithContentsOfFile:_path];
+        NSData *jsonData2 = [[NSData alloc] initWithContentsOfFile:_path];
         
         // throw that puppy into an array and parse it
-        NSArray *arr = [[NSArray alloc] init];
-        arr = [NSJSONSerialization JSONObjectWithData:jsonData2 options:NSJSONReadingMutableContainers error:nil];
+        NSArray *arr = [NSJSONSerialization JSONObjectWithData:jsonData2 options:NSJSONReadingMutableContainers error:nil];
         
         // Pull out each entry from our json array and assign it into an array
         for(int i = 0; i < arr.count; ++i) {
@@ -300,11 +298,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    Course *item2 = self.jsonParsedCourses[indexPath.row];
 
-    // Our paseed-over Course objects from the other view
-    item2 = self.jsonParsedCourses[indexPath.row];
+    // Our passed-over Course objects from the other view
+    Course *item2 = self.jsonParsedCourses[indexPath.row];
     // Label: course name
     cell.textLabel.text = item2.courseName;
     
