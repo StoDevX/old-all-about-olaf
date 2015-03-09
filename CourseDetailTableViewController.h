@@ -20,8 +20,4 @@
 
 @property (nonatomic, assign) NSInteger selectedRow;
 
--(void)LoadCalendarData;
--(void)AddEventToCalendar;
--(IBAction)cancel:(id)sender;
-
 @end

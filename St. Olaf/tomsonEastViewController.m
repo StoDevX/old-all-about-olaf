@@ -196,7 +196,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 - (void)toggleBars:(UITapGestureRecognizer *)gesture
 {
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-    BOOL statusBarHidden = YES;
     
     BOOL barsHidden = self.navigationController.navigationBar.hidden;
     [self.navigationController setNavigationBarHidden:!barsHidden animated:YES];
