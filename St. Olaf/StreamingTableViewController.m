@@ -45,6 +45,7 @@
 {
     // Clear selection of rows
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
+    [super viewWillDisappear:animated];
 }
 
 

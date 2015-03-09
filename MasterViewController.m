@@ -84,8 +84,8 @@ BOOL thirdSelected = false;
 }
 
 
-- (IBAction)segmentedAction:(UISegmentedControl*)control {
-    
+- (IBAction)segmentedAction:(UISegmentedControl*)control
+{
     if([self hasConnectivity] == NO) {
         CGRect frame = [[UIScreen mainScreen] bounds];
         subView = [[UIView alloc] initWithFrame:frame];
@@ -172,7 +172,8 @@ BOOL thirdSelected = false;
 /*
  Connectivity testing code pulled from Apple's Reachability Example: http://developer.apple.com/library/ios/#samplecode/Reachability
  */
--(BOOL)hasConnectivity {
+-(BOOL)hasConnectivity
+{
     struct sockaddr_in zeroAddress;
     bzero(&zeroAddress, sizeof(zeroAddress));
     zeroAddress.sin_len = sizeof(zeroAddress);
@@ -222,8 +223,8 @@ BOOL thirdSelected = false;
     return NO;
 }
 
-- (void)alertView:(UIAlertView *)alertView
-clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     if (buttonIndex == 0){
         [self.navigationController popViewControllerAnimated:YES];
     }
@@ -258,8 +259,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [self.activityIndicator startAnimating];
     self.tableView.scrollEnabled = NO;
-
-    
     
     RSSLoader* rss = [[RSSLoader alloc] init];
     [rss fetchRssWithURL:feedURL
@@ -285,16 +284,19 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
 #pragma mark - Table View
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 2;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return section == 0 ?  0: _objects.count ;
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     RSSItem *object = _objects[indexPath.row];
@@ -305,8 +307,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     return cell;
 }
-
-
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if(section == 1) {
@@ -336,13 +336,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RSSItem *object = _objects[indexPath.row];
-
-        RSSItem *item = [_objects objectAtIndex:indexPath.row];
-        CGRect cellMessageRect = [item.cellMessage boundingRectWithSize:CGSizeMake(100,65)
-                                                                options:NSStringDrawingUsesLineFragmentOrigin
-                                                                context:nil];
-        return cellMessageRect.size.height;
+    RSSItem *item = [_objects objectAtIndex:indexPath.row];
+    CGRect cellMessageRect = [item.cellMessage boundingRectWithSize:CGSizeMake(100,65)
+                                                            options:NSStringDrawingUsesLineFragmentOrigin
+                                                            context:nil];
+    return cellMessageRect.size.height;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

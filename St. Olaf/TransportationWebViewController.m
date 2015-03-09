@@ -32,13 +32,9 @@
     [super viewDidLoad];
 }
 
-- (void) viewDidAppear:(BOOL)animated{
-    
+- (void) viewDidAppear:(BOOL)animated
+{
     NSURL * thePassedURL = passMePlease;
-
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    CGFloat screenHeight = screenRect.size.height;
     
     [webView setDelegate:self];
 
@@ -47,8 +43,6 @@
     webView.scalesPageToFit=YES;
     [webView loadRequest:req];
     [self.view addSubview:webView];
-    
-    
     
     // Set-up the forward/backward buttons for the webview
     UIToolbar *toolbar = [UIToolbar new];

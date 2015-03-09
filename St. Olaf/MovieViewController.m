@@ -93,7 +93,7 @@ NSString *trailer = @"";
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         [self.activityIndicator startAnimating];
     
-    NSDictionary *movieObj = [[NSDictionary alloc] init];
+//    NSDictionary *movieObj = [[NSDictionary alloc] init];
     
     PFQuery *theQuery = [PFQuery queryWithClassName:self.parseClassName];
     [theQuery orderByDescending:@"createdAt"];
@@ -151,9 +151,9 @@ NSString *trailer = @"";
     
         
     /*
-    //********************************
+    // ******************************
     // Begin the web-scraping process
-    //********************************
+    // ******************************
 
     //Get the URL we want to parse and throw that baby into a NSURL
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:

@@ -89,7 +89,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
+    [super viewWillAppear:animated];
 }
 
 
@@ -97,6 +97,7 @@
 {
     // Clear selection of rows
     [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];
+    [super viewWillDisappear:animated];
 }
 
 

@@ -58,9 +58,8 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"dd MMM, yyy"];
         NSCalendar *calendar = [NSCalendar currentCalendar];
-        NSInteger units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
+        NSInteger units = NSYearCalendarUnit | NSMonthCalendarUnit | NSWeekdayCalendarUnit;
         NSDateComponents *components = [calendar components:units fromDate:date];
-        NSInteger day = [components day];
         NSInteger year = [components year];
         NSInteger month = [components month];
         NSDateFormatter *weekDay = [[NSDateFormatter alloc] init];
@@ -159,23 +158,16 @@
             
             // comment out above and uncomment below if you are debugging with fakeData
             //TFHpple *xpathParser2 = [[TFHpple alloc] initWithHTMLData:fakeData];
-
-            
-            //We tell the parser to look at table data with classes
-            NSArray *courseNumsArr = [[NSArray alloc] init];
-            NSArray *courseNamesArr = [[NSArray alloc] init];
-            NSArray *courseTimesArr = [[NSArray alloc] init];
-            NSArray *courseLocsArr = [[NSArray alloc] init];
-            NSArray *courseInstructorsArr = [[NSArray alloc] init];
             
             //Clear the old objects
             [dictArray removeAllObjects];
 
-            courseNumsArr =        [xpathParser2 searchWithXPathQuery:@"//td [@class='sis-departmentname']"];
-            courseNamesArr =       [xpathParser2 searchWithXPathQuery:@"//td [@class='sis-coursename']/a"];
-            courseTimesArr =       [xpathParser2 searchWithXPathQuery:@"//td [@class='sis-meetingtime']"];
-            courseLocsArr =        [xpathParser2 searchWithXPathQuery:@"//td [@class='sis-meetinglocation']/a [@class='sis-nounderline'][1]"];
-            courseInstructorsArr = [xpathParser2 searchWithXPathQuery:@"//td [@class='sis-instructorname']/a [@class='sis-nounderline'][1]"];
+            //We tell the parser to look at table data with classes
+            NSArray *courseNumsArr =        [xpathParser2 searchWithXPathQuery:@"//td [@class='sis-departmentname']"];
+            NSArray *courseNamesArr =       [xpathParser2 searchWithXPathQuery:@"//td [@class='sis-coursename']/a"];
+            NSArray *courseTimesArr =       [xpathParser2 searchWithXPathQuery:@"//td [@class='sis-meetingtime']"];
+            NSArray *courseLocsArr =        [xpathParser2 searchWithXPathQuery:@"//td [@class='sis-meetinglocation']/a [@class='sis-nounderline'][1]"];
+            NSArray *courseInstructorsArr = [xpathParser2 searchWithXPathQuery:@"//td [@class='sis-instructorname']/a [@class='sis-nounderline'][1]"];
             
             if(courseNamesArr.count > 0) {
                 // Course number
@@ -247,8 +239,7 @@
 
                 
                 // We will create courseNames.count Course objects
-                NSMutableArray *result = [[NSMutableArray alloc] init];
-                result = [NSMutableArray arrayWithCapacity:courseNames.count];
+                NSMutableArray *result = [NSMutableArray arrayWithCapacity:courseNames.count];
                 
                 // Create Course objects which are comprised of our results
                 for(int i = 0; i < courseNames.count; i++) {
@@ -266,10 +257,7 @@
                     [item.courseLoc stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]];
                     [item.courseInstructor stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]];
 
-
                     [result addObject: item];
-                    
-                    
                     
                     // file path
                     _paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -286,15 +274,13 @@
                                                 courseLocs[i],         @"location",
                                                 courseInstructors[i],  @"instructor",
                                                 nil];
-                    
-                
-                    // Now write each json object to the json file
-                    NSData *json = [[NSData alloc] init];
+
                     // Dictionary convertable to JSON ?
                     if ([NSJSONSerialization isValidJSONObject:courseDict])
                     {
                         // Serialize the dictionary
-                        json = [NSJSONSerialization dataWithJSONObject:courseDict options:NSJSONWritingPrettyPrinted error:nil];
+                        // Now write each json object to the json file
+                        NSData *json = [NSJSONSerialization dataWithJSONObject:courseDict options:NSJSONWritingPrettyPrinted error:nil];
 
                         // If no errors, let's put our json into a file
                         if (json != nil)

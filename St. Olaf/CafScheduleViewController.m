@@ -42,13 +42,6 @@ NSString *two;
 
     
     //Get the current date to display the right RSS Food Menu Item from Bon Appetit
-    NSDate *date = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd MMM"];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSInteger units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
-    NSDateComponents *components = [calendar components:units fromDate:date];
-    NSInteger day = [components day];
    
     self.title = @"Stav Menu";
     
