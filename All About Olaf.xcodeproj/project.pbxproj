@@ -410,6 +410,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		009EB4FC1AF69E40003FDCE9 /* Building Hours */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Building Hours";
+			sourceTree = "<group>";
+		};
 		3A0CF35918BBA5CB00A00F4A /* The Caf */ = {
 			isa = PBXGroup;
 			children = (
@@ -535,6 +542,7 @@
 		3A51760317CA68EA0098EEA0 /* Hours */ = {
 			isa = PBXGroup;
 			children = (
+				009EB4FC1AF69E40003FDCE9 /* Building Hours */,
 				3ADFA64317B75CD9008E6251 /* HoursViewController.h */,
 				3ADFA64417B75CD9008E6251 /* HoursViewController.m */,
 			);
