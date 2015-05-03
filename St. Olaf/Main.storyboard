@@ -5003,7 +5003,7 @@
         <image name="home" width="28" height="28"/>
         <image name="info" width="128" height="128"/>
         <image name="loc" width="128" height="128"/>
-        <image name="menu-icon" width="76" height="80"/>
+        <image name="menu-icon" width="152" height="161"/>
         <image name="movie" width="256" height="256"/>
         <image name="music" width="128" height="128"/>
         <image name="network" width="128" height="128"/>
