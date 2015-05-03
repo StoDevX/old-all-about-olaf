@@ -45,7 +45,6 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSInteger units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
     NSDateComponents *components = [calendar components:units fromDate:date];
-    NSInteger day = [components day];
     NSInteger year = [components year];
     NSInteger month = [components month];
     NSDateFormatter *weekDay = [[NSDateFormatter alloc] init];
@@ -54,9 +53,6 @@
     [calMonth setDateFormat:@"MMM"];
 
     int theYear = year;
-
-    // Get the date for today in a comparable string format, i.e. day month
-    NSString *todayIs = [NSString stringWithFormat:@"%ld%@%@", (long)day, @" ", [calMonth stringFromDate:date]];
 
     // Adjust the year based on the date
     // We want to look at 2013 for 2013-2014 year, and so on
@@ -249,7 +245,6 @@
     NSString *two = object.courseNumber;
     NSString *three = object.courseSection;
     NSString *four = object.meetingTimes;
-    NSAttributedString *none = object.none;
 
     NSString *theRealDeal = [NSString stringWithFormat:@"%@%@%@%@", one, @" ", two, three];
     four = [four stringByReplacingOccurrencesOfString:@"<br>" withString:@"\n"];
@@ -271,7 +266,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RSSItem3 *object = _objects[indexPath.row];
+//    RSSItem3 *object = _objects[indexPath.row];
 
     return 94.0;
 }
@@ -285,7 +280,6 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSInteger units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
     NSDateComponents *components = [calendar components:units fromDate:date];
-    NSInteger day = [components day];
     NSInteger year = [components year];
     NSInteger month = [components month];
     NSDateFormatter *weekDay = [[NSDateFormatter alloc] init];
@@ -294,9 +288,6 @@
     [calMonth setDateFormat:@"MMM"];
 
     int theYear = year;
-
-    // Get the date for today in a comparable string format, i.e. day month
-    NSString *todayIs = [NSString stringWithFormat:@"%ld%@%@", (long)day, @" ", [calMonth stringFromDate:date]];
 
     // Adjust the year based on the date
     // We want to look at 2013 for 2013-2014 year, and so on

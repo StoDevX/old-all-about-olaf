@@ -92,7 +92,7 @@ NSString *trailer = @"";
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [self.activityIndicator startAnimating];
 
-    NSDictionary *movieObj = [[NSDictionary alloc] init];
+//    NSDictionary *movieObj = [[NSDictionary alloc] init];
 
     PFQuery *theQuery = [PFQuery queryWithClassName:self.parseClassName];
     [theQuery orderByDescending:@"createdAt"];

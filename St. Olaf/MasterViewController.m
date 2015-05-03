@@ -336,8 +336,6 @@ BOOL thirdSelected = false;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RSSItem *object = _objects[indexPath.row];
-
     RSSItem *item = [_objects objectAtIndex:indexPath.row];
     CGRect cellMessageRect = [item.cellMessage boundingRectWithSize:CGSizeMake(100, 65)
                                                             options:NSStringDrawingUsesLineFragmentOrigin

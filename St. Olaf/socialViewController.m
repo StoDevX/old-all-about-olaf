@@ -76,7 +76,6 @@ UIButton *button;
     // please note that it will work only for views without Navigation toolbars.
     [toolbar sizeToFit];
     CGFloat toolbarHeight = [toolbar frame].size.height;
-    CGFloat navbarHeight = [navBar frame].size.height;
 
     CGRect mainViewBounds = self.view.bounds;
     [toolbar setFrame:CGRectMake(CGRectGetMinX(mainViewBounds),

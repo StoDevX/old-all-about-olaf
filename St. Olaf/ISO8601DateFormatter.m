@@ -45,7 +45,7 @@ static NSMutableDictionary *timeZonesByOffset;
 
 + (void)purgeGlobalCaches
 {
-    NSMutableDictionary *oldCache = timeZonesByOffset;
+    // NSMutableDictionary *oldCache = timeZonesByOffset;
     timeZonesByOffset = nil;
 }
 

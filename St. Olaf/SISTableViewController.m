@@ -341,13 +341,8 @@
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setHTTPBody:postData];
 
-    // Errors if any
-    NSError *error;
     // Header response from the server
     NSURLResponse *response;
-
-    // Our data from the URL
-    NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 
     // Code to see if we have had any server errors or pages not found...
     int code = [(NSHTTPURLResponse *)response statusCode];
@@ -422,7 +417,6 @@
         NSCharacterSet *delimiters = [NSCharacterSet characterSetWithCharactersInString:@"()"];
         NSArray *splitString = [studentNumber[0] componentsSeparatedByCharactersInSet:delimiters];
 
-        NSString *xString = [splitString objectAtIndex:0];
         NSString *yString = [splitString objectAtIndex:1];
 
         // Save the Id into NSUserDefaults
@@ -524,11 +518,9 @@
                 HTMLNode *bodyNode = [parser body];
                 
                 NSArray *tdNodes = [bodyNode findChildTags:@"td"];
-                NSMutableDictionary * balances = [[NSMutableDictionary alloc] init];
                 for (HTMLNode *tdNode in tdNodes) {
                     // Daily meals left
                     if ([[tdNode getAttributeNamed:@"id"] isEqualToString:@"mealsleftdaily"]) {
-                        NSString * final = @"NumMeals";
                         HTMLNode * next  = [[tdNode nextSibling] nextSibling] ;
                         NSString * value  = [next contents];
                         value = [value stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -536,7 +528,6 @@
                     }
                     // Weekly meals left
                     if ([[tdNode getAttributeNamed:@"id"] isEqualToString:@"mealsleftweekly"]) {
-                        NSString * final2 = @"NumMeals";
                         HTMLNode * next2  = [[tdNode nextSibling] nextSibling] ;
                         NSString * value2  = [next2 contents];
                         value2 = [value2 stringByReplacingOccurrencesOfString:@" " withString:@""];

@@ -41,15 +41,6 @@ NSString *two;
 
     self.activityIndicator.hidesWhenStopped = YES;
 
-    //Get the current date to display the right RSS Food Menu Item from Bon Appetit
-    NSDate *date = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd MMM"];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSInteger units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
-    NSDateComponents *components = [calendar components:units fromDate:date];
-    NSInteger day = [components day];
-
     self.title = @"Cage Menu";
 
     if ([self hasConnectivity] == NO)
@@ -174,21 +165,6 @@ NSString *two;
 
 - (void)refreshFeed
 {
-    NSDate *date = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd MMM, yyy"];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSInteger units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
-    NSDateComponents *components = [calendar components:units fromDate:date];
-    NSInteger year = [components year];
-    NSInteger day = [components day];
-    NSDateFormatter *weekDay = [[NSDateFormatter alloc] init];
-    [weekDay setDateFormat:@"EEE,"];
-    NSDateFormatter *calMonth = [[NSDateFormatter alloc] init];
-    [calMonth setDateFormat:@"MMM"];
-
-    NSString *todayIs = [NSString stringWithFormat:@"%@%@%ld%@%@%@%ld", [weekDay stringFromDate:date], @" ", (long)day, @" ", [calMonth stringFromDate:date], @" ", (long)year];
-
     //Show activity indicators
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [self.activityIndicator startAnimating];

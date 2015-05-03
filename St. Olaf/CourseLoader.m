@@ -59,7 +59,6 @@
 		NSCalendar *calendar = [NSCalendar currentCalendar];
         NSInteger units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
         NSDateComponents *components = [calendar components:units fromDate:date];
-        NSInteger day = [components day];
         NSInteger year = [components year];
         NSInteger month = [components month];
         NSDateFormatter *weekDay = [[NSDateFormatter alloc] init];
