@@ -1,0 +1,13 @@
+---
+name: Hustad Science Library
+category: Libraries
+
+times:
+  Hours:
+    Mon: ['8:00am', '11:00pm']
+    Tue: ['8:00am', '11:00pm']
+    Wed: ['8:00am', '11:00pm']
+    Thu: ['8:00am', '11:00pm']
+    Fri: ['8:00am', '7:00pm']
+    Sat: ['9:30am', '4:00pm']
+    Sun: ['1:00pm', '11:00pm']

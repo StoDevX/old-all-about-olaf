@@ -1,0 +1,13 @@
+---
+name: Skoglund
+category: Gym
+
+times:
+  Hours:
+    Mon: ['6:30am', '10:45pm']
+    Tue: ['6:30am', '10:45pm']
+    Wed: ['6:30am', '10:45pm']
+    Thu: ['6:30am', '10:45pm']
+    Fri: ['6:30am', '8:45pm']
+    Sat: ['9:00am', '8:45pm']
+    Sun: ['12:00pm', '10:45pm']
