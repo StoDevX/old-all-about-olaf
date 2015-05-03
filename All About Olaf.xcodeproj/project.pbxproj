@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00F1A3801AF69454006DB1FE /* .clang-format in Resources */ = {isa = PBXBuildFile; fileRef = 00F1A37F1AF69454006DB1FE /* .clang-format */; };
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
 		3A01CD4E1AACC3E20001E536 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01CD4C1AACC3960001E536 /* libstdc++.6.dylib */; };
 		3A0ACE4717BFE7BB00975991 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0ACE4617BFE7BB00975991 /* Social.framework */; };
@@ -156,6 +157,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00F1A37F1AF69454006DB1FE /* .clang-format */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".clang-format"; sourceTree = "<group>"; };
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3A01CD461AACC26F0001E536 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		3A01CD4C1AACC3960001E536 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
@@ -783,6 +785,7 @@
 		3ADFA5EB17B75B70008E6251 = {
 			isa = PBXGroup;
 			children = (
+				00F1A37F1AF69454006DB1FE /* .clang-format */,
 				3AF70B7B18F9CDB2005CBD92 /* Images.xcassets */,
 				3ADFA5FD17B75B70008E6251 /* St. Olaf */,
 				3ADFA61F17B75B70008E6251 /* St. OlafTests */,
@@ -1101,6 +1104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AF70B7C18F9CDB2005CBD92 /* Images.xcassets in Resources */,
+				00F1A3801AF69454006DB1FE /* .clang-format in Resources */,
 				3ADFA67B17B75E1D008E6251 /* Main.storyboard in Resources */,
 				3ADFA60217B75B70008E6251 /* InfoPlist.strings in Resources */,
 				3ADFA66617B75CD9008E6251 /* arss_header.png in Resources */,
