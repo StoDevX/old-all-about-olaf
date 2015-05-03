@@ -123,9 +123,9 @@ enum numberOfMinutesPastMidnightType : NSInteger
     [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)view cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [super tableView:view cellForRowAtIndexPath:indexPath];
     NSInteger currentWeekday = self.currentWeekday;
     NSInteger numberOfMinutesPastMidnight = self.numberOfMinutesPastMidnight;
 
