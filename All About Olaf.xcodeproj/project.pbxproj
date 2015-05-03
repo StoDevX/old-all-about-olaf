@@ -911,7 +911,6 @@
 				3ADFA64E17B75CD9008E6251 /* RXMLElement.h */,
 				3ADFA64F17B75CD9008E6251 /* RXMLElement.m */,
 			);
-			name = RaptureXML;
 			path = RaptureXML;
 			sourceTree = "<group>";
 		};
