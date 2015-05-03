@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		009EB5071AF6C0E2003FDCE9 /* Bookstore.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 009EB4FD1AF6C0E2003FDCE9 /* Bookstore.yaml */; };
-		009EB5081AF6C0E2003FDCE9 /* Cage.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 009EB4FE1AF6C0E2003FDCE9 /* Cage.yaml */; };
-		009EB5091AF6C0E2003FDCE9 /* Convenience Store.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 009EB4FF1AF6C0E2003FDCE9 /* Convenience Store.yaml */; };
-		009EB50A1AF6C0E2003FDCE9 /* Music Library.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5001AF6C0E2003FDCE9 /* Music Library.yaml */; };
-		009EB50B1AF6C0E2003FDCE9 /* Pause Kitchen.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5011AF6C0E2003FDCE9 /* Pause Kitchen.yaml */; };
-		009EB50C1AF6C0E2003FDCE9 /* Post Office.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5021AF6C0E2003FDCE9 /* Post Office.yaml */; };
-		009EB50D1AF6C0E2003FDCE9 /* Rolvaag Library.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5031AF6C0E2003FDCE9 /* Rolvaag Library.yaml */; };
-		009EB50E1AF6C0E2003FDCE9 /* Science Library.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5041AF6C0E2003FDCE9 /* Science Library.yaml */; };
-		009EB50F1AF6C0E2003FDCE9 /* Skoglund.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5051AF6C0E2003FDCE9 /* Skoglund.yaml */; };
-		009EB5101AF6C0E2003FDCE9 /* Stav Hall.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5061AF6C0E2003FDCE9 /* Stav Hall.yaml */; };
+		009EB51B1AF6C97C003FDCE9 /* Bookstore.json in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5111AF6C97C003FDCE9 /* Bookstore.json */; };
+		009EB51C1AF6C97C003FDCE9 /* Cage.json in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5121AF6C97C003FDCE9 /* Cage.json */; };
+		009EB51D1AF6C97C003FDCE9 /* Convenience Store.json in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5131AF6C97C003FDCE9 /* Convenience Store.json */; };
+		009EB51E1AF6C97C003FDCE9 /* Music Library.json in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5141AF6C97C003FDCE9 /* Music Library.json */; };
+		009EB51F1AF6C97C003FDCE9 /* Pause Kitchen.json in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5151AF6C97C003FDCE9 /* Pause Kitchen.json */; };
+		009EB5201AF6C97C003FDCE9 /* Post Office.json in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5161AF6C97C003FDCE9 /* Post Office.json */; };
+		009EB5211AF6C97C003FDCE9 /* Rolvaag Library.json in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5171AF6C97C003FDCE9 /* Rolvaag Library.json */; };
+		009EB5221AF6C97C003FDCE9 /* Science Library.json in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5181AF6C97C003FDCE9 /* Science Library.json */; };
+		009EB5231AF6C97C003FDCE9 /* Skoglund.json in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5191AF6C97C003FDCE9 /* Skoglund.json */; };
+		009EB5241AF6C97C003FDCE9 /* Stav Hall.json in Resources */ = {isa = PBXBuildFile; fileRef = 009EB51A1AF6C97C003FDCE9 /* Stav Hall.json */; };
 		00F1A3801AF69454006DB1FE /* .clang-format in Resources */ = {isa = PBXBuildFile; fileRef = 00F1A37F1AF69454006DB1FE /* .clang-format */; };
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
 		3A01CD4E1AACC3E20001E536 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01CD4C1AACC3960001E536 /* libstdc++.6.dylib */; };
@@ -167,16 +167,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		009EB4FD1AF6C0E2003FDCE9 /* Bookstore.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Bookstore.yaml; path = building_hours/Bookstore.yaml; sourceTree = "<group>"; };
-		009EB4FE1AF6C0E2003FDCE9 /* Cage.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Cage.yaml; path = building_hours/Cage.yaml; sourceTree = "<group>"; };
-		009EB4FF1AF6C0E2003FDCE9 /* Convenience Store.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Convenience Store.yaml"; path = "building_hours/Convenience Store.yaml"; sourceTree = "<group>"; };
-		009EB5001AF6C0E2003FDCE9 /* Music Library.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Music Library.yaml"; path = "building_hours/Music Library.yaml"; sourceTree = "<group>"; };
-		009EB5011AF6C0E2003FDCE9 /* Pause Kitchen.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Pause Kitchen.yaml"; path = "building_hours/Pause Kitchen.yaml"; sourceTree = "<group>"; };
-		009EB5021AF6C0E2003FDCE9 /* Post Office.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Post Office.yaml"; path = "building_hours/Post Office.yaml"; sourceTree = "<group>"; };
-		009EB5031AF6C0E2003FDCE9 /* Rolvaag Library.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Rolvaag Library.yaml"; path = "building_hours/Rolvaag Library.yaml"; sourceTree = "<group>"; };
-		009EB5041AF6C0E2003FDCE9 /* Science Library.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Science Library.yaml"; path = "building_hours/Science Library.yaml"; sourceTree = "<group>"; };
-		009EB5051AF6C0E2003FDCE9 /* Skoglund.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Skoglund.yaml; path = building_hours/Skoglund.yaml; sourceTree = "<group>"; };
-		009EB5061AF6C0E2003FDCE9 /* Stav Hall.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Stav Hall.yaml"; path = "building_hours/Stav Hall.yaml"; sourceTree = "<group>"; };
+		009EB5111AF6C97C003FDCE9 /* Bookstore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Bookstore.json; path = building_hours/Bookstore.json; sourceTree = "<group>"; };
+		009EB5121AF6C97C003FDCE9 /* Cage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Cage.json; path = building_hours/Cage.json; sourceTree = "<group>"; };
+		009EB5131AF6C97C003FDCE9 /* Convenience Store.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Convenience Store.json"; path = "building_hours/Convenience Store.json"; sourceTree = "<group>"; };
+		009EB5141AF6C97C003FDCE9 /* Music Library.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Music Library.json"; path = "building_hours/Music Library.json"; sourceTree = "<group>"; };
+		009EB5151AF6C97C003FDCE9 /* Pause Kitchen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Pause Kitchen.json"; path = "building_hours/Pause Kitchen.json"; sourceTree = "<group>"; };
+		009EB5161AF6C97C003FDCE9 /* Post Office.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Post Office.json"; path = "building_hours/Post Office.json"; sourceTree = "<group>"; };
+		009EB5171AF6C97C003FDCE9 /* Rolvaag Library.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Rolvaag Library.json"; path = "building_hours/Rolvaag Library.json"; sourceTree = "<group>"; };
+		009EB5181AF6C97C003FDCE9 /* Science Library.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Science Library.json"; path = "building_hours/Science Library.json"; sourceTree = "<group>"; };
+		009EB5191AF6C97C003FDCE9 /* Skoglund.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Skoglund.json; path = building_hours/Skoglund.json; sourceTree = "<group>"; };
+		009EB51A1AF6C97C003FDCE9 /* Stav Hall.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Stav Hall.json"; path = "building_hours/Stav Hall.json"; sourceTree = "<group>"; };
 		00F1A37F1AF69454006DB1FE /* .clang-format */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".clang-format"; sourceTree = "<group>"; };
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3A01CD461AACC26F0001E536 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
@@ -433,16 +433,16 @@
 		009EB4FC1AF69E40003FDCE9 /* Building Hours */ = {
 			isa = PBXGroup;
 			children = (
-				009EB4FD1AF6C0E2003FDCE9 /* Bookstore.yaml */,
-				009EB4FE1AF6C0E2003FDCE9 /* Cage.yaml */,
-				009EB4FF1AF6C0E2003FDCE9 /* Convenience Store.yaml */,
-				009EB5001AF6C0E2003FDCE9 /* Music Library.yaml */,
-				009EB5011AF6C0E2003FDCE9 /* Pause Kitchen.yaml */,
-				009EB5021AF6C0E2003FDCE9 /* Post Office.yaml */,
-				009EB5031AF6C0E2003FDCE9 /* Rolvaag Library.yaml */,
-				009EB5041AF6C0E2003FDCE9 /* Science Library.yaml */,
-				009EB5051AF6C0E2003FDCE9 /* Skoglund.yaml */,
-				009EB5061AF6C0E2003FDCE9 /* Stav Hall.yaml */,
+				009EB5111AF6C97C003FDCE9 /* Bookstore.json */,
+				009EB5121AF6C97C003FDCE9 /* Cage.json */,
+				009EB5131AF6C97C003FDCE9 /* Convenience Store.json */,
+				009EB5141AF6C97C003FDCE9 /* Music Library.json */,
+				009EB5151AF6C97C003FDCE9 /* Pause Kitchen.json */,
+				009EB5161AF6C97C003FDCE9 /* Post Office.json */,
+				009EB5171AF6C97C003FDCE9 /* Rolvaag Library.json */,
+				009EB5181AF6C97C003FDCE9 /* Science Library.json */,
+				009EB5191AF6C97C003FDCE9 /* Skoglund.json */,
+				009EB51A1AF6C97C003FDCE9 /* Stav Hall.json */,
 			);
 			name = "Building Hours";
 			sourceTree = "<group>";
@@ -1140,21 +1140,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				009EB51D1AF6C97C003FDCE9 /* Convenience Store.json in Resources */,
+				009EB5211AF6C97C003FDCE9 /* Rolvaag Library.json in Resources */,
 				3AF70B7C18F9CDB2005CBD92 /* Images.xcassets in Resources */,
-				009EB5091AF6C0E2003FDCE9 /* Convenience Store.yaml in Resources */,
-				009EB50C1AF6C0E2003FDCE9 /* Post Office.yaml in Resources */,
-				009EB5071AF6C0E2003FDCE9 /* Bookstore.yaml in Resources */,
-				009EB5081AF6C0E2003FDCE9 /* Cage.yaml in Resources */,
-				009EB50A1AF6C0E2003FDCE9 /* Music Library.yaml in Resources */,
 				00F1A3801AF69454006DB1FE /* .clang-format in Resources */,
 				3ADFA67B17B75E1D008E6251 /* Main.storyboard in Resources */,
+				009EB5201AF6C97C003FDCE9 /* Post Office.json in Resources */,
+				009EB51F1AF6C97C003FDCE9 /* Pause Kitchen.json in Resources */,
+				009EB51E1AF6C97C003FDCE9 /* Music Library.json in Resources */,
 				3ADFA60217B75B70008E6251 /* InfoPlist.strings in Resources */,
-				009EB50F1AF6C0E2003FDCE9 /* Skoglund.yaml in Resources */,
+				009EB51C1AF6C97C003FDCE9 /* Cage.json in Resources */,
+				009EB51B1AF6C97C003FDCE9 /* Bookstore.json in Resources */,
 				3ADFA66617B75CD9008E6251 /* arss_header.png in Resources */,
-				009EB50D1AF6C0E2003FDCE9 /* Rolvaag Library.yaml in Resources */,
-				009EB50E1AF6C0E2003FDCE9 /* Science Library.yaml in Resources */,
-				009EB5101AF6C0E2003FDCE9 /* Stav Hall.yaml in Resources */,
-				009EB50B1AF6C0E2003FDCE9 /* Pause Kitchen.yaml in Resources */,
+				009EB5231AF6C97C003FDCE9 /* Skoglund.json in Resources */,
+				009EB5241AF6C97C003FDCE9 /* Stav Hall.json in Resources */,
+				009EB5221AF6C97C003FDCE9 /* Science Library.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
