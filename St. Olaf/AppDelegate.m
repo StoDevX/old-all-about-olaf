@@ -22,7 +22,10 @@
     // This allows us to customize the color of our UINavigationBar navigation item
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     // This allows us to customize the color of our UINaviagtionBar
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:252.0f / 255.0f green:166.0f / 255.0f blue:44.0f / 255.0f alpha:1.0]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:252.0f / 255.0f
+                                                                  green:166.0f / 255.0f
+                                                                   blue:44.0f / 255.0f
+                                                                  alpha:1.0]];
 
     // This allows us to play audio in the background as well as ignore vibrate/silent switch
     // by creating a separate thread
