@@ -11,7 +11,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import <UIKit/UIKit.h>
 
-@interface AboutViewController ()
+@interface AboutViewController () <UIGestureRecognizerDelegate>
+
+@property (nonatomic, strong) IBOutlet UISwipeGestureRecognizer *swipeLeftRecognizer;
 
 @end
 
@@ -20,7 +22,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 2)
+    // We are in the credits
+
+    /* messing with swipe gestures...
+        UISwipeGestureRecognizer * Swipeleft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeleft:)];
+        Swipeleft.direction=UISwipeGestureRecognizerDirectionUp;
+        [self.view addGestureRecognizer:Swipeleft];
+        */
+
+    // We are in the support
+    if (indexPath.row == 4)
     {
         if ([MFMailComposeViewController canSendMail])
         {
@@ -28,12 +39,27 @@
             controller.mailComposeDelegate = self;
             NSArray *toRecipients = [NSArray arrayWithObjects:@"support@drewvolz.com", nil];
             [controller setToRecipients:toRecipients];
-            [controller setSubject:@"St. Olaf App Support"];
+            [controller setSubject:@"Support"];
             [controller setMessageBody:@"" isHTML:YES];
             if (controller)
                 [self presentViewController:controller animated:YES completion:nil];
         }
     }
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -46,11 +72,19 @@
     return self;
 }
 
+//messing with swipe gestures...
+/*-(void)swipeleft:(UISwipeGestureRecognizer*)gestureRecognizer
+{
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Available" message:@"Please connect to a network." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    // optional - add more buttons:
+    [alert show];
+}
+*/
+
 - (void)viewDidLoad
 {
-    {
-        [super viewDidLoad];
-    }
+    [super viewDidLoad];
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller
@@ -59,7 +93,7 @@
 {
     if (result == MFMailComposeResultSent)
     {
-        NSLog(@"It has sent!");
+        //NSLog(@"It has sent!");
     }
     [self dismissViewControllerAnimated:YES completion:NULL];
 }

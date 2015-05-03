@@ -15,7 +15,9 @@
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *myMapView;
+@property (readonly, nonatomic) CLLocationManager *_myLocationManager;
 @property (nonatomic, strong) NSMutableArray *myLocArray;
 @property (strong, nonatomic) NSMutableArray *content;
+@property (weak, nonatomic) IBOutlet UIButton *centerMap;
 
 @end

@@ -8,9 +8,6 @@
 
 #import "Annotation.h"
 
-@interface Annotation ()
-@end
-
 @implementation Annotation
 
 @synthesize coordinate;

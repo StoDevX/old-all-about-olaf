@@ -23,7 +23,6 @@
         RXMLElement *rss = [RXMLElement elementFromURL: url];
         RXMLElement* title = [[rss child:@"channel"] child:@"title"];
         NSArray* items = [[rss child:@"channel"] children:@"item"];
-        
         NSMutableArray* result = [NSMutableArray arrayWithCapacity:items.count];
         
         //more code
@@ -32,7 +31,7 @@
             //iterate over the articles
             RSSItem* item = [[RSSItem alloc] init];
             item.title = [[e child:@"title"] text];
-            item.description = [[e child:@"description"] text];
+            item.contentEncoded = [[e child:@"encoded"] text];
             item.link = [NSURL URLWithString: [[e child:@"link"] text]];
             [result addObject: item];
         }
