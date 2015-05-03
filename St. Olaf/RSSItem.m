@@ -8,39 +8,37 @@
 
 #import "RSSItem.h"
 #import "GTMNSString+HTML.h"
+#import "NSString_stripHtml.h"
 
 @implementation RSSItem
 
--(NSAttributedString*)cellMessage
+- (NSAttributedString *)cellMessage
 {
-    if (_cellMessage!=nil) return _cellMessage;
-    
-    NSDictionary* normalStyle = @{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:16.0]};
-    
-    NSMutableAttributedString* articleAbstract = [[NSMutableAttributedString alloc] initWithString:self.title];
-    
+    if (_cellMessage != nil)
+        return _cellMessage;
+
+    NSDictionary *normalStyle = @{ NSFontAttributeName : [UIFont fontWithName:@"Helvetica" size:16.0] };
+
+    NSMutableAttributedString *articleAbstract = [[NSMutableAttributedString alloc] initWithString:self.title];
+
     [articleAbstract setAttributes:normalStyle
                              range:NSMakeRange(0, self.title.length)];
-    
-    [articleAbstract appendAttributedString:
-     [[NSAttributedString alloc] initWithString:@"\n\n"]
-     ];
-    
+
     int startIndex = [articleAbstract length];
-    
-    NSString* description = [NSString stringWithFormat:@"%@...", [self.description substringToIndex:0]];
-    description = [description gtm_stringByUnescapingFromHTML];
-    
-    [articleAbstract appendAttributedString:
-     [[NSAttributedString alloc] initWithString: description]
-     ];
-    
+
+    self.contentEncoded = [self.contentEncoded stringByReplacingOccurrencesOfString:@"<p class=\"wp-caption-text\">" withString:@""];
+    self.contentEncoded = [self.contentEncoded stringByReplacingOccurrencesOfString:@"</p>" withString:@"\n"];
+    self.contentEncoded = [self.contentEncoded stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
+    self.contentEncoded = [self.contentEncoded stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    self.contentEncoded = [self.contentEncoded stripHtml];
+    self.contentEncoded = [self.contentEncoded stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
     [articleAbstract setAttributes:normalStyle
                              range:NSMakeRange(startIndex, articleAbstract.length - startIndex)];
-    
+
     _cellMessage = articleAbstract;
+
     return _cellMessage;
-    
 }
 
 @end

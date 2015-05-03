@@ -7,37 +7,36 @@
 
 #import "TableHeaderView.h"
 
-@interface TableHeaderView()
+@interface TableHeaderView ()
 {
-	UILabel* label;
+    UILabel *label;
 }
 @end
 
 @implementation TableHeaderView
 
-- (id)initWithText:(NSString*)text
+- (id)initWithText:(NSString *)text
 {
-	UIImage* img = [UIImage imageNamed:@"arss_header.png"];
-    if ((self = [super initWithImage:img])) {
+    UIImage *img = [UIImage imageNamed:@"arss_header.png"];
+    if ((self = [super initWithImage:img]))
+    {
         // Initialization code
-		label = [[UILabel alloc] initWithFrame:CGRectMake(110,-25,200,70)];
-		label.textColor = [UIColor blackColor];
-		label.shadowColor = [UIColor grayColor];
-		label.shadowOffset = CGSizeMake(1, 1);
-		label.backgroundColor = [UIColor clearColor];
-		label.font = [UIFont systemFontOfSize:20];
-		label.text = text;
-		label.numberOfLines = 2;
-		[self addSubview:label];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(110, -25, 200, 70)];
+        label.textColor = [UIColor blackColor];
+        label.shadowColor = [UIColor grayColor];
+        label.shadowOffset = CGSizeMake(1, 1);
+        label.backgroundColor = [UIColor clearColor];
+        label.font = [UIFont systemFontOfSize:20];
+        label.text = text;
+        label.numberOfLines = 2;
+        [self addSubview:label];
     }
     return self;
 }
 
-- (void)setText:(NSString*)text
+- (void)setText:(NSString *)text
 {
-	label.text = @"Updating...";
+    label.text = @"Updating...";
 }
-
-
 
 @end

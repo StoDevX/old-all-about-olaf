@@ -16,7 +16,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *loginButton;
 
-
 // Stored Secure Data
 @property (strong, nonatomic) UITextField *username;
 @property (strong, nonatomic) UITextField *password;
@@ -41,6 +40,5 @@
 @property (strong, nonatomic) NSFileManager *fileManager;
 @property (strong, nonatomic) NSMutableDictionary *data;
 @property (strong, nonatomic) NSMutableDictionary *savedInfo;
-
 
 @end

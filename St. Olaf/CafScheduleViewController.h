@@ -11,15 +11,13 @@
 #import <netinet/in.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 
-
-@interface CafScheduleViewController : UITableViewController<UIAlertViewDelegate>{
-    
+@interface CafScheduleViewController : UITableViewController <UIAlertViewDelegate>
+{
     UIView *subView;
 }
 @property (nonatomic, retain) UIView *subView;
 + (NSString *)stringByStrippingHTML:(NSString *)inputString;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *noMenuText;
-
 
 @end

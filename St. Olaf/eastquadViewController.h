@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface eastquadViewController : UIViewController<UIAlertViewDelegate>{
-    
+@interface eastquadViewController : UIViewController <UIAlertViewDelegate>
+{
     UIView *subView;
 }
 @property (nonatomic, retain) UIView *subView;

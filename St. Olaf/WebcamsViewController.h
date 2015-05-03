@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WebcamsViewController : UIViewController<UIAlertViewDelegate>{
-    
+@interface WebcamsViewController : UIViewController <UIAlertViewDelegate>
+{
     UIView *subView;
 }
 @property (nonatomic, retain) UIView *subView;
-
 
 @end

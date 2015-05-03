@@ -23,5 +23,4 @@
 @property (strong, nonatomic) NSAttributedString *cellMessage;
 @property (strong, nonatomic) NSAttributedString *none;
 
-
 @end

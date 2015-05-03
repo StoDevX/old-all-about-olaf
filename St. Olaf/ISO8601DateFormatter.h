@@ -24,34 +24,35 @@
  *Ordinal format is YYYY-DDD, where DDD ranges from 1 to 366; for example, 2009-32 is 2009-02-01.
  *Week format is YYYY-Www-D, where ww ranges from 1 to 53 (the 'W' is literal) and D ranges from 1 to 7; for example, 2009-W05-07.
  */
-enum {
-	ISO8601DateFormatCalendar,
-	ISO8601DateFormatOrdinal,
-	ISO8601DateFormatWeek,
+enum
+{
+    ISO8601DateFormatCalendar,
+    ISO8601DateFormatOrdinal,
+    ISO8601DateFormatWeek,
 };
 typedef NSUInteger ISO8601DateFormat;
 
 //The default separator for time values. Currently, this is ':'.
 extern unichar ISO8601DefaultTimeSeparatorCharacter;
 
-@interface ISO8601DateFormatter: NSFormatter
+@interface ISO8601DateFormatter : NSFormatter
 {
-	NSString *lastUsedFormatString;
-	NSDateFormatter *unparsingFormatter;
+    NSString *lastUsedFormatString;
+    NSDateFormatter *unparsingFormatter;
 
-	NSCalendar *parsingCalendar, *unparsingCalendar;
+    NSCalendar *parsingCalendar, *unparsingCalendar;
 
-	NSTimeZone *defaultTimeZone;
-	ISO8601DateFormat format;
-	unichar timeSeparator;
-	BOOL includeTime;
-	BOOL parsesStrictly;
+    NSTimeZone *defaultTimeZone;
+    ISO8601DateFormat format;
+    unichar timeSeparator;
+    BOOL includeTime;
+    BOOL parsesStrictly;
 }
 
 //Call this if you get a memory warning.
-+ (void) purgeGlobalCaches;
++ (void)purgeGlobalCaches;
 
-@property(nonatomic, retain) NSTimeZone *defaultTimeZone;
+@property (nonatomic, retain) NSTimeZone *defaultTimeZone;
 
 #pragma mark Parsing
 
@@ -59,13 +60,13 @@ extern unichar ISO8601DefaultTimeSeparatorCharacter;
 
 @property BOOL parsesStrictly;
 
-- (NSDateComponents *) dateComponentsFromString:(NSString *)string;
-- (NSDateComponents *) dateComponentsFromString:(NSString *)string timeZone:(out NSTimeZone **)outTimeZone;
-- (NSDateComponents *) dateComponentsFromString:(NSString *)string timeZone:(out NSTimeZone **)outTimeZone range:(out NSRange *)outRange;
+- (NSDateComponents *)dateComponentsFromString:(NSString *)string;
+- (NSDateComponents *)dateComponentsFromString:(NSString *)string timeZone:(out NSTimeZone **)outTimeZone;
+- (NSDateComponents *)dateComponentsFromString:(NSString *)string timeZone:(out NSTimeZone **)outTimeZone range:(out NSRange *)outRange;
 
-- (NSDate *) dateFromString:(NSString *)string;
-- (NSDate *) dateFromString:(NSString *)string timeZone:(out NSTimeZone **)outTimeZone;
-- (NSDate *) dateFromString:(NSString *)string timeZone:(out NSTimeZone **)outTimeZone range:(out NSRange *)outRange;
+- (NSDate *)dateFromString:(NSString *)string;
+- (NSDate *)dateFromString:(NSString *)string timeZone:(out NSTimeZone **)outTimeZone;
+- (NSDate *)dateFromString:(NSString *)string timeZone:(out NSTimeZone **)outTimeZone range:(out NSRange *)outRange;
 
 #pragma mark Unparsing
 
@@ -73,7 +74,7 @@ extern unichar ISO8601DefaultTimeSeparatorCharacter;
 @property BOOL includeTime;
 @property unichar timeSeparator;
 
-- (NSString *) stringFromDate:(NSDate *)date;
-- (NSString *) stringFromDate:(NSDate *)date timeZone:(NSTimeZone *)timeZone;
+- (NSString *)stringFromDate:(NSDate *)date;
+- (NSString *)stringFromDate:(NSDate *)date timeZone:(NSTimeZone *)timeZone;
 
 @end

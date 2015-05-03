@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *ingredientsTextView;
 @property (weak, nonatomic) IBOutlet UILabel *wordTitle;
-@property (nonatomic, strong) UISegmentedControl* nextPrevSegmentedControl;
+@property (nonatomic, strong) UISegmentedControl *nextPrevSegmentedControl;
 
 @property (nonatomic, strong) Recipe *recipe;
 @property (nonatomic, strong) NSMutableArray *recipeList;

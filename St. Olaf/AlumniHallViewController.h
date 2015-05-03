@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AlumniHallViewController : UIViewController<UIAlertViewDelegate>{
-    
+@interface AlumniHallViewController : UIViewController <UIAlertViewDelegate>
+{
     UIView *subView;
 }
 @property (nonatomic, retain) UIView *subView;

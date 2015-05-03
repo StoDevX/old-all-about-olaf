@@ -16,11 +16,11 @@
 
 @implementation StavMenuViewController
 
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self)
+    {
         // Custom initialization
     }
     return self;
@@ -29,60 +29,58 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if([self hasConnectivity] == NO) {
-        
+    if ([self hasConnectivity] == NO)
+    {
         CGRect frame = [[UIScreen mainScreen] bounds];
         subView = [[UIView alloc] initWithFrame:frame];
         subView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:subView];
-        
+
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Available" message:@"Please connect to a network." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
         // optional - add more buttons:
         [alert show];
     }
-    
-    else {
-        
-        
+
+    else
+    {
         //Define a date
         NSDate *theDate;
-        
+
         //Initialise it
         theDate = [[NSDate alloc] init];
-        
+
         //Format the date
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        
+
         //Get the hour
         [dateFormatter setDateFormat:@"HH"];
         int hour = [[dateFormatter stringFromDate:[NSDate date]] intValue];
-        
-        
-        
+
         //Load screen...
         CGRect frame = [[UIScreen mainScreen] bounds];
         _overlayView = [[UIView alloc] initWithFrame:frame];
         _overlayView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:_overlayView];
-        [self.view addSubview: _loadingMenuText];
-        [self.view addSubview: _loadingMenuSpinner];
+        [self.view addSubview:_loadingMenuText];
+        [self.view addSubview:_loadingMenuSpinner];
         [_loadingMenuSpinner startAnimating];
-        
+
         [_mobileSite setDelegate:self];
         _mobileSite.scrollView.scrollEnabled = TRUE;
-        
+
         // Set width and height of view to be full screen
         _mobileSite.frame = frame;
-        
-        
+
         NSString *urlString;
-        
+
         // If it is before 2pm...load lunch menu
-        if (hour < 14) {
+        if (hour < 14)
+        {
             urlString = @"http://stolaf.cafebonappetit.com/cafe/stav-hall/#Lunch";
         }
         // If it is after 2pm...load dinner menu
-        else {
+        else
+        {
             urlString = @"http://stolaf.cafebonappetit.com/cafe/stav-hall/#Dinner";
         }
 
@@ -98,8 +96,7 @@
                                    if ([data length] > 0 && error == nil) [_mobileSite loadRequest:request];
                                    else if (error != nil) NSLog(@"Error: %@", error);
                                }];
-        
-        
+
         // Set-up the forward/backward buttons for the webview
         UIToolbar *toolbar = [UIToolbar new];
         // create a bordered style button with custom title
@@ -108,11 +105,10 @@
         UIBarButtonItem *reload = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reload:)];
         UIBarButtonItem *fixedItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
         fixedItem.width = 20.0f;
-        
-        
-        NSArray *items = [NSArray arrayWithObjects: back, fixedItem, fixedItem, forward, fixedItem, fixedItem, reload, nil];
+
+        NSArray *items = [NSArray arrayWithObjects:back, fixedItem, fixedItem, forward, fixedItem, fixedItem, reload, nil];
         toolbar.items = items;
-        
+
         // size up the toolbar and set its frame
         // please note that it will work only for views without Navigation toolbars.
         [toolbar sizeToFit];
@@ -126,48 +122,49 @@
     }
 }
 
-
 /*
  Connectivity testing code pulled from Apple's Reachability Example: http://developer.apple.com/library/ios/#samplecode/Reachability
  */
--(BOOL)hasConnectivity {
+- (BOOL)hasConnectivity
+{
     struct sockaddr_in zeroAddress;
     bzero(&zeroAddress, sizeof(zeroAddress));
     zeroAddress.sin_len = sizeof(zeroAddress);
     zeroAddress.sin_family = AF_INET;
-    
-    SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, (const struct sockaddr*)&zeroAddress);
-    if(reachability != NULL) {
+
+    SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, (const struct sockaddr *)&zeroAddress);
+    if (reachability != NULL)
+    {
         //NetworkStatus retVal = NotReachable;
         SCNetworkReachabilityFlags flags;
-        if (SCNetworkReachabilityGetFlags(reachability, &flags)) {
+        if (SCNetworkReachabilityGetFlags(reachability, &flags))
+        {
             if ((flags & kSCNetworkReachabilityFlagsReachable) == 0)
             {
                 // if target host is not reachable
                 return NO;
             }
-            
+
             if ((flags & kSCNetworkReachabilityFlagsConnectionRequired) == 0)
             {
                 // if target host is reachable and no connection is required
                 //  then we'll assume (for now) that your on Wi-Fi
                 return YES;
             }
-            
-            
-            if ((((flags & kSCNetworkReachabilityFlagsConnectionOnDemand ) != 0) ||
+
+            if ((((flags & kSCNetworkReachabilityFlagsConnectionOnDemand) != 0) ||
                  (flags & kSCNetworkReachabilityFlagsConnectionOnTraffic) != 0))
             {
                 // ... and the connection is on-demand (or on-traffic) if the
                 //     calling application is using the CFSocketStream or higher APIs
-                
+
                 if ((flags & kSCNetworkReachabilityFlagsInterventionRequired) == 0)
                 {
                     // ... and no [user] intervention is needed
                     return YES;
                 }
             }
-            
+
             if ((flags & kSCNetworkReachabilityFlagsIsWWAN) == kSCNetworkReachabilityFlagsIsWWAN)
             {
                 // ... but WWAN connections are OK if the calling application
@@ -176,67 +173,67 @@
             }
         }
     }
-    
+
     return NO;
 }
 
-
 - (void)alertView:(UIAlertView *)alertView
-clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0){
+    clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
-
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(BOOL)shouldAutorotate
+- (BOOL)shouldAutorotate
 {
     return NO;
 }
 
--(NSUInteger)supportedInterfaceOrientations
+- (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
 }
 
 // Reload
-- (void) reload:(UIBarButtonItem *)sender {
+- (void)reload:(UIBarButtonItem *)sender
+{
     [_mobileSite reload];
 }
 
 // Back
-- (void) back:(UIBarButtonItem *)sender {
+- (void)back:(UIBarButtonItem *)sender
+{
     [_mobileSite goBack];
 }
 
 // Forward
-- (void) forward:(UIBarButtonItem *)sender {
+- (void)forward:(UIBarButtonItem *)sender
+{
     [_mobileSite goForward];
 }
 
-
--(void)viewDidDisappear:(BOOL)animated
+- (void)viewDidDisappear:(BOOL)animated
 {
     _mobileSite.delegate = nil;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     self.hidesBottomBarWhenPushed = YES;
 }
 
--(void)viewWillDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
     self.hidesBottomBarWhenPushed = NO;
 }
-
 
 - (void)webViewDidFinishLoad:(UIWebView *)_mobileSite
 {
@@ -244,33 +241,30 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     //_mobileSite.scrollView.contentOffset = CGPointMake(0,1720);
     [self.overlayView removeFromSuperview];
-    [_loadingMenuText setHidden: YES];
-    [_loadingMenuSpinner setHidden: YES];
+    [_loadingMenuText setHidden:YES];
+    [_loadingMenuSpinner setHidden:YES];
     [_loadingMenuSpinner stopAnimating];
-    
-    //canGoBack and canGoForward are properties which indicate if there is any forward or backward history
-	if(_mobileSite.canGoBack == YES)
-	{
-		_back.enabled = YES;
-	}
-	if(_mobileSite.canGoForward == YES)
-	{
-		_forward.enabled = YES;
-	}
-}
 
+    //canGoBack and canGoForward are properties which indicate if there is any forward or backward history
+    if (_mobileSite.canGoBack == YES)
+    {
+        _back.enabled = YES;
+    }
+    if (_mobileSite.canGoForward == YES)
+    {
+        _forward.enabled = YES;
+    }
+}
 
 - (void)webViewDidStartLoad:(UIWebView *)_mobileSite
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end

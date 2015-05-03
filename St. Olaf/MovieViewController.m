@@ -14,7 +14,7 @@
 #import <sys/socket.h>
 #import <netinet/in.h>
 
-@interface MovieViewController () 
+@interface MovieViewController ()
 
 @end
 
@@ -37,15 +37,14 @@ NSString *location = @"";
 //Trailer information
 NSString *trailer = @"";
 
-
 @implementation MovieViewController
 @synthesize subView;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
-
+    if (self)
+    {
     }
     return self;
 }
@@ -53,19 +52,20 @@ NSString *trailer = @"";
 - (id)initWithCoder:(NSCoder *)aCoder
 {
     self = [super initWithCoder:aCoder];
-    if (self) {
+    if (self)
+    {
         // The className to query on
         self.parseClassName = @"Movie";
-        
+
         // The key of the PFObject to display in the label of the default cell style
         //self.textKey = @"word";
-        
+
         // Whether the built-in pull-to-refresh is enabled
         self.pullToRefreshEnabled = YES;
-        
+
         // Whether the built-in pagination is enabled
         self.paginationEnabled = NO;
-        
+
         // The number of objects to show per page
         //self.objectsPerPage = 10;
     }
@@ -78,27 +78,26 @@ NSString *trailer = @"";
     [query orderByDescending:@"createdAt"];
     query.limit = 1;
 
-    if ([self.objects count] == 0) {
+    if ([self.objects count] == 0)
+    {
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
 
     return query;
 }
 
-
 - (void)viewWillAppear:(BOOL)animated
 {
-    
     //Show activity indicators
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-        [self.activityIndicator startAnimating];
-    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [self.activityIndicator startAnimating];
+
     NSDictionary *movieObj = [[NSDictionary alloc] init];
-    
+
     PFQuery *theQuery = [PFQuery queryWithClassName:self.parseClassName];
     [theQuery orderByDescending:@"createdAt"];
     theQuery.limit = 1;
-    
+
     // Use countObjects instead of findObjects
     [theQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         title =     objects[0][@"title"];
@@ -107,31 +106,29 @@ NSString *trailer = @"";
         date =      [NSString stringWithFormat:@"%@%@%@", objects[0][@"showdates"], @"\n", objects[0][@"showtimes"]];
         trailer =   objects[0][@"trailer"];
     }];
-
 }
 
--(void)viewDidAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
     // Stop refresh control
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [self.activityIndicator stopAnimating];
-    
-    
+
     //******************************
     // Now display the trailer
     //******************************
-    
+
     //Variable to calculate screen width
     CGFloat width = CGRectGetWidth(self.view.bounds);
     //Now embed the youtube trailer for the movie onto the screen
-    UIWebView * youTubeWebView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 200, width, 250)];
-    youTubeWebView.allowsInlineMediaPlayback=YES;
-    youTubeWebView.mediaPlaybackRequiresUserAction=NO;
-    youTubeWebView.mediaPlaybackAllowsAirPlay=YES;
-    youTubeWebView.delegate=self;
-    youTubeWebView.scrollView.bounces=NO;
-    youTubeWebView.scrollView.scrollEnabled=NO;
-    
+    UIWebView *youTubeWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 200, width, 250)];
+    youTubeWebView.allowsInlineMediaPlayback = YES;
+    youTubeWebView.mediaPlaybackRequiresUserAction = NO;
+    youTubeWebView.mediaPlaybackAllowsAirPlay = YES;
+    youTubeWebView.delegate = self;
+    youTubeWebView.scrollView.bounces = NO;
+    youTubeWebView.scrollView.scrollEnabled = NO;
+
     //All of the crazy-delicious formatting we want for our video... to show up as we want it to
     NSString *embedHTML = @"\
     <html><head>\
@@ -148,8 +145,7 @@ NSString *trailer = @"";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-        
+
     /*
     //********************************
     // Begin the web-scraping process
@@ -255,22 +251,22 @@ NSString *trailer = @"";
     */
 }
 
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     //Now put the correct information into the correct UITableViewCell
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     //Format the cells to have unlimited lines
     [[cell textLabel] setNumberOfLines:0];
     [[cell detailTextLabel] setNumberOfLines:0];
     //Movie Title and Length
-    if (indexPath.row == 0 && indexPath.section == 0){
+    if (indexPath.row == 0 && indexPath.section == 0)
+    {
         cell.textLabel.text = title;
         cell.detailTextLabel.text = length;
     }
     //Showtimes
-    else if (indexPath.row == 0 && indexPath.section == 1){
+    else if (indexPath.row == 0 && indexPath.section == 1)
+    {
         date = [date stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         NSString *showDate = [NSString stringWithFormat:@"%@", date];
 
@@ -278,57 +274,59 @@ NSString *trailer = @"";
         cell.textLabel.font = [UIFont systemFontOfSize:15.0];
     }
     //Location
-    else if (indexPath.row == 0 && indexPath.section == 2){
+    else if (indexPath.row == 0 && indexPath.section == 2)
+    {
         cell.textLabel.text = location;
         cell.textLabel.font = [UIFont systemFontOfSize:15.0];
     }
-    
+
     return cell;
 }
-
 
 /*
  Connectivity testing code pulled from Apple's Reachability Example: http://developer.apple.com/library/ios/#samplecode/Reachability
  */
 
--(BOOL)hasConnectivity {
+- (BOOL)hasConnectivity
+{
     struct sockaddr_in zeroAddress;
     bzero(&zeroAddress, sizeof(zeroAddress));
     zeroAddress.sin_len = sizeof(zeroAddress);
     zeroAddress.sin_family = AF_INET;
-    
-    SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, (const struct sockaddr*)&zeroAddress);
-    if(reachability != NULL) {
+
+    SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, (const struct sockaddr *)&zeroAddress);
+    if (reachability != NULL)
+    {
         //NetworkStatus retVal = NotReachable;
         SCNetworkReachabilityFlags flags;
-        if (SCNetworkReachabilityGetFlags(reachability, &flags)) {
+        if (SCNetworkReachabilityGetFlags(reachability, &flags))
+        {
             if ((flags & kSCNetworkReachabilityFlagsReachable) == 0)
             {
                 // if target host is not reachable
                 return NO;
             }
-            
+
             if ((flags & kSCNetworkReachabilityFlagsConnectionRequired) == 0)
             {
                 // if target host is reachable and no connection is required
                 //  then we'll assume (for now) that your on Wi-Fi
                 return YES;
             }
-            
-            
-            if ((((flags & kSCNetworkReachabilityFlagsConnectionOnDemand ) != 0) ||
+
+            if ((((flags & kSCNetworkReachabilityFlagsConnectionOnDemand) != 0) ||
                  (flags & kSCNetworkReachabilityFlagsConnectionOnTraffic) != 0))
             {
                 // ... and the connection is on-demand (or on-traffic) if the
                 //     calling application is using the CFSocketStream or higher APIs
-                
+
                 if ((flags & kSCNetworkReachabilityFlagsInterventionRequired) == 0)
                 {
                     // ... and no [user] intervention is needed
                     return YES;
                 }
             }
-            
+
             if ((flags & kSCNetworkReachabilityFlagsIsWWAN) == kSCNetworkReachabilityFlagsIsWWAN)
             {
                 // ... but WWAN connections are OK if the calling application
@@ -337,18 +335,18 @@ NSString *trailer = @"";
             }
         }
     }
-    
+
     return NO;
 }
 
-
 - (void)alertView:(UIAlertView *)alertView
-clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0){
+    clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -361,15 +359,14 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(BOOL)shouldAutorotate
+- (BOOL)shouldAutorotate
 {
     return NO;
 }
 
--(NSUInteger)supportedInterfaceOrientations
+- (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
 }
-
 
 @end

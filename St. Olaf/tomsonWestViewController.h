@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface tomsonWestViewController : UIViewController<UIAlertViewDelegate>{
-    
+@interface tomsonWestViewController : UIViewController <UIAlertViewDelegate>
+{
     UIView *subView;
 }
 @property (nonatomic, retain) UIView *subView;

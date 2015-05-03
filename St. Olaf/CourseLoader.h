@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^CourseLoaderCompleteBlock)(NSArray* results);
+typedef void (^CourseLoaderCompleteBlock)(NSArray *results);
 
 @interface CourseLoader : NSObject
 
@@ -38,6 +38,6 @@ typedef void (^CourseLoaderCompleteBlock)(NSArray* results);
 @property (strong, nonatomic) NSMutableDictionary *data;
 @property (strong, nonatomic) NSMutableDictionary *savedInfo;
 
--(void)fetchCourses:(NSString*)foo complete:(CourseLoaderCompleteBlock)c;
+- (void)fetchCourses:(NSString *)foo complete:(CourseLoaderCompleteBlock)c;
 
 @end

@@ -11,7 +11,6 @@
 @interface LegalTextViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIScrollView *legalText;
 
-
 @property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
 

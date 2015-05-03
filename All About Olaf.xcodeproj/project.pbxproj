@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00F1A3801AF69454006DB1FE /* .clang-format in Resources */ = {isa = PBXBuildFile; fileRef = 00F1A37F1AF69454006DB1FE /* .clang-format */; };
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
 		3A01CD4E1AACC3E20001E536 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01CD4C1AACC3960001E536 /* libstdc++.6.dylib */; };
 		3A0ACE4717BFE7BB00975991 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0ACE4617BFE7BB00975991 /* Social.framework */; };
@@ -156,6 +157,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00F1A37F1AF69454006DB1FE /* .clang-format */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".clang-format"; sourceTree = "<group>"; };
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3A01CD461AACC26F0001E536 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		3A01CD4C1AACC3960001E536 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
@@ -260,8 +262,8 @@
 		3ACE56B5198DB22A0045D711 /* CourseLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseLoader.m; sourceTree = "<group>"; };
 		3ADBE0BD198C844900296032 /* MyCoursesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCoursesTableViewController.h; sourceTree = "<group>"; };
 		3ADBE0BE198C844900296032 /* MyCoursesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCoursesTableViewController.m; sourceTree = "<group>"; };
-		3ADBE0C3198C84C600296032 /* CourseDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseDetailTableViewController.h; path = ../CourseDetailTableViewController.h; sourceTree = "<group>"; };
-		3ADBE0C4198C84C600296032 /* CourseDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseDetailTableViewController.m; path = ../CourseDetailTableViewController.m; sourceTree = "<group>"; };
+		3ADBE0C3198C84C600296032 /* CourseDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDetailTableViewController.h; sourceTree = "<group>"; };
+		3ADBE0C4198C84C600296032 /* CourseDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDetailTableViewController.m; sourceTree = "<group>"; };
 		3ADFA5F417B75B70008E6251 /* All About Olaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "All About Olaf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADFA5F717B75B70008E6251 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3ADFA5F917B75B70008E6251 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -275,38 +277,38 @@
 		3ADFA62317B75B70008E6251 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3ADFA62517B75B70008E6251 /* St__OlafTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = St__OlafTests.m; sourceTree = "<group>"; };
 		3ADFA62F17B75C62008E6251 /* All About Olaf-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "All About Olaf-Info.plist"; sourceTree = "<group>"; };
-		3ADFA63117B75CAB008E6251 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = ../AboutViewController.h; sourceTree = "<group>"; };
-		3ADFA63217B75CAB008E6251 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = ../AboutViewController.m; sourceTree = "<group>"; };
-		3ADFA63317B75CAB008E6251 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Annotation.h; path = ../Annotation.h; sourceTree = "<group>"; };
-		3ADFA63417B75CAB008E6251 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Annotation.m; path = ../Annotation.m; sourceTree = "<group>"; };
-		3ADFA63517B75CAB008E6251 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
-		3ADFA63617B75CAB008E6251 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
-		3ADFA63A17B75CD8008E6251 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = ../DetailViewController.h; sourceTree = "<group>"; };
-		3ADFA63B17B75CD8008E6251 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = ../DetailViewController.m; sourceTree = "<group>"; };
-		3ADFA63C17B75CD8008E6251 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstViewController.h; path = ../FirstViewController.h; sourceTree = "<group>"; };
-		3ADFA63D17B75CD8008E6251 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstViewController.m; path = ../FirstViewController.m; sourceTree = "<group>"; };
-		3ADFA63E17B75CD8008E6251 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FourthViewController.h; path = ../FourthViewController.h; sourceTree = "<group>"; };
-		3ADFA63F17B75CD8008E6251 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FourthViewController.m; path = ../FourthViewController.m; sourceTree = "<group>"; };
+		3ADFA63117B75CAB008E6251 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		3ADFA63217B75CAB008E6251 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		3ADFA63317B75CAB008E6251 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		3ADFA63417B75CAB008E6251 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
+		3ADFA63517B75CAB008E6251 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3ADFA63617B75CAB008E6251 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3ADFA63A17B75CD8008E6251 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		3ADFA63B17B75CD8008E6251 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		3ADFA63C17B75CD8008E6251 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		3ADFA63D17B75CD8008E6251 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		3ADFA63E17B75CD8008E6251 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
+		3ADFA63F17B75CD8008E6251 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
 		3ADFA64117B75CD8008E6251 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		3ADFA64217B75CD9008E6251 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
-		3ADFA64317B75CD9008E6251 /* HoursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HoursViewController.h; path = ../HoursViewController.h; sourceTree = "<group>"; };
-		3ADFA64417B75CD9008E6251 /* HoursViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoursViewController.m; path = ../HoursViewController.m; sourceTree = "<group>"; };
-		3ADFA64617B75CD9008E6251 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = ../MasterViewController.h; sourceTree = "<group>"; };
-		3ADFA64717B75CD9008E6251 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = ../MasterViewController.m; sourceTree = "<group>"; };
+		3ADFA64317B75CD9008E6251 /* HoursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoursViewController.h; sourceTree = "<group>"; };
+		3ADFA64417B75CD9008E6251 /* HoursViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoursViewController.m; sourceTree = "<group>"; };
+		3ADFA64617B75CD9008E6251 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		3ADFA64717B75CD9008E6251 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		3ADFA64D17B75CD9008E6251 /* arss_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arss_header.png; sourceTree = "<group>"; };
 		3ADFA64E17B75CD9008E6251 /* RXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXMLElement.h; sourceTree = "<group>"; };
 		3ADFA64F17B75CD9008E6251 /* RXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXMLElement.m; sourceTree = "<group>"; };
-		3ADFA65017B75CD9008E6251 /* RSSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSSItem.h; path = ../RSSItem.h; sourceTree = "<group>"; };
-		3ADFA65117B75CD9008E6251 /* RSSItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSSItem.m; path = ../RSSItem.m; sourceTree = "<group>"; };
-		3ADFA65217B75CD9008E6251 /* RSSLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSSLoader.h; path = ../RSSLoader.h; sourceTree = "<group>"; };
-		3ADFA65317B75CD9008E6251 /* RSSLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSSLoader.m; path = ../RSSLoader.m; sourceTree = "<group>"; };
-		3ADFA65417B75CD9008E6251 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = ../SecondViewController.h; sourceTree = "<group>"; };
-		3ADFA65517B75CD9008E6251 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = ../SecondViewController.m; sourceTree = "<group>"; };
-		3ADFA65617B75CD9008E6251 /* socialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = socialViewController.h; path = ../socialViewController.h; sourceTree = "<group>"; };
-		3ADFA65717B75CD9008E6251 /* socialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = socialViewController.m; path = ../socialViewController.m; sourceTree = "<group>"; };
+		3ADFA65017B75CD9008E6251 /* RSSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSItem.h; sourceTree = "<group>"; };
+		3ADFA65117B75CD9008E6251 /* RSSItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSItem.m; sourceTree = "<group>"; };
+		3ADFA65217B75CD9008E6251 /* RSSLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSLoader.h; sourceTree = "<group>"; };
+		3ADFA65317B75CD9008E6251 /* RSSLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSLoader.m; sourceTree = "<group>"; };
+		3ADFA65417B75CD9008E6251 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		3ADFA65517B75CD9008E6251 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		3ADFA65617B75CD9008E6251 /* socialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socialViewController.h; sourceTree = "<group>"; };
+		3ADFA65717B75CD9008E6251 /* socialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = socialViewController.m; sourceTree = "<group>"; };
 		3ADFA65817B75CD9008E6251 /* St. Olaf-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "St. Olaf-Prefix.pch"; sourceTree = SOURCE_ROOT; };
-		3ADFA65B17B75CD9008E6251 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdViewController.h; path = ../ThirdViewController.h; sourceTree = "<group>"; };
-		3ADFA65C17B75CD9008E6251 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdViewController.m; path = ../ThirdViewController.m; sourceTree = "<group>"; };
+		3ADFA65B17B75CD9008E6251 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		3ADFA65C17B75CD9008E6251 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		3ADFA67017B75D32008E6251 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		3ADFA67217B75D3C008E6251 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		3ADFA67417B75D47008E6251 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -783,6 +785,7 @@
 		3ADFA5EB17B75B70008E6251 = {
 			isa = PBXGroup;
 			children = (
+				00F1A37F1AF69454006DB1FE /* .clang-format */,
 				3AF70B7B18F9CDB2005CBD92 /* Images.xcassets */,
 				3ADFA5FD17B75B70008E6251 /* St. Olaf */,
 				3ADFA61F17B75B70008E6251 /* St. OlafTests */,
@@ -901,7 +904,7 @@
 				3ADFA64F17B75CD9008E6251 /* RXMLElement.m */,
 			);
 			name = RaptureXML;
-			path = ../RaptureXML;
+			path = RaptureXML;
 			sourceTree = "<group>";
 		};
 		3AE2254917B961B0006762FE /* Legal Files */ = {
@@ -1101,6 +1104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AF70B7C18F9CDB2005CBD92 /* Images.xcassets in Resources */,
+				00F1A3801AF69454006DB1FE /* .clang-format in Resources */,
 				3ADFA67B17B75E1D008E6251 /* Main.storyboard in Resources */,
 				3ADFA60217B75B70008E6251 /* InfoPlist.strings in Resources */,
 				3ADFA66617B75CD9008E6251 /* arss_header.png in Resources */,

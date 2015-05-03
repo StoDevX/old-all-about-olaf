@@ -12,6 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface AboutViewController : UITableViewController <MFMailComposeViewControllerDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableViewCell *contactMe;
 
 @end

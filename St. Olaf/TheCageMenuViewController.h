@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TheCageMenuViewController : UIViewController<UIAlertViewDelegate>{
-    
+@interface TheCageMenuViewController : UIViewController <UIAlertViewDelegate>
+{
     UIView *subView;
 }
 @property (nonatomic, retain) UIView *subView;
