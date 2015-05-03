@@ -4,5 +4,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (stripHtml)
-- (NSString*)stripHtml;
+- (NSString *)stripHtml;
 @end

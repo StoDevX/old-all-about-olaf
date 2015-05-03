@@ -21,7 +21,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self)
+    {
         // Custom initialization
     }
     return self;
@@ -32,24 +33,22 @@
     [super viewDidLoad];
 }
 
-- (void) viewDidAppear:(BOOL)animated{
-    
-    NSURL * thePassedURL = passMePlease;
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSURL *thePassedURL = passMePlease;
 
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
-    
+
     [webView setDelegate:self];
 
-    NSURLRequest *req = [NSURLRequest requestWithURL: thePassedURL];
+    NSURLRequest *req = [NSURLRequest requestWithURL:thePassedURL];
     webView.scrollView.scrollEnabled = TRUE;
-    webView.scalesPageToFit=YES;
+    webView.scalesPageToFit = YES;
     [webView loadRequest:req];
     [self.view addSubview:webView];
-    
-    
-    
+
     // Set-up the forward/backward buttons for the webview
     UIToolbar *toolbar = [UIToolbar new];
     // create a bordered style button with custom title
@@ -58,10 +57,10 @@
     UIBarButtonItem *reload = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reload:)];
     UIBarButtonItem *fixedItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     fixedItem.width = 20.0f;
-    
-    NSArray *items = [NSArray arrayWithObjects: back, fixedItem, fixedItem, forward, fixedItem, fixedItem, reload, nil];
+
+    NSArray *items = [NSArray arrayWithObjects:back, fixedItem, fixedItem, forward, fixedItem, fixedItem, reload, nil];
     toolbar.items = items;
-    
+
     // size up the toolbar and set its frame
     // please note that it will work only for views without Navigation toolbars.
     [toolbar sizeToFit];
@@ -72,52 +71,53 @@
                                  CGRectGetWidth(mainViewBounds),
                                  toolbarHeight)];
     [self.view addSubview:toolbar];
-
 }
 
 //This is the share menu
 - (IBAction)shareButtonPressed:(id)sender
 {
-    NSURL * thePassedURL = passMePlease;
-    
+    NSURL *thePassedURL = passMePlease;
+
     self.activityViewController = [[UIActivityViewController alloc]
-                                   initWithActivityItems:@[thePassedURL] applicationActivities:nil];
+        initWithActivityItems:@[ thePassedURL ]
+        applicationActivities:nil];
     [self presentViewController:self.activityViewController animated:YES completion:nil];
-    
 }
 
 // Reload
-- (void) reload:(UIBarButtonItem *)sender {
+- (void)reload:(UIBarButtonItem *)sender
+{
     [webView reload];
 }
 
 // Back
-- (void) back:(UIBarButtonItem *)sender {
+- (void)back:(UIBarButtonItem *)sender
+{
     [webView goBack];
 }
 
 // Forward
-- (void) forward:(UIBarButtonItem *)sender {
+- (void)forward:(UIBarButtonItem *)sender
+{
     [webView goForward];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)_mobileSite
 {
-    [_loadingText setHidden: YES];
-    [_loadingSpinner setHidden: YES];
+    [_loadingText setHidden:YES];
+    [_loadingSpinner setHidden:YES];
     [_loadingSpinner stopAnimating];
-    
+
     //canGoBack and canGoForward are properties which indicate if there is any forward or backward history
-    if(_mobileSite.canGoBack == YES)
+    if (_mobileSite.canGoBack == YES)
     {
         _back.enabled = YES;
     }
-    if(_mobileSite.canGoForward == YES)
+    if (_mobileSite.canGoForward == YES)
     {
         _forward.enabled = YES;
     }
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -130,16 +130,14 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(BOOL)shouldAutorotate
+- (BOOL)shouldAutorotate
 {
     return NO;
 }
 
--(NSUInteger)supportedInterfaceOrientations
+- (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
 }
-
-
 
 @end

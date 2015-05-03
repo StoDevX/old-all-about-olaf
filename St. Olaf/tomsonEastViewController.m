@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Drew Volz. All rights reserved.
 //
 
-
 #import "tomsonEastViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <sys/socket.h>
@@ -25,7 +24,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self)
+    {
         // Custom initialization
     }
     return self;
@@ -34,18 +34,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if([self hasConnectivity] == NO) {
-        
+    if ([self hasConnectivity] == NO)
+    {
         CGRect frame = [[UIScreen mainScreen] bounds];
         subView = [[UIView alloc] initWithFrame:frame];
         subView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:subView];
-        
+
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Available" message:@"Please connect to a network." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
         // optional - add more buttons:
         [alert show];
     }
-    else{
+    else
+    {
         NSURL *streamURL = [NSURL URLWithString:@"http://stolaf-flash.streamguys.net/webcams/tomsoneast.stream/playlist.m3u8"];
         _streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:streamURL];
 
@@ -55,29 +56,27 @@
         CGFloat height = [UIScreen mainScreen].bounds.size.height;
         self.streamPlayer.view.center = self.view.center;
 
-
         // Screen size detection...
-        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
         {
             CGSize calc = [[UIScreen mainScreen] bounds].size;
-            if(calc.height <= 480)
+            if (calc.height <= 480)
             {
                 // iPhone Classic
-                [self.streamPlayer.view setFrame:CGRectMake( 0, 0, height=320, width=480 )];
+                [self.streamPlayer.view setFrame:CGRectMake(0, 0, height = 320, width = 480)];
             }
-            if(calc.height >= 568)
+            if (calc.height >= 568)
             {
                 // iPhone 5
-                [self.streamPlayer.view setFrame:CGRectMake( 5, 10, height=310, width=580 )];
+                [self.streamPlayer.view setFrame:CGRectMake(5, 10, height = 310, width = 580)];
             }
         }
 
         [self.streamPlayer.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
         self.streamPlayer.controlStyle = MPMovieControlStyleNone;
-        [self.view addSubview: self.streamPlayer.view];
+        [self.view addSubview:self.streamPlayer.view];
         [self.streamPlayer play];
 
-        
         /*
         // Detect if we are trying to swipe to change webcams
         UISwipeGestureRecognizer *recognizerBackward = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeFromBackward:)];
@@ -87,11 +86,10 @@
         [[self navigationController] setNavigationBarHidden:NO animated:YES];
         
          */
-         
-        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toggleBars:)];
+
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleBars:)];
         [self.view addGestureRecognizer:singleTap];
         singleTap.delegate = self;
-        
     }
 }
 
@@ -112,48 +110,49 @@
 }
 */
 
-
 /*
  Connectivity testing code pulled from Apple's Reachability Example: http://developer.apple.com/library/ios/#samplecode/Reachability
  */
--(BOOL)hasConnectivity {
+- (BOOL)hasConnectivity
+{
     struct sockaddr_in zeroAddress;
     bzero(&zeroAddress, sizeof(zeroAddress));
     zeroAddress.sin_len = sizeof(zeroAddress);
     zeroAddress.sin_family = AF_INET;
-    
-    SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, (const struct sockaddr*)&zeroAddress);
-    if(reachability != NULL) {
+
+    SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, (const struct sockaddr *)&zeroAddress);
+    if (reachability != NULL)
+    {
         //NetworkStatus retVal = NotReachable;
         SCNetworkReachabilityFlags flags;
-        if (SCNetworkReachabilityGetFlags(reachability, &flags)) {
+        if (SCNetworkReachabilityGetFlags(reachability, &flags))
+        {
             if ((flags & kSCNetworkReachabilityFlagsReachable) == 0)
             {
                 // if target host is not reachable
                 return NO;
             }
-            
+
             if ((flags & kSCNetworkReachabilityFlagsConnectionRequired) == 0)
             {
                 // if target host is reachable and no connection is required
                 //  then we'll assume (for now) that your on Wi-Fi
                 return YES;
             }
-            
-            
-            if ((((flags & kSCNetworkReachabilityFlagsConnectionOnDemand ) != 0) ||
+
+            if ((((flags & kSCNetworkReachabilityFlagsConnectionOnDemand) != 0) ||
                  (flags & kSCNetworkReachabilityFlagsConnectionOnTraffic) != 0))
             {
                 // ... and the connection is on-demand (or on-traffic) if the
                 //     calling application is using the CFSocketStream or higher APIs
-                
+
                 if ((flags & kSCNetworkReachabilityFlagsInterventionRequired) == 0)
                 {
                     // ... and no [user] intervention is needed
                     return YES;
                 }
             }
-            
+
             if ((flags & kSCNetworkReachabilityFlagsIsWWAN) == kSCNetworkReachabilityFlagsIsWWAN)
             {
                 // ... but WWAN connections are OK if the calling application
@@ -162,13 +161,15 @@
             }
         }
     }
-    
+
     return NO;
 }
 
 - (void)alertView:(UIAlertView *)alertView
-clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0){
+    clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
@@ -183,12 +184,12 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
--(NSUInteger)supportedInterfaceOrientations
+- (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 
--(BOOL)shouldAutorotate
+- (BOOL)shouldAutorotate
 {
     return YES;
 }
@@ -197,11 +198,10 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 {
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     BOOL statusBarHidden = YES;
-    
+
     BOOL barsHidden = self.navigationController.navigationBar.hidden;
     [self.navigationController setNavigationBarHidden:!barsHidden animated:YES];
-    
-    
+
     if (([UIApplication sharedApplication].statusBarHidden = YES))
     {
         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];

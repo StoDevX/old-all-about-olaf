@@ -17,7 +17,8 @@
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
+    if (self)
+    {
     }
     return self;
 }
@@ -25,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
 }
 
 // Header Titles Setion Heights
@@ -49,23 +49,28 @@
     return cell;
 }
 
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 0) {
-        if(indexPath.row == 0){
+    if (indexPath.section == 0)
+    {
+        if (indexPath.row == 0)
+        {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://5076454475"]];
         }
-        if(indexPath.row == 1){
+        if (indexPath.row == 1)
+        {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://18002221222"]];
         }
-        if(indexPath.row == 2){
+        if (indexPath.row == 2)
+        {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://5077863666"]];
         }
-        if(indexPath.row == 3){
+        if (indexPath.row == 3)
+        {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://5077863666"]];
         }
-        if(indexPath.row == 4){
+        if (indexPath.row == 4)
+        {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://5077863777"]];
         }
     }
@@ -76,25 +81,19 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(BOOL)shouldAutorotate
+- (BOOL)shouldAutorotate
 {
     return NO;
 }
 
--(NSUInteger)supportedInterfaceOrientations
+- (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
 }
-
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
-
-
-
-
-
 
 @end

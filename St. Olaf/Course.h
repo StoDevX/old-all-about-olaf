@@ -19,4 +19,3 @@
 @property (strong, nonatomic) NSAttributedString *cellMessage;
 
 @end
-

@@ -13,7 +13,7 @@
 //@interface RecipeTableViewController : UITableViewController
 @interface RecipeTableViewController : PFQueryTableViewController
 
-@property (strong,nonatomic) NSArray *recipes;
+@property (strong, nonatomic) NSArray *recipes;
 @property (nonatomic, assign) int myInt;
 @property (nonatomic, assign) int countOfParseObjs;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addWord;

@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-
-@interface ThirdViewController : UIViewController{
-NSMutableArray *myArray;
+@interface ThirdViewController : UIViewController
+{
+    NSMutableArray *myArray;
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *myMapView;

@@ -12,13 +12,14 @@
 
 @implementation RSSItem
 
--(NSAttributedString*)cellMessage
+- (NSAttributedString *)cellMessage
 {
-    if (_cellMessage!=nil) return _cellMessage;
-    
-    NSDictionary* normalStyle = @{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:16.0]};
-    
-    NSMutableAttributedString* articleAbstract = [[NSMutableAttributedString alloc] initWithString:self.title];
+    if (_cellMessage != nil)
+        return _cellMessage;
+
+    NSDictionary *normalStyle = @{ NSFontAttributeName : [UIFont fontWithName:@"Helvetica" size:16.0] };
+
+    NSMutableAttributedString *articleAbstract = [[NSMutableAttributedString alloc] initWithString:self.title];
 
     [articleAbstract setAttributes:normalStyle
                              range:NSMakeRange(0, self.title.length)];
@@ -32,15 +33,12 @@
     self.contentEncoded = [self.contentEncoded stripHtml];
     self.contentEncoded = [self.contentEncoded stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
-
     [articleAbstract setAttributes:normalStyle
                              range:NSMakeRange(startIndex, articleAbstract.length - startIndex)];
-    
-    
+
     _cellMessage = articleAbstract;
 
     return _cellMessage;
-    
 }
 
 @end

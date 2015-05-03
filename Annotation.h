@@ -9,18 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-typedef enum {
-	iCodeBlogAnnotationTypeApple = 0,
-	iCodeBlogAnnotationTypeEDU = 1,
-	iCodeBlogAnnotationTypeTaco = 2
+typedef enum
+{
+    iCodeBlogAnnotationTypeApple = 0,
+    iCodeBlogAnnotationTypeEDU = 1,
+    iCodeBlogAnnotationTypeTaco = 2
 } iCodeMapAnnotationType;
 
 @interface Annotation : NSObject <MKAnnotation>
 {
-	CLLocationCoordinate2D coordinate;
-	NSString *title;
-	NSString *subtitle;
-	iCodeMapAnnotationType annotationType;
+    CLLocationCoordinate2D coordinate;
+    NSString *title;
+    NSString *subtitle;
+    iCodeMapAnnotationType annotationType;
 }
 
 @property (nonatomic) CLLocationCoordinate2D coordinate;

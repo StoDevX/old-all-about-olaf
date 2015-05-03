@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StavMenuViewController : UIViewController<UIAlertViewDelegate>{
-    
+@interface StavMenuViewController : UIViewController <UIAlertViewDelegate>
+{
     UIView *subView;
 }
 @property (nonatomic, retain) UIView *subView;

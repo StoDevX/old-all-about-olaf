@@ -32,8 +32,7 @@
 @synthesize courseLoc;
 @synthesize courseInstructor;
 
-
--(void)fetchCourses:(NSString*)foo complete:(CourseLoaderCompleteBlock)c
+- (void)fetchCourses:(NSString *)foo complete:(CourseLoaderCompleteBlock)c
 {
     dispatch_async(kBgQueue, ^{
         
@@ -57,7 +56,7 @@
         NSDate* date = [NSDate date];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"dd MMM, yyy"];
-        NSCalendar *calendar = [NSCalendar currentCalendar];
+		NSCalendar *calendar = [NSCalendar currentCalendar];
         NSInteger units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
         NSDateComponents *components = [calendar components:units fromDate:date];
         NSInteger day = [components day];
@@ -336,8 +335,6 @@
             }
         }
     });
-    
 }
 
 @end
-

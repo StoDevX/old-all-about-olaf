@@ -19,37 +19,40 @@
 @implementation CourseDetailTableViewController
 @synthesize detailCourse;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.title = @"Detail";
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     // Return the number of sections.
     return 5;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     // Return the number of rows in the section.
     return 1;
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     NSInteger row = [indexPath row];
     NSInteger section = [indexPath section];
-    
-    Course* item = self.detailCourse;
-    
+
+    Course *item = self.detailCourse;
+
     // Return cells with data/labels
     if (row == 0 && section == 0)
     {
@@ -68,7 +71,6 @@
         cell.textLabel.text = item.courseTime;
         cell.textLabel.numberOfLines = 0;
         CGSizeMake(380.0f, MAXFLOAT);
-        
     }
     else if (row == 0 && section == 3)
     {
@@ -83,17 +85,19 @@
         CGSizeMake(380.0f, MAXFLOAT);
     }
 
-    cell.textLabel.font=[UIFont systemFontOfSize:13.0];
-    
+    cell.textLabel.font = [UIFont systemFontOfSize:13.0];
+
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if(indexPath.section == 2 && indexPath.row == 0) {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 2 && indexPath.row == 0)
+    {
         return 54.0;
     }
-    else{
+    else
+    {
         return 44.0;
     }
 }
@@ -103,38 +107,36 @@
     NSString *sectionName;
     switch (section)
     {
-        case 0:
-            sectionName = NSLocalizedString(@"Course Name", @"Course Name");
-            break;
-        case 1:
-            sectionName = NSLocalizedString(@"Department/Number/Section", @"Department/Number/Section");
-            break;
-        case 2:
-            sectionName = NSLocalizedString(@"Meeting Times", @"Meeting Times");
-            break;
-        case 3:
-            sectionName = NSLocalizedString(@"Meeting Locations", @"Meeting Locations");
-            break;
-        case 4:
-            sectionName = NSLocalizedString(@"Instructors", @"Instructors");
-            break;
+    case 0:
+        sectionName = NSLocalizedString(@"Course Name", @"Course Name");
+        break;
+    case 1:
+        sectionName = NSLocalizedString(@"Department/Number/Section", @"Department/Number/Section");
+        break;
+    case 2:
+        sectionName = NSLocalizedString(@"Meeting Times", @"Meeting Times");
+        break;
+    case 3:
+        sectionName = NSLocalizedString(@"Meeting Locations", @"Meeting Locations");
+        break;
+    case 4:
+        sectionName = NSLocalizedString(@"Instructors", @"Instructors");
+        break;
     }
     return sectionName;
 }
-
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(BOOL)shouldAutorotate
+- (BOOL)shouldAutorotate
 {
     return NO;
 }
 
--(NSUInteger)supportedInterfaceOrientations
+- (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
 }
@@ -228,6 +230,5 @@
     }
 }
 */
-
 
 @end

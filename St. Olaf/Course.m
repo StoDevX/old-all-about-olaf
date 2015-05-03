@@ -13,10 +13,11 @@
 
 @implementation Course
 
--(NSAttributedString*)cellMessage
+- (NSAttributedString *)cellMessage
 {
-    if (_cellMessage!=nil) return _cellMessage;
-    
+    if (_cellMessage != nil)
+        return _cellMessage;
+
     return _cellMessage;
 }
 

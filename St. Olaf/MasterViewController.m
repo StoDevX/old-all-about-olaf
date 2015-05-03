@@ -16,8 +16,8 @@
 @interface MasterViewController ()
 {
     NSArray *_objects;
-    NSURL* feedURL;
-    UIRefreshControl* refreshControl;
+    NSURL *feedURL;
+    UIRefreshControl *refreshControl;
 }
 @end
 
@@ -26,39 +26,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     //configuration
     self.title = @"News";
     feedURL = [NSURL URLWithString:@"http://www.stolaf.edu/news/index.cfm?fuseaction=RSS"];
-    
+
     //add refresh control to the table view
     refreshControl = [[UIRefreshControl alloc] init];
-    
+
     [refreshControl addTarget:self
                        action:@selector(refreshInvoked:forState:)
              forControlEvents:UIControlEventValueChanged];
-    
-    NSString* fetchMessage = [NSString stringWithFormat:@""];
-    
+
+    NSString *fetchMessage = [NSString stringWithFormat:@""];
+
     refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:fetchMessage
-                                                                     attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:11.0]}];
-    
-    [self.tableView addSubview: refreshControl];
-    
+                                                                     attributes:@{ NSFontAttributeName : [UIFont fontWithName:@"Helvetica" size:11.0] }];
+
+    [self.tableView addSubview:refreshControl];
+
     //add the header
     self.tableView.tableHeaderView = [[TableHeaderView alloc] initWithText:@""];
-    
+
     [self refreshFeed];
 }
 
--(void) refreshInvoked:(id)sender forState:(UIControlState)state
+- (void)refreshInvoked:(id)sender forState:(UIControlState)state
 {
     [self refreshFeed];
 }
 
--(void)refreshFeed
+- (void)refreshFeed
 {
-    RSSLoader* rss = [[RSSLoader alloc] init];
+    RSSLoader *rss = [[RSSLoader alloc] init];
     [rss fetchRssWithURL:feedURL
                 complete:^(NSString *title, NSArray *results) {
 
@@ -75,7 +75,6 @@
                         [refreshControl endRefreshing];
                     });
                 }];
-
 }
 
 #pragma mark - Table View
@@ -100,10 +99,10 @@
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RSSItem *item = [_objects objectAtIndex:indexPath.row];
-    CGRect cellMessageRect = [item.cellMessage boundingRectWithSize:CGSizeMake(100,65)
+    CGRect cellMessageRect = [item.cellMessage boundingRectWithSize:CGSizeMake(100, 65)
                                                             options:NSStringDrawingUsesLineFragmentOrigin
                                                             context:nil];
     return cellMessageRect.size.height;
@@ -111,7 +110,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    if ([[segue identifier] isEqualToString:@"showDetail"])
+    {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         RSSItem *object = _objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];

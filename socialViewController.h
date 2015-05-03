@@ -10,7 +10,8 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface socialViewController : UIViewController{
+@interface socialViewController : UIViewController
+{
     UIView *subView;
 }
 @property (nonatomic, retain) UIView *overlayView;
@@ -23,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIScrollView *textView;
 
-@property (nonatomic,strong) AVAudioPlayer *music;
+@property (nonatomic, strong) AVAudioPlayer *music;
 @property (weak, nonatomic) IBOutlet UILabel *noNetwork;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *back;

@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UITableViewController{
-    
+@interface FirstViewController : UITableViewController
+{
 }
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 

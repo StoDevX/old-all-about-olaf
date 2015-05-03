@@ -23,7 +23,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self)
+    {
         // Custom initialization
     }
     return self;
@@ -33,12 +34,12 @@
 {
     [super viewDidLoad];
 
-    
     //Add switchers for definitions
     count = 0;
 
     // Check and see if we want to display the controls (if we are not searching)
-    if (displaySegments) {
+    if (displaySegments)
+    {
         // Prepare an array of segmented control items as images
         NSArray *nextPrevItems = [NSArray arrayWithObjects:[UIImage imageNamed:@"down.png"], [UIImage imageNamed:@"up.png"], nil];
         // Create the segmented control with the array from above
@@ -52,12 +53,13 @@
         // Add the bar button item from above to the navigation item
         [self.navigationItem setRightBarButtonItem:rightButton animated:YES];
     }
-    
-	self.title = self.recipe.name;
+
+    self.title = self.recipe.name;
     self.wordTitle.text = self.recipe.name;
-    
+
     NSMutableString *ingredientsText = [NSMutableString string];
-    for (NSString* ingredient in self.recipe.ingredients) {
+    for (NSString *ingredient in self.recipe.ingredients)
+    {
         [ingredientsText appendFormat:@"%@\n", ingredient];
     }
     self.ingredientsTextView.text = ingredientsText;
@@ -65,24 +67,28 @@
 }
 
 // Prevent modification of local text (although it is only changed on the view temporariliy)
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
     return NO;
 }
 
 /***********************************
  Segmented control up and down
  **********************************/
-- (IBAction)segmentSwitch:(id)sender {
-    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+- (IBAction)segmentSwitch:(id)sender
+{
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
-    
+
     // This magical piece of code makes the segment reset. SWEETPOTATO BABY JESUS
     segmentedControl.momentary = YES;
-    
+
     // Fix me... this is a bad example of how to program. Fix the problem instead of ignoring the error.
-    @try {
+    @try
+    {
         // Check if we are trying to go forward, and that we are not at the last word
-        if (selectedSegment == 0) {
+        if (selectedSegment == 0)
+        {
             // NEXT
             count++;
             self.recipe = recipeList[theIndex + count];
@@ -92,7 +98,8 @@
             [self.ingredientsTextView setEditable:NO];
         }
         // Check if we are trying to go backward, and that we are not at the fist word
-        else if (selectedSegment == 1) {
+        else if (selectedSegment == 1)
+        {
             // PREV
             count--;
             self.recipe = recipeList[theIndex + count];
@@ -102,11 +109,10 @@
             [self.ingredientsTextView setEditable:NO];
         }
     }
-    @catch (NSException *e) {
-
+    @catch (NSException *e)
+    {
     }
 
-    
     // Disable selection of segment (for UI purposes... otherwise it "sticks"
     [nextPrevSegmentedControl setSelectedSegmentIndex:UISegmentedControlNoSegment];
 }
@@ -116,16 +122,15 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(BOOL)shouldAutorotate
+- (BOOL)shouldAutorotate
 {
     return NO;
 }
 
--(NSUInteger)supportedInterfaceOrientations
+- (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
 }
-
 
 - (void)didReceiveMemoryWarning
 {

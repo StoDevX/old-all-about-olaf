@@ -7,8 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController<UIAlertViewDelegate>{
-    
+@interface DetailViewController : UIViewController <UIAlertViewDelegate>
+{
     UIView *subView;
 }
 @property (nonatomic, retain) UIView *subView;
@@ -17,5 +17,4 @@
 @property (strong, nonatomic) id detailItem;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
- 
 @end

@@ -17,7 +17,6 @@
 //St. Olaf Building Locations
 //////////////////////////////////////////////
 
-
 //Administration
 #define ADMIN_LATITUDE 44.462523;
 #define ADMIN_LONGITUDE -93.185767;
@@ -154,7 +153,6 @@
 #define YTTERBOE_LATITUDE 44.461703;
 #define YTTERBOE_LONGITUDE -93.188436;
 
-
 //////////////////////////////////////////////
 ///////////////////////////////////////////////
 //Span
@@ -163,37 +161,35 @@
 @implementation ThirdViewController
 @synthesize myMapView;
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     //Create the region
     MKCoordinateRegion myRegion;
-    
+
     //Center
     CLLocationCoordinate2D center;
     center.latitude = DITTMANN_LATITUDE;
     center.longitude = DITTMANN_LONGITUDE;
-    
+
     //Span
     MKCoordinateSpan span;
     span.latitudeDelta = THE_SPAN;
     span.longitudeDelta = THE_SPAN;
-    
+
     myRegion.center = center;
     myRegion.span = span;
     myMapView.mapType = MKMapTypeSatellite;
-    
+
     //Set our mapView
     [myMapView setRegion:myRegion animated:NO];
-	
+
     //Annotation
-    NSMutableArray * locations = [[NSMutableArray alloc] init];
+    NSMutableArray *locations = [[NSMutableArray alloc] init];
     CLLocationCoordinate2D location;
-    Annotation * myAnn;
-    
-    
+    Annotation *myAnn;
+
     //////////////////////////////////////////////////////////
 
     //Administration Annotation
@@ -204,7 +200,7 @@
     myAnn.title = @"Administration";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Boe Chapel Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = BOE_LATITUDE;
@@ -213,7 +209,7 @@
     myAnn.title = @"Boe Chapel";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Buntrock Commons Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = BUNTROCK_LATITUDE;
@@ -222,7 +218,7 @@
     myAnn.title = @"Buntrock Commons";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Carlson Tennis Courts Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = CARLSON_LATITUDE;
@@ -231,7 +227,7 @@
     myAnn.title = @"Carlson Tennis Courts";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Christiansen Hall of Music Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = CHRISTIANSEN_LATITUDE;
@@ -240,7 +236,7 @@
     myAnn.title = @"Christiansen Hall of Music";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Dittmann Center Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = DITTMANN_LATITUDE;
@@ -249,7 +245,7 @@
     myAnn.title = @"Dittmann Center";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Ellingson Hall Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = ELLINGSON_LATITUDE;
@@ -258,7 +254,7 @@
     myAnn.title = @"Ellingson Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Hilleboe Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = HILLEBOE_LATITUDE;
@@ -267,7 +263,7 @@
     myAnn.title = @"Hilleboe Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Holland Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = HOLLAND_LATITUDE;
@@ -276,7 +272,7 @@
     myAnn.title = @"Holland Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Hoyme Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = HOYME_LATITUDE;
@@ -285,7 +281,7 @@
     myAnn.title = @"Hoyme Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Kildahl Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = KILDAHL_LATITUDE;
@@ -294,7 +290,7 @@
     myAnn.title = @"Kildahl Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Kittelsby Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = KITT_LATITUDE;
@@ -303,7 +299,7 @@
     myAnn.title = @"Kittelsby Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Larson Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = LARSON_LATITUDE;
@@ -312,7 +308,7 @@
     myAnn.title = @"Larson Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
- 
+
     //Mabel Shirley Field
     myAnn = [[Annotation alloc] init];
     location.latitude = MABEL_LATITUDE;
@@ -321,7 +317,7 @@
     myAnn.title = @"Mabel Shirley Field";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Madson Facilities Building Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = MADSON_LATITUDE;
@@ -330,7 +326,7 @@
     myAnn.title = @"Madson Facilities Building";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Manitou Field Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = MANITOU_LATITUDE;
@@ -339,7 +335,7 @@
     myAnn.title = @"Manitou Field";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Mark Almli Baseball Field
     myAnn = [[Annotation alloc] init];
     location.latitude = MARK_LATITUDE;
@@ -348,7 +344,7 @@
     myAnn.title = @"Mark Almli Baseball Field";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Mellby Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = MELLBY_LATITUDE;
@@ -357,7 +353,7 @@
     myAnn.title = @"Mellby Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Mohn Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = MOHN_LATITUDE;
@@ -375,7 +371,7 @@
     myAnn.title = @"Music Box";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Old Main Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = OLD_LATITUDE;
@@ -402,7 +398,7 @@
     myAnn.title = @"Regents Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Rolf Mellby Soccer Field Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = ROLF_LATITUDE;
@@ -411,7 +407,7 @@
     myAnn.title = @"Rolf Mellby Soccer Field";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Rolvaag Memorial Library Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = ROLVAAG_LATITUDE;
@@ -420,7 +416,7 @@
     myAnn.title = @"Rolvaag Memorial Library";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Speech-Theater Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = THEATER_LATITUDE;
@@ -438,7 +434,7 @@
     myAnn.title = @"Skifter Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Skoglund Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = SKOGLUND_LATITUDE;
@@ -447,7 +443,7 @@
     myAnn.title = @"Skoglund Athletic Center";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Steensland Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = STEENSLAND_LATITUDE;
@@ -456,7 +452,7 @@
     myAnn.title = @"Steensland Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
- 
+
     //Thorson Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = THORSON_LATITUDE;
@@ -465,7 +461,7 @@
     myAnn.title = @"Thorson Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Tom Porter Hall Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = TOMPORT_LATITUDE;
@@ -474,7 +470,7 @@
     myAnn.title = @"Tom Porter Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Tomson Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = TOMSON_LATITUDE;
@@ -483,7 +479,7 @@
     myAnn.title = @"Tomson Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Tostrud Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = TOSTRUD_LATITUDE;
@@ -492,7 +488,7 @@
     myAnn.title = @"Tostrud Center";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Ytterboe Hall Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = YTTERBOE_LATITUDE;
@@ -503,9 +499,7 @@
     [locations addObject:myAnn];
 
     [self.myMapView addAnnotations:locations];
-    
 }
-
 
 - (void)didReceiveMemoryWarning
 {

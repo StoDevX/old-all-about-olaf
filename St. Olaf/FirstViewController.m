@@ -17,7 +17,8 @@
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
+    if (self)
+    {
         // Custom initialization
     }
     return self;
@@ -27,18 +28,12 @@
 {
     [super viewDidLoad];
     /*self.tableView.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"Shadow.png"]]; */
-
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
 
 @end

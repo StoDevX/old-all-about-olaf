@@ -17,7 +17,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self)
+    {
         // Custom initialization
     }
     return self;
@@ -47,12 +48,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)changeWebsite {
-     if (_segment.selectedSegmentIndex == 0) {
-         [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.facebook.com/pages/St-Olaf-College/136842418331"]]];
-     }
-     else {
-         [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://twitter.com/StOlaf"]]];
-     }
+- (IBAction)changeWebsite
+{
+    if (_segment.selectedSegmentIndex == 0)
+    {
+        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.facebook.com/pages/St-Olaf-College/136842418331"]]];
+    }
+    else
+    {
+        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://twitter.com/StOlaf"]]];
+    }
 }
 @end

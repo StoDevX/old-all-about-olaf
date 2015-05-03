@@ -23,5 +23,4 @@
 @property (nonatomic, retain) NSString *Location;
 @property (nonatomic, retain) NSString *Description;
 
-
 @end

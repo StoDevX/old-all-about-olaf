@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InfoTableViewController : UITableViewController<UIAlertViewDelegate>{
-    
+@interface InfoTableViewController : UITableViewController <UIAlertViewDelegate>
+{
 }
 
 @property (strong, nonatomic) id detailItem;

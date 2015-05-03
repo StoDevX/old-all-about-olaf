@@ -13,9 +13,9 @@
 
 // Queue priority
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) //1
-#define key @"AIzaSyDMqNx0x1pNZ80pmu2HvCMMFX-KVjdwbxs" // Google Developer Console API Key
+#define key @"AIzaSyDMqNx0x1pNZ80pmu2HvCMMFX-KVjdwbxs"                         // Google Developer Console API Key
 
-@interface SecondViewController : UITableViewController<UIActionSheetDelegate>
+@interface SecondViewController : UITableViewController <UIActionSheetDelegate>
 {
     NSMutableArray *_EventArray;
     UIActionSheet *AddEventSheet;
@@ -26,8 +26,7 @@
 @property (nonatomic, assign) NSInteger selectedRow;
 @property (nonatomic, retain) UIView *subView;
 
-
--(void)LoadCalendarData;
--(void)AddEventToCalendar;
--(IBAction)cancel:(id)sender;
+- (void)LoadCalendarData;
+- (void)AddEventToCalendar;
+- (IBAction)cancel:(id)sender;
 @end

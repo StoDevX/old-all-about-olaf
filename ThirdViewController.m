@@ -17,7 +17,6 @@
 //St. Olaf Building Locations
 //////////////////////////////////////////////
 
-
 //Aaker House
 #define AAKERHOUSE_LATITUDE 44.45745;
 #define AAKERHOUSE_LONGITUDE -93.181594;
@@ -254,7 +253,6 @@
 #define YTTERBOEHOUSE_LATITUDE 44.46074;
 #define YTTERBOEHOUSE_LONGITUDE -93.179201;
 
-
 //////////////////////////////////////////////
 ///////////////////////////////////////////////
 //Span
@@ -264,37 +262,35 @@
 @synthesize myMapView;
 @synthesize centerMap;
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     //Create the region
     MKCoordinateRegion myRegion;
-    
+
     //Center
     CLLocationCoordinate2D center;
     center.latitude = DITTMANN_LATITUDE;
     center.longitude = -93.184158;
-    
+
     //Span
     MKCoordinateSpan span;
     span.latitudeDelta = THE_SPAN;
     span.longitudeDelta = THE_SPAN;
-    
+
     myRegion.center = center;
     myRegion.span = span;
     myMapView.mapType = MKMapTypeHybrid;
-    
+
     //Set our mapView
     [myMapView setRegion:myRegion animated:YES];
-	
+
     //Annotation
-    NSMutableArray * locations = [[NSMutableArray alloc] init];
+    NSMutableArray *locations = [[NSMutableArray alloc] init];
     CLLocationCoordinate2D location;
-    Annotation * myAnn;
-    
-    
+    Annotation *myAnn;
+
     //////////////////////////////////////////////////////////
 
     //Aaker House Annotation
@@ -305,7 +301,7 @@
     myAnn.title = @"Aaker House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Administration Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = ADMIN_LATITUDE;
@@ -314,7 +310,7 @@
     myAnn.title = @"Administration";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Boe Chapel Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = BOE_LATITUDE;
@@ -323,7 +319,7 @@
     myAnn.title = @"Boe Chapel";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Boe House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = BOEHOUSE_LATITUDE;
@@ -332,7 +328,7 @@
     myAnn.title = @"Boe House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Buntrock Commons Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = BUNTROCK_LATITUDE;
@@ -341,7 +337,7 @@
     myAnn.title = @"Buntrock Commons";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Carlson Tennis Courts Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = CARLSON_LATITUDE;
@@ -350,7 +346,7 @@
     myAnn.title = @"Carlson Tennis Courts";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Christiansen Hall of Music Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = CHRISTIANSEN_LATITUDE;
@@ -359,7 +355,7 @@
     myAnn.title = @"Christiansen Hall of Music";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Dittmann Center Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = DITTMANN_LATITUDE;
@@ -368,7 +364,7 @@
     myAnn.title = @"Dittmann Center";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Ellingson Hall Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = ELLINGSON_LATITUDE;
@@ -377,7 +373,7 @@
     myAnn.title = @"Ellingson Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Felland House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = FELLANDHOUSE_LATITUDE;
@@ -386,7 +382,7 @@
     myAnn.title = @"Felland House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Finholt House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = FINHOLTHOUSE_LATITUDE;
@@ -395,7 +391,7 @@
     myAnn.title = @"Finholt House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Flaten Art Barn Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = FlATEN_LATITUDE;
@@ -404,7 +400,7 @@
     myAnn.title = @"Flaten Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Flaten House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = FLATENHOUSE_LATITUDE;
@@ -413,7 +409,7 @@
     myAnn.title = @"Flaten House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Haldorsen House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = HALDORSENHOUSE_LATITUDE;
@@ -422,7 +418,7 @@
     myAnn.title = @"Haldorsen House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Hilleboe Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = HILLEBOE_LATITUDE;
@@ -431,7 +427,7 @@
     myAnn.title = @"Hilleboe Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Holland Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = HOLLAND_LATITUDE;
@@ -440,7 +436,7 @@
     myAnn.title = @"Holland Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Holland House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = HOLLANDHOUSE_LATITUDE;
@@ -449,7 +445,7 @@
     myAnn.title = @"Holland House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Holstad House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = HOLSTADHOUSE_LATITUDE;
@@ -458,7 +454,7 @@
     myAnn.title = @"Holstad House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Hoyme Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = HOYME_LATITUDE;
@@ -467,7 +463,7 @@
     myAnn.title = @"Hoyme Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Huggenvik House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = HUGGENVIKHOUSE_LATITUDE;
@@ -476,7 +472,7 @@
     myAnn.title = @"Huggenvik House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Johnson House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = JOHNSONHOUSE_LATITUDE;
@@ -485,7 +481,7 @@
     myAnn.title = @"Johnson House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Kildahl Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = KILDAHL_LATITUDE;
@@ -494,7 +490,7 @@
     myAnn.title = @"Kildahl Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Kittelsby Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = KITT_LATITUDE;
@@ -503,7 +499,7 @@
     myAnn.title = @"Kittelsby Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Larson Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = LARSON_LATITUDE;
@@ -512,7 +508,7 @@
     myAnn.title = @"Larson Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Larson House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = LARSONHOUSE_LATITUDE;
@@ -521,7 +517,7 @@
     myAnn.title = @"Larson House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Lee House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = LEEHOUSE_LATITUDE;
@@ -530,7 +526,7 @@
     myAnn.title = @"Lee House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
- 
+
     //Mabel Shirley Field
     myAnn = [[Annotation alloc] init];
     location.latitude = MABEL_LATITUDE;
@@ -539,7 +535,7 @@
     myAnn.title = @"Mabel Shirley Field";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Madson Facilities Building Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = MADSON_LATITUDE;
@@ -548,7 +544,7 @@
     myAnn.title = @"Madson Facilities Building";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Manitou Field Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = MANITOU_LATITUDE;
@@ -557,7 +553,7 @@
     myAnn.title = @"Manitou Field";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Mark Almli Baseball Field
     myAnn = [[Annotation alloc] init];
     location.latitude = MARK_LATITUDE;
@@ -566,7 +562,7 @@
     myAnn.title = @"Mark Almli Baseball Field";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Mellby Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = MELLBY_LATITUDE;
@@ -575,7 +571,7 @@
     myAnn.title = @"Mellby Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Mohn Hall Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = MOHN_LATITUDE;
@@ -584,7 +580,7 @@
     myAnn.title = @"Mohn Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Mohn House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = MOHNHOUSE_LATITUDE;
@@ -602,7 +598,7 @@
     myAnn.title = @"Music Box";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Ole Store Restaurant Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = OLESTORE_LATITUTDE;
@@ -611,7 +607,7 @@
     myAnn.title = @"Ole Store Restaurant";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Old Main Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = OLD_LATITUDE;
@@ -629,7 +625,7 @@
     myAnn.title = @"President's House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Pump House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = PUMPHOUSE_LATITUDE;
@@ -638,7 +634,7 @@
     myAnn.title = @"The Pump House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Rand Hall Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = RAND_LATITUDE;
@@ -647,7 +643,7 @@
     myAnn.title = @"Rand Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Rose House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = ROSEHOUSE_LATITUDE;
@@ -665,7 +661,7 @@
     myAnn.title = @"Regents Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Regents Math Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = REGENTS_MATH_LATITUDE;
@@ -674,7 +670,7 @@
     myAnn.title = @"Regents Math";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Rolf Mellby Soccer Field Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = ROLF_LATITUDE;
@@ -683,7 +679,7 @@
     myAnn.title = @"Rolf Mellby Soccer Field";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Rolvaag Memorial Library Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = ROLVAAG_LATITUDE;
@@ -692,7 +688,7 @@
     myAnn.title = @"Rolvaag Memorial Library";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Schmidt House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = SCHMIDTHOUSE_LATITUDE;
@@ -701,7 +697,7 @@
     myAnn.title = @"Schmidt House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Sovik House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = SOVIKHOUSE_LATITUDE;
@@ -710,7 +706,7 @@
     myAnn.title = @"Sovik House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Speech-Theater Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = THEATER_LATITUDE;
@@ -728,7 +724,7 @@
     myAnn.title = @"Skifter Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Skoglund Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = SKOGLUND_LATITUDE;
@@ -737,7 +733,7 @@
     myAnn.title = @"Skoglund Athletic Center";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Steensland Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = STEENSLAND_LATITUDE;
@@ -746,7 +742,7 @@
     myAnn.title = @"Steensland Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //St. John's House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = STJOHNHOUSE_LATITUDE;
@@ -755,7 +751,7 @@
     myAnn.title = @"St. John's House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Swanson House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = SWANSONHOUSE_LATITUDE;
@@ -764,7 +760,7 @@
     myAnn.title = @"Swanson House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
- 
+
     //Thompson House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = THOMPSONHOUSE_LATITUDE;
@@ -773,7 +769,7 @@
     myAnn.title = @"Thompson House";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Thorson Hall Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = THORSON_LATITUDE;
@@ -782,7 +778,7 @@
     myAnn.title = @"Thorson Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Tom Porter Hall Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = TOMPORT_LATITUDE;
@@ -791,7 +787,7 @@
     myAnn.title = @"Tom Porter Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Tomson Hall Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = TOMSON_LATITUDE;
@@ -800,7 +796,7 @@
     myAnn.title = @"Tomson Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Tostrud Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = TOSTRUD_LATITUDE;
@@ -809,7 +805,7 @@
     myAnn.title = @"Tostrud Center";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Ytterboe Hall Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = YTTERBOE_LATITUDE;
@@ -818,7 +814,7 @@
     myAnn.title = @"Ytterboe Hall";
     myAnn.subtitle = @"";
     [locations addObject:myAnn];
-    
+
     //Ytterboe House Annotation
     myAnn = [[Annotation alloc] init];
     location.latitude = YTTERBOEHOUSE_LATITUDE;
@@ -829,57 +825,54 @@
     [locations addObject:myAnn];
 
     [self.myMapView addAnnotations:locations];
-    
+
     // Set width and height of view to be full screen
     CGRect frame = [[UIScreen mainScreen] bounds];
     myMapView.frame = frame;
-    
-    
+
     // Set-up for the center map button
     [centerMap addTarget:self action:@selector(centerMap:) forControlEvents:UIControlEventTouchUpInside];
-
 }
 
 - (IBAction)centerMap:(UIButton *)sender
 {
     //User Location Button
-    
+
     //Center
     CLLocationCoordinate2D center;
     center.latitude = DITTMANN_LATITUDE;
     center.longitude = -93.184158;
     [myMapView setCenterCoordinate:center animated:YES];
-    
+
     //Zoom
     //Create the region
     MKCoordinateRegion myRegion;
     MKCoordinateSpan span;
     span.latitudeDelta = THE_SPAN;
     span.longitudeDelta = THE_SPAN;
-    
+
     myRegion.center = center;
     myRegion.span = span;
     [myMapView setRegion:myRegion animated:YES];
-
 }
 
-
--(void) viewDidFinishLoading{
-
+- (void)viewDidFinishLoading
+{
 }
 
--(void) viewDidAppear:(BOOL)animated {
-    
+- (void)viewDidAppear:(BOOL)animated
+{
     // Handling location information (permissions...)
     __myLocationManager = [[CLLocationManager alloc] init];
     __myLocationManager.delegate = self;
-    
+
     float ver = [[[UIDevice currentDevice] systemVersion] floatValue];
-    if (ver >= 8.0) {
+    if (ver >= 8.0)
+    {
         [__myLocationManager requestWhenInUseAuthorization]; // iOS 8 MUST
     }
     self.myMapView.showsUserLocation = YES;
-    [__myLocationManager startUpdatingLocation];  //requesting location updates
+    [__myLocationManager startUpdatingLocation]; //requesting location updates
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -890,7 +883,7 @@
         self.myMapView.showsUserLocation = NO;
         [__myLocationManager stopUpdatingLocation];
     }
-    
+
     [super viewWillDisappear:animated];
 }
 
@@ -899,18 +892,15 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(BOOL)shouldAutorotate
+- (BOOL)shouldAutorotate
 {
     return NO;
 }
 
-
--(NSUInteger)supportedInterfaceOrientations
+- (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {

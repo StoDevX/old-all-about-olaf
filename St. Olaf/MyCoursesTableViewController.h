@@ -10,7 +10,7 @@
 #import "CourseLoader.h"
 #import "Course.h"
 
-@interface MyCoursesTableViewController : UITableViewController 
+@interface MyCoursesTableViewController : UITableViewController
 @property (nonatomic, retain) UIView *subView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
@@ -19,8 +19,8 @@
 @property (strong, nonatomic) NSArray *detailItem;
 @property (strong, nonatomic) NSUserDefaults *prefs;
 
-@property (strong, nonatomic) UILabel  *noInterimText;
-@property (strong, nonatomic) UILabel  *noSemester2Text;
+@property (strong, nonatomic) UILabel *noInterimText;
+@property (strong, nonatomic) UILabel *noSemester2Text;
 
 @property (strong, nonatomic) NSMutableArray *courseNums2;
 @property (strong, nonatomic) NSMutableArray *courseNames2;

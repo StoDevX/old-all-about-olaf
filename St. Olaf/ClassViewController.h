@@ -10,8 +10,8 @@
 #import <sys/socket.h>
 #import <netinet/in.h>
 #import <SystemConfiguration/SystemConfiguration.h>
-@interface ClassViewController : UITableViewController<UIAlertViewDelegate, UISearchBarDelegate>{
-    
+@interface ClassViewController : UITableViewController <UIAlertViewDelegate, UISearchBarDelegate>
+{
     UIView *subView;
 }
 @property (nonatomic, retain) UIView *subView;
@@ -24,4 +24,3 @@
 - (IBAction)changeWebsite;
 
 @end
-

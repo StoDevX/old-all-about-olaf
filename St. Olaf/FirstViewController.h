@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UITableViewController{
-    
+@interface FirstViewController : UITableViewController
+{
 }
 @property (weak, nonatomic) IBOutlet UITableViewCell *newsButton;
 @property (weak, nonatomic) IBOutlet UITableViewCell *buildingButton;

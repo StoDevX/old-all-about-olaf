@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface mobileSiteViewController : UIViewController<UIAlertViewDelegate>{
-    
+@interface mobileSiteViewController : UIViewController <UIAlertViewDelegate>
+{
     UIView *subView;
     UIActivityIndicatorView *activityIndicator;
-
 }
 @property (nonatomic, retain) UIView *overlayView;
 @property (weak, nonatomic) IBOutlet UILabel *loadingText;

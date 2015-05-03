@@ -14,7 +14,7 @@
 
 @implementation RSSLoader4
 
--(void)fetchRssWithURL:(NSURL*)url complete:(RSSLoaderCompleteBlock)c
+- (void)fetchRssWithURL:(NSURL *)url complete:(RSSLoaderCompleteBlock)c
 {
     dispatch_async(kBgQueue, ^{
         
@@ -37,7 +37,6 @@
         
         c([title text], result);
     });
-    
 }
 
 @end

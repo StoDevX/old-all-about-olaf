@@ -15,16 +15,15 @@
 @synthesize subtitle;
 @synthesize annotationType;
 
--init
+- init
 {
-	return self;
+    return self;
 }
 
--initWithCoordinate:(CLLocationCoordinate2D)inCoord
+- initWithCoordinate:(CLLocationCoordinate2D)inCoord
 {
-	coordinate = inCoord;
-	return self;
+    coordinate = inCoord;
+    return self;
 }
 
 @end
-

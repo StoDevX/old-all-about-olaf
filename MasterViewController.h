@@ -9,8 +9,8 @@
 #import <sys/socket.h>
 #import <netinet/in.h>
 #import <SystemConfiguration/SystemConfiguration.h>
-@interface MasterViewController : UITableViewController<UIAlertViewDelegate>{
-    
+@interface MasterViewController : UITableViewController <UIAlertViewDelegate>
+{
     UIView *subView;
 }
 @property (nonatomic, retain) UIView *subView;
@@ -19,6 +19,5 @@
 - (IBAction)changeWebsite;
 @property (weak, nonatomic) IBOutlet UILabel *noInternet;
 @property (strong, nonatomic) UISegmentedControl *segmentedControl;
-
 
 @end

@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface bcplazaViewController : UIViewController<UIAlertViewDelegate>{
-    
+@interface bcplazaViewController : UIViewController <UIAlertViewDelegate>
+{
     UIView *subView;
 }
 @property (nonatomic, retain) UIView *subView;

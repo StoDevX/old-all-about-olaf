@@ -28,7 +28,8 @@
 
 //enum of days of week (easier to read)
 typedef enum dayOfWeek : NSInteger dayOfWeekType;
-enum dayOfWeekType : NSInteger {
+enum dayOfWeekType : NSInteger
+{
     Sunday = 1,
     Monday = 2,
     Tuesday = 3,
@@ -40,7 +41,8 @@ enum dayOfWeekType : NSInteger {
 
 //enum of minutes passed since midnight (easier to read)
 typedef enum numberOfMinutesPastMidnight : NSInteger numberOfMinutesPastMidnightType;
-enum numberOfMinutesPastMidnightType : NSInteger {
+enum numberOfMinutesPastMidnightType : NSInteger
+{
     Twelve_am = 0,
     Two_am = 120,
     Six_thirty_am = 390,
@@ -82,7 +84,8 @@ enum numberOfMinutesPastMidnightType : NSInteger {
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
+    if (self)
+    {
         // Custom initialization
     }
     return self;
@@ -98,7 +101,7 @@ enum numberOfMinutesPastMidnightType : NSInteger {
 
     //Set up our tracker for seconds after midnight
     NSDate *now = [NSDate date];
-    unsigned int unitFlags =  NSHourCalendarUnit | NSMinuteCalendarUnit | NSWeekdayCalendarUnit;
+    unsigned int unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit | NSWeekdayCalendarUnit;
     NSDateComponents *components = [calendar components:unitFlags fromDate:now];
 
     // Just take the number of hours and minutes, and multiply them together ourselves.
@@ -126,7 +129,8 @@ enum numberOfMinutesPastMidnightType : NSInteger {
     NSInteger currentWeekday = self.currentWeekday;
     NSInteger numberOfMinutesPastMidnight = self.numberOfMinutesPastMidnight;
 
-    if (indexPath.row == 0 && indexPath.section == 0) {
+    if (indexPath.row == 0 && indexPath.section == 0)
+    {
         //////////////////////////
         // Stav Hall Calculations
         //////////////////////////
@@ -134,97 +138,93 @@ enum numberOfMinutesPastMidnightType : NSInteger {
         //Mon-Fri
         if (currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday || currentWeekday == Friday)
         {
-
             //Closing soon
             //Stav Breakfast closes 09:45 a.m.
-            if (((numberOfMinutesPastMidnight >= Nine_fourty_five_am - 20)
-                 && (numberOfMinutesPastMidnight < Nine_fourty_five_am)) ||
+            if (((numberOfMinutesPastMidnight >= Nine_fourty_five_am - 20) && (numberOfMinutesPastMidnight < Nine_fourty_five_am)) ||
                 //Stav Lunch      10:30 a.m. – 02:00 p.m.
                 ((numberOfMinutesPastMidnight >= Two_pm - 20) && (numberOfMinutesPastMidnight < Two_pm)) ||
                 //Stav Dinner     04:30 p.m. – 07:30 p.m.
                 ((numberOfMinutesPastMidnight >= Seven_thirty_pm - 20) && (numberOfMinutesPastMidnight < Seven_thirty_pm)))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                stavCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                stavCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
 
             //Opening soon
             //Stav Breakfast opens 07:00 a.m.
-            else if (((numberOfMinutesPastMidnight >= Seven_am - 20)
-                 && (numberOfMinutesPastMidnight < Seven_am)) ||
-                //Stav Lunch opens 10:30 a.m.
-                ((numberOfMinutesPastMidnight >= Ten_thirty_am - 20) && (numberOfMinutesPastMidnight < Ten_thirty_am)) ||
-                //Stav Dinner opens 04:30 p.m.
-                ((numberOfMinutesPastMidnight >= Four_thirty_pm - 20) && (numberOfMinutesPastMidnight < Four_thirty_pm)))
+            else if (((numberOfMinutesPastMidnight >= Seven_am - 20) && (numberOfMinutesPastMidnight < Seven_am)) ||
+                     //Stav Lunch opens 10:30 a.m.
+                     ((numberOfMinutesPastMidnight >= Ten_thirty_am - 20) && (numberOfMinutesPastMidnight < Ten_thirty_am)) ||
+                     //Stav Dinner opens 04:30 p.m.
+                     ((numberOfMinutesPastMidnight >= Four_thirty_pm - 20) && (numberOfMinutesPastMidnight < Four_thirty_pm)))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                stavCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                stavCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
 
-                 //Stav Breakfast  07:00 a.m. – 09:45 a.m.
-            else if (((numberOfMinutesPastMidnight >= Seven_am)
-                 && (numberOfMinutesPastMidnight < Nine_fourty_five_am)) ||
-                 //Stav Lunch      10:30 a.m. – 02:00 p.m.
-                 ((numberOfMinutesPastMidnight >= Ten_thirty_am) && (numberOfMinutesPastMidnight < Two_pm)) ||
-                 //Stav Dinner     04:30 p.m. – 07:30 p.m.
-                 ((numberOfMinutesPastMidnight >= Four_thirty_pm) && (numberOfMinutesPastMidnight < Seven_thirty_pm)))
+            //Stav Breakfast  07:00 a.m. – 09:45 a.m.
+            else if (((numberOfMinutesPastMidnight >= Seven_am) && (numberOfMinutesPastMidnight < Nine_fourty_five_am)) ||
+                     //Stav Lunch      10:30 a.m. – 02:00 p.m.
+                     ((numberOfMinutesPastMidnight >= Ten_thirty_am) && (numberOfMinutesPastMidnight < Two_pm)) ||
+                     //Stav Dinner     04:30 p.m. – 07:30 p.m.
+                     ((numberOfMinutesPastMidnight >= Four_thirty_pm) && (numberOfMinutesPastMidnight < Seven_thirty_pm)))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                stavCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                stavCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                stavCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                stavCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
-
         //Sat
-        if(currentWeekday == Saturday)
+        if (currentWeekday == Saturday)
         {
             //Closing soon
             //Stav Breakfast closes at 09:45 a.m.
-            if(((numberOfMinutesPastMidnight >= Nine_fourty_five_am - 20) && (numberOfMinutesPastMidnight < Nine_fourty_five_am)) ||
-               //Stav Lunch closes at 01:30 p.m.
-               ((numberOfMinutesPastMidnight >= One_thirty_pm - 20) && (numberOfMinutesPastMidnight < One_thirty_pm)) ||
-               //Stav Dinner closes at 07:30 p.m.
-               ((numberOfMinutesPastMidnight >= Seven_thirty_pm - 20) && (numberOfMinutesPastMidnight < Seven_thirty_pm)))
+            if (((numberOfMinutesPastMidnight >= Nine_fourty_five_am - 20) && (numberOfMinutesPastMidnight < Nine_fourty_five_am)) ||
+                //Stav Lunch closes at 01:30 p.m.
+                ((numberOfMinutesPastMidnight >= One_thirty_pm - 20) && (numberOfMinutesPastMidnight < One_thirty_pm)) ||
+                //Stav Dinner closes at 07:30 p.m.
+                ((numberOfMinutesPastMidnight >= Seven_thirty_pm - 20) && (numberOfMinutesPastMidnight < Seven_thirty_pm)))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                stavCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                stavCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
 
             //Opening soon
             //Stav Breakfast opens 07:00 a.m.
-            else if (((numberOfMinutesPastMidnight >= Seven_am - 20)
-                      && (numberOfMinutesPastMidnight < Seven_am)) ||
+            else if (((numberOfMinutesPastMidnight >= Seven_am - 20) && (numberOfMinutesPastMidnight < Seven_am)) ||
                      //Stav Lunch opens 11:00 a.m.
                      ((numberOfMinutesPastMidnight >= Eleven_am - 20) && (numberOfMinutesPastMidnight < Eleven_am)) ||
                      //Stav Dinner opens 04:30 p.m.
                      ((numberOfMinutesPastMidnight >= Four_thirty_pm - 20) && (numberOfMinutesPastMidnight < Four_thirty_pm)))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                stavCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                stavCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
 
-               //Stav Breakfast  07:00 a.m. – 09:45 a.m.
-            else if(((numberOfMinutesPastMidnight >= Seven_am) && (numberOfMinutesPastMidnight < Nine_fourty_five_am)) ||
-               //Stav Lunch      11:00 a.m. – 01:30 p.m.
-               ((numberOfMinutesPastMidnight >= Eleven_am) && (numberOfMinutesPastMidnight < One_thirty_pm)) ||
-               //Stav Dinner     04:30 p.m. – 07:30 p.m.
-               ((numberOfMinutesPastMidnight >= Four_thirty_pm) && (numberOfMinutesPastMidnight < Seven_thirty_pm)))
+            //Stav Breakfast  07:00 a.m. – 09:45 a.m.
+            else if (((numberOfMinutesPastMidnight >= Seven_am) && (numberOfMinutesPastMidnight < Nine_fourty_five_am)) ||
+                     //Stav Lunch      11:00 a.m. – 01:30 p.m.
+                     ((numberOfMinutesPastMidnight >= Eleven_am) && (numberOfMinutesPastMidnight < One_thirty_pm)) ||
+                     //Stav Dinner     04:30 p.m. – 07:30 p.m.
+                     ((numberOfMinutesPastMidnight >= Four_thirty_pm) && (numberOfMinutesPastMidnight < Seven_thirty_pm)))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                stavCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                stavCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                stavCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                stavCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sun
-        if(currentWeekday == Sunday)
+        if (currentWeekday == Sunday)
         {
             //Stav Breakfast closes at 10:15 a.m.
             if (((numberOfMinutesPastMidnight >= Ten_fifteen_am - 20) && (numberOfMinutesPastMidnight < Ten_fifteen_am)) ||
@@ -234,55 +234,54 @@ enum numberOfMinutesPastMidnightType : NSInteger {
                 ((numberOfMinutesPastMidnight >= Seven_thirty_pm - 20) && (numberOfMinutesPastMidnight < Seven_thirty_pm)))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                stavCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                stavCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
 
             //Opening soon
             //Stav Breakfast opens 10:15 a.m.
-            else if (((numberOfMinutesPastMidnight >= Ten_fifteen_am - 20)
-                      && (numberOfMinutesPastMidnight < Ten_fifteen_am)) ||
+            else if (((numberOfMinutesPastMidnight >= Ten_fifteen_am - 20) && (numberOfMinutesPastMidnight < Ten_fifteen_am)) ||
                      //Stav Lunch opens 11:00 a.m.
                      ((numberOfMinutesPastMidnight >= Eleven_am - 20) && (numberOfMinutesPastMidnight < Eleven_am)) ||
                      //Stav Dinner opens 04:30 p.m.
                      ((numberOfMinutesPastMidnight >= Four_thirty_pm - 20) && (numberOfMinutesPastMidnight < Four_thirty_pm)))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                stavCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                stavCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
 
-
-                //Stav Breakfast  08:30 a.m. – 10:15 a.m.
+            //Stav Breakfast  08:30 a.m. – 10:15 a.m.
             else if (((numberOfMinutesPastMidnight >= Eight_thirty_am) && (numberOfMinutesPastMidnight < Ten_fifteen_am)) ||
-                //Stav Lunch      11:00 a.m. – 01:30 p.m.
-                ((numberOfMinutesPastMidnight >= Eleven_am) && (numberOfMinutesPastMidnight < One_thirty_pm)) ||
-                //Stav Dinner     04:30 p.m. – 07:30 p.m.
-                ((numberOfMinutesPastMidnight >= Four_thirty_pm) && (numberOfMinutesPastMidnight < Seven_thirty_pm)))
+                     //Stav Lunch      11:00 a.m. – 01:30 p.m.
+                     ((numberOfMinutesPastMidnight >= Eleven_am) && (numberOfMinutesPastMidnight < One_thirty_pm)) ||
+                     //Stav Dinner     04:30 p.m. – 07:30 p.m.
+                     ((numberOfMinutesPastMidnight >= Four_thirty_pm) && (numberOfMinutesPastMidnight < Seven_thirty_pm)))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                stavCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                stavCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                stavCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                stavCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
     }
 
-    if (indexPath.row == 1 && indexPath.section == 0){
-
+    if (indexPath.row == 1 && indexPath.section == 0)
+    {
         /////////////////////////
         // The Cage Calculations
         /////////////////////////
 
         //Mon-Thur
-        if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
+        if (currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
         {
             //Closing soon
             //Cage  closes at 11:00 p.m.
             if ((numberOfMinutesPastMidnight >= Eleven_pm - 20) && (numberOfMinutesPastMidnight < Eleven_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                cageCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
 
             //Opening soon
@@ -290,29 +289,30 @@ enum numberOfMinutesPastMidnightType : NSInteger {
             else if ((numberOfMinutesPastMidnight >= Seven_thirty_am - 20) && (numberOfMinutesPastMidnight < Seven_thirty_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                cageCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
 
-                //Cage  07:30 a.m. – 11:00 p.m.
+            //Cage  07:30 a.m. – 11:00 p.m.
             else if ((numberOfMinutesPastMidnight >= Seven_thirty_am) && (numberOfMinutesPastMidnight < Eleven_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                cageCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                cageCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Fri
-        if(currentWeekday == Friday)
+        if (currentWeekday == Friday)
         {
             //Cage closes at 08:00 p.m.
             if ((numberOfMinutesPastMidnight >= Eight_pm - 20) && (numberOfMinutesPastMidnight < Eight_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                cageCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
 
             //Opening soon
@@ -320,857 +320,878 @@ enum numberOfMinutesPastMidnightType : NSInteger {
             else if ((numberOfMinutesPastMidnight >= Seven_thirty_am - 20) && (numberOfMinutesPastMidnight < Seven_thirty_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                cageCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
 
-                //Cage  07:30 a.m. – 08:00 p.m.
+            //Cage  07:30 a.m. – 08:00 p.m.
             else if ((numberOfMinutesPastMidnight >= Seven_thirty_am) && (numberOfMinutesPastMidnight < Eight_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                cageCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                cageCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sat
-        if(currentWeekday == Saturday)
+        if (currentWeekday == Saturday)
         {
             //Cage closes at 20:00
             if ((numberOfMinutesPastMidnight >= Eight_pm - 20) && (numberOfMinutesPastMidnight < Eight_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                cageCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Nine_am - 20) && (numberOfMinutesPastMidnight < Nine_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                cageCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
-                //Cage  09:00 a.m. – 20:00
+            //Cage  09:00 a.m. – 20:00
             else if ((numberOfMinutesPastMidnight >= Nine_am) && (numberOfMinutesPastMidnight < Eight_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                cageCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                cageCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sun
-        if(currentWeekday == Sunday)
+        if (currentWeekday == Sunday)
         {
             if ((numberOfMinutesPastMidnight >= Eleven_pm - 20) && (numberOfMinutesPastMidnight < Eleven_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                cageCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Nine_am - 20) && (numberOfMinutesPastMidnight < Nine_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                cageCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
 
-                //Cage  09:00 a.m. – 11:00 p.m.
+            //Cage  09:00 a.m. – 11:00 p.m.
             else if ((numberOfMinutesPastMidnight >= Nine_am) && (numberOfMinutesPastMidnight < Eleven_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                cageCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
 
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                cageCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                cageCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
     }
 
-    if (indexPath.row == 2 && indexPath.section == 0){
-
+    if (indexPath.row == 2 && indexPath.section == 0)
+    {
         /////////////////////////
         // The Pause Calculations
         /////////////////////////
 
-
         //Sun - Thur
-        if(currentWeekday ==  Sunday || currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
+        if (currentWeekday == Sunday || currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
         {
             //Pause closes at 12:00 a.m.
             if ((numberOfMinutesPastMidnight >= Eleven_fifty_nine_pm - 20) && (numberOfMinutesPastMidnight <= Eleven_fifty_nine_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                pauseCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Ten_thirty_am - 20) && (numberOfMinutesPastMidnight <= Ten_thirty_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                pauseCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
-                //Pause  10:30 a.m. – 12:00 a.m.
+            //Pause  10:30 a.m. – 12:00 a.m.
             else if ((numberOfMinutesPastMidnight >= Ten_thirty_am) && (numberOfMinutesPastMidnight <= Eleven_fifty_nine_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                pauseCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                pauseCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Fri
-        if(currentWeekday == Friday)
+        if (currentWeekday == Friday)
         {
             //Pause closes at 02:00 a.m.
-            if((numberOfMinutesPastMidnight >= Two_am - 20) && (numberOfMinutesPastMidnight < Two_am))
+            if ((numberOfMinutesPastMidnight >= Two_am - 20) && (numberOfMinutesPastMidnight < Two_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                pauseCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
-            else if((numberOfMinutesPastMidnight >= Ten_thirty_am - 20) && (numberOfMinutesPastMidnight < Ten_thirty_am))
+            else if ((numberOfMinutesPastMidnight >= Ten_thirty_am - 20) && (numberOfMinutesPastMidnight < Ten_thirty_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                pauseCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
-                //Pause  10:30 a.m. – 11:59 p.m. or 12:00 a.m. – 1:39 a.m.
+            //Pause  10:30 a.m. – 11:59 p.m. or 12:00 a.m. – 1:39 a.m.
             else if (((numberOfMinutesPastMidnight >= Ten_thirty_am) && (numberOfMinutesPastMidnight <= Eleven_fifty_nine_pm)) ||
                      ((numberOfMinutesPastMidnight >= Twelve_am) && (numberOfMinutesPastMidnight <= Two_am - 19)))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                pauseCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                pauseCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sat
-        if(currentWeekday == Saturday)
+        if (currentWeekday == Saturday)
         {
             //Pause closes at 02:00 a.m.
-            if((numberOfMinutesPastMidnight >= Two_am - 20) && (numberOfMinutesPastMidnight < Two_am))
+            if ((numberOfMinutesPastMidnight >= Two_am - 20) && (numberOfMinutesPastMidnight < Two_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                pauseCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
-            else if((numberOfMinutesPastMidnight >= Ten_thirty_am - 20) && (numberOfMinutesPastMidnight < Ten_thirty_am))
+            else if ((numberOfMinutesPastMidnight >= Ten_thirty_am - 20) && (numberOfMinutesPastMidnight < Ten_thirty_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                pauseCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
-                //Pause  12:00 a.m. – 02:00 a.m.
-            else if(((numberOfMinutesPastMidnight >= Twelve_am) && (numberOfMinutesPastMidnight < Two_am)) ||
-                //Pause  10:30 a.m. – 12:00 a.m.
-            ((numberOfMinutesPastMidnight >= Ten_thirty_am) && (numberOfMinutesPastMidnight <= Eleven_fifty_nine_pm)))
+            //Pause  12:00 a.m. – 02:00 a.m.
+            else if (((numberOfMinutesPastMidnight >= Twelve_am) && (numberOfMinutesPastMidnight < Two_am)) ||
+                     //Pause  10:30 a.m. – 12:00 a.m.
+                     ((numberOfMinutesPastMidnight >= Ten_thirty_am) && (numberOfMinutesPastMidnight <= Eleven_fifty_nine_pm)))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                pauseCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                pauseCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sun
-        if(currentWeekday == Sunday)
+        if (currentWeekday == Sunday)
         {
             //Pause closes at 02:00 a.m.
-            if((numberOfMinutesPastMidnight >= Two_am - 20) && (numberOfMinutesPastMidnight < Two_am))
+            if ((numberOfMinutesPastMidnight >= Two_am - 20) && (numberOfMinutesPastMidnight < Two_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                pauseCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
-            else if((numberOfMinutesPastMidnight >= Ten_thirty_am - 20) && (numberOfMinutesPastMidnight < Ten_thirty_am))
+            else if ((numberOfMinutesPastMidnight >= Ten_thirty_am - 20) && (numberOfMinutesPastMidnight < Ten_thirty_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                pauseCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
-               //Pause  12:00 a.m. – 02:00 a.m.
-            else if(((numberOfMinutesPastMidnight >= Twelve_am) && (numberOfMinutesPastMidnight < Two_am)) ||
-               //Pause  10:30 a.m. – 12:00 a.m.
-              ((numberOfMinutesPastMidnight >= Ten_thirty_am) && (numberOfMinutesPastMidnight <= Eleven_fifty_nine_pm)))
+            //Pause  12:00 a.m. – 02:00 a.m.
+            else if (((numberOfMinutesPastMidnight >= Twelve_am) && (numberOfMinutesPastMidnight < Two_am)) ||
+                     //Pause  10:30 a.m. – 12:00 a.m.
+                     ((numberOfMinutesPastMidnight >= Ten_thirty_am) && (numberOfMinutesPastMidnight <= Eleven_fifty_nine_pm)))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                pauseCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                pauseCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                pauseCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
     }
 
-
-
-    if (indexPath.row == 0 && indexPath.section == 1){
-
+    if (indexPath.row == 0 && indexPath.section == 1)
+    {
         ////////////////////////////////
         // Rolvaag Library Calculations
         ////////////////////////////////
 
-
         //Mon-Thur
-        if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
+        if (currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
         {
             //Rolvaag Library closes at 02:00 a.m.
             if ((numberOfMinutesPastMidnight >= Two_am - 20) && (numberOfMinutesPastMidnight < Two_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                rolvaagCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Seven_fourty_five_am - 20) && (numberOfMinutesPastMidnight < Seven_fourty_five_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                rolvaagCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
-                //Rolvaag Library  07:45 a.m. – 02:00 a.m.
+            //Rolvaag Library  07:45 a.m. – 02:00 a.m.
             else if ((numberOfMinutesPastMidnight >= Seven_fourty_five_am) && (numberOfMinutesPastMidnight < Eleven_fifty_nine_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                rolvaagCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-                //Rolvaag Library  12:00 a.m. – 02:00 a.m.
-            else if((numberOfMinutesPastMidnight >= Twelve_am) && (numberOfMinutesPastMidnight < Two_am - 21))
+            //Rolvaag Library  12:00 a.m. – 02:00 a.m.
+            else if ((numberOfMinutesPastMidnight >= Twelve_am) && (numberOfMinutesPastMidnight < Two_am - 21))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                rolvaagCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
 
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                rolvaagCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Fri
-        if(currentWeekday == Friday)
+        if (currentWeekday == Friday)
         {
             //Rolvaag Library closes at 09:00 p.m.
             if ((numberOfMinutesPastMidnight >= Nine_pm - 20) && (numberOfMinutesPastMidnight < Nine_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                rolvaagCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Seven_fourty_five_am - 20) && (numberOfMinutesPastMidnight < Seven_fourty_five_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                rolvaagCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Rolvaag Library  07:45 a.m. – 09:00 p.m.
-            else if((numberOfMinutesPastMidnight >= Seven_fourty_five_am) && (numberOfMinutesPastMidnight < Nine_pm))
+            else if ((numberOfMinutesPastMidnight >= Seven_fourty_five_am) && (numberOfMinutesPastMidnight < Nine_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                rolvaagCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                rolvaagCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sat
-        if(currentWeekday == Saturday)
+        if (currentWeekday == Saturday)
         {
             //Rolvaag Library closes at 09:00 p.m.
             if ((numberOfMinutesPastMidnight >= Nine_pm - 20) && (numberOfMinutesPastMidnight < Nine_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                rolvaagCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Nine_am - 20) && (numberOfMinutesPastMidnight < Nine_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                rolvaagCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
-                //Rolvaag Library  09:00 a.m. – 09:00 p.m.
-            else if((numberOfMinutesPastMidnight >= Nine_am) && (numberOfMinutesPastMidnight < Nine_pm))
+            //Rolvaag Library  09:00 a.m. – 09:00 p.m.
+            else if ((numberOfMinutesPastMidnight >= Nine_am) && (numberOfMinutesPastMidnight < Nine_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                rolvaagCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                rolvaagCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sun
-        if(currentWeekday == Sunday)
+        if (currentWeekday == Sunday)
         {
             //Rolvaag Library closes at 02:00 a.m.
             if ((numberOfMinutesPastMidnight >= Two_am - 20) && (numberOfMinutesPastMidnight < Two_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                rolvaagCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Twelve_pm - 20) && (numberOfMinutesPastMidnight < Twelve_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                rolvaagCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
-                //Rolvaag Library 12:00 p.m. – 12:00 a.m.
+            //Rolvaag Library 12:00 p.m. – 12:00 a.m.
             else if ((numberOfMinutesPastMidnight >= Twelve_pm) && (numberOfMinutesPastMidnight <= Eleven_fifty_nine_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                rolvaagCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
             //Rolvaag Library  12:00 a.m. – 02:00 a.m.
-            else if((numberOfMinutesPastMidnight >= Twelve_am) && (numberOfMinutesPastMidnight < Two_am - 21))
+            else if ((numberOfMinutesPastMidnight >= Twelve_am) && (numberOfMinutesPastMidnight < Two_am - 21))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                rolvaagCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
 
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                rolvaagCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                rolvaagCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
     }
 
-    if (indexPath.row == 1 && indexPath.section == 1){
-
+    if (indexPath.row == 1 && indexPath.section == 1)
+    {
         ////////////////////////////////
         // Husdtad Library Calculations
         ////////////////////////////////
 
         //Mon-Thur
-        if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
+        if (currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
         {
             //Husdtad Library closes at 11:00 p.m.
             if ((numberOfMinutesPastMidnight >= Eleven_pm - 20) && (numberOfMinutesPastMidnight < Eleven_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                hustadCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Eight_am - 20) && (numberOfMinutesPastMidnight < Eight_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                hustadCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Husdtad Library  08:00 a.m. – 11:00 p.m.
             else if ((numberOfMinutesPastMidnight >= Eight_am) && (numberOfMinutesPastMidnight < Eleven_pm))
-                {
+            {
                 //If the current time falls between these calculations, set the circle to be green
-                hustadCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                hustadCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Fri
-        if(currentWeekday == Friday)
+        if (currentWeekday == Friday)
         {
             //Husdtad Library closes at 07:00 p.m.
             if ((numberOfMinutesPastMidnight >= Seven_pm - 20) && (numberOfMinutesPastMidnight < Seven_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                hustadCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Eight_am - 20) && (numberOfMinutesPastMidnight < Eight_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                hustadCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Husdtad Library  08:00 a.m. – 07:00 p.m.
-            else if((numberOfMinutesPastMidnight >= Eight_am) && (numberOfMinutesPastMidnight < Seven_pm))
+            else if ((numberOfMinutesPastMidnight >= Eight_am) && (numberOfMinutesPastMidnight < Seven_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                hustadCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                hustadCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sat
-        if(currentWeekday == Saturday)
+        if (currentWeekday == Saturday)
         {
             //Husdtad Library closes at 04:00 p.m.
             if ((numberOfMinutesPastMidnight >= Four_pm - 20) && (numberOfMinutesPastMidnight < Four_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                hustadCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Nine_thirty_am - 20) && (numberOfMinutesPastMidnight < Nine_thirty_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                hustadCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Husdtad Library  09:30 a.m. – 04:00 p.m.
-            else if((numberOfMinutesPastMidnight >= Nine_thirty_am) && (numberOfMinutesPastMidnight < Four_pm))
+            else if ((numberOfMinutesPastMidnight >= Nine_thirty_am) && (numberOfMinutesPastMidnight < Four_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                hustadCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                hustadCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sun
-        if(currentWeekday == Sunday)
+        if (currentWeekday == Sunday)
         {
             //Husdtad Library closes at 11:00 p.m.
             if ((numberOfMinutesPastMidnight >= Eleven_pm - 20) && (numberOfMinutesPastMidnight < Eleven_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                hustadCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= One_pm - 20) && (numberOfMinutesPastMidnight < One_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                hustadCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Husdtad Library 1:00 p.m. – 11:00 p.m.
             else if ((numberOfMinutesPastMidnight >= One_pm) && (numberOfMinutesPastMidnight < Eleven_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                hustadCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                hustadCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                hustadCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
     }
 
-
-
-    if (indexPath.row == 2 && indexPath.section == 1){
-
+    if (indexPath.row == 2 && indexPath.section == 1)
+    {
         //////////////////////////////////
         // Halvarson Library Calculations
         //////////////////////////////////
 
         //Mon-Thur
-        if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
+        if (currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
         {
             //Halvarson Library closes at 11:00 p.m.
             if ((numberOfMinutesPastMidnight >= Eleven_pm - 20) && (numberOfMinutesPastMidnight < Eleven_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                halvarsonCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Seven_fourty_five_am - 20) && (numberOfMinutesPastMidnight < Seven_fourty_five_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                halvarsonCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
-                //Halvarson Library  07:45 a.m. – 11:00 p.m.
+            //Halvarson Library  07:45 a.m. – 11:00 p.m.
             else if ((numberOfMinutesPastMidnight >= Seven_fourty_five_am) && (numberOfMinutesPastMidnight < Eleven_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                halvarsonCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                halvarsonCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Fri
-        if(currentWeekday == Friday)
+        if (currentWeekday == Friday)
         {
             //Halvarson Library closes at 08:00 p.m.
             if ((numberOfMinutesPastMidnight >= Eight_pm - 20) && (numberOfMinutesPastMidnight < Eight_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                halvarsonCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Seven_fourty_five_am - 20) && (numberOfMinutesPastMidnight < Seven_fourty_five_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                halvarsonCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
-                //Halvarson Library  07:45 a.m. – 08:00 p.m.
-            else if((numberOfMinutesPastMidnight >= Seven_fourty_five_am) && (numberOfMinutesPastMidnight < Eight_pm))
+            //Halvarson Library  07:45 a.m. – 08:00 p.m.
+            else if ((numberOfMinutesPastMidnight >= Seven_fourty_five_am) && (numberOfMinutesPastMidnight < Eight_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                halvarsonCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                halvarsonCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sat
-        if(currentWeekday == Saturday)
+        if (currentWeekday == Saturday)
         {
             //Halvarson Library closes at 06:00 p.m.
             if ((numberOfMinutesPastMidnight >= Six_pm - 20) && (numberOfMinutesPastMidnight < Six_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                halvarsonCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Nine_am - 20) && (numberOfMinutesPastMidnight < Nine_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                halvarsonCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
-                //Halvarson Library  09:00 a.m. – 06:00 p.m.
-            else if((numberOfMinutesPastMidnight >= Nine_am) && (numberOfMinutesPastMidnight < Six_pm))
+            //Halvarson Library  09:00 a.m. – 06:00 p.m.
+            else if ((numberOfMinutesPastMidnight >= Nine_am) && (numberOfMinutesPastMidnight < Six_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                halvarsonCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                halvarsonCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sun
-        if(currentWeekday == Sunday)
+        if (currentWeekday == Sunday)
         {
             //Halvarson Library closes at 11:00 p.m.
             if ((numberOfMinutesPastMidnight >= Eleven_pm - 20) && (numberOfMinutesPastMidnight < Eleven_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                halvarsonCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Twelve_pm - 20) && (numberOfMinutesPastMidnight < Twelve_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                halvarsonCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
-                //Halvarson Library 12:00 p.m. – 11:00 p.m.
+            //Halvarson Library 12:00 p.m. – 11:00 p.m.
             else if ((numberOfMinutesPastMidnight >= Twelve_pm) && (numberOfMinutesPastMidnight < Eleven_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                halvarsonCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                halvarsonCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                halvarsonCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
     }
 
-
-    if (indexPath.row == 0 && indexPath.section == 2){
-
+    if (indexPath.row == 0 && indexPath.section == 2)
+    {
         ///////////////////////////
         // Book Store Calculations
         ///////////////////////////
 
         //Mon-Fri
-        if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday || currentWeekday == Friday)
+        if (currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday || currentWeekday == Friday)
         {
             //Book Store closes at 5:00 p.m.
             if ((numberOfMinutesPastMidnight >= Five_pm - 20) && (numberOfMinutesPastMidnight < Five_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                bookStore.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                bookStore.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Eight_am - 20) && (numberOfMinutesPastMidnight < Eight_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                bookStore.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                bookStore.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Book Store  08:00 a.m. – 5:00 p.m.
             else if ((numberOfMinutesPastMidnight >= Eight_am) && (numberOfMinutesPastMidnight < Five_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                bookStore.image = [UIImage imageNamed: @"green-circle.png"];
+                bookStore.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                bookStore.image = [UIImage imageNamed: @"red-circle.png"];
+                bookStore.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sat
-        if(currentWeekday == Saturday)
+        if (currentWeekday == Saturday)
         {
             //Book Store closes at 4:00 p.m.
             if ((numberOfMinutesPastMidnight >= Four_pm - 20) && (numberOfMinutesPastMidnight < Four_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                bookStore.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                bookStore.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Ten_am - 20) && (numberOfMinutesPastMidnight < Ten_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                bookStore.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                bookStore.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Book Store  10:00 a.m. – 04:00 p.m.
-            else if((numberOfMinutesPastMidnight >= Ten_am) && (numberOfMinutesPastMidnight < Four_pm))
+            else if ((numberOfMinutesPastMidnight >= Ten_am) && (numberOfMinutesPastMidnight < Four_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                bookStore.image = [UIImage imageNamed: @"green-circle.png"];
+                bookStore.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                bookStore.image = [UIImage imageNamed: @"red-circle.png"];
+                bookStore.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
     }
 
-
-    if (indexPath.row == 1 && indexPath.section == 2){
-
+    if (indexPath.row == 1 && indexPath.section == 2)
+    {
         /////////////////////////////////
         // Convenience Store Calculations
         /////////////////////////////////
 
         //Mon-Fri
-        if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday || currentWeekday == Friday)
+        if (currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday || currentWeekday == Friday)
         {
             //Convenience Store closes at 08:00 p.m.
             if ((numberOfMinutesPastMidnight >= Eight_pm - 20) && (numberOfMinutesPastMidnight < Eight_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                convenienceStore.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                convenienceStore.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Eight_am - 20) && (numberOfMinutesPastMidnight < Eight_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                convenienceStore.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                convenienceStore.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Convenience Store  08:00 a.m. – 08:00 p.m.
             else if ((numberOfMinutesPastMidnight >= Eight_am) && (numberOfMinutesPastMidnight < Eight_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                convenienceStore.image = [UIImage imageNamed: @"green-circle.png"];
+                convenienceStore.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                convenienceStore.image = [UIImage imageNamed: @"red-circle.png"];
+                convenienceStore.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sat
-        if(currentWeekday == Saturday)
+        if (currentWeekday == Saturday)
         {
             //Convenience Store closes at 08:00 p.m.
             if ((numberOfMinutesPastMidnight >= Eight_pm - 20) && (numberOfMinutesPastMidnight < Eight_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                convenienceStore.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                convenienceStore.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Ten_am - 20) && (numberOfMinutesPastMidnight < Ten_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                convenienceStore.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                convenienceStore.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Convenience Store  10:00 a.m. – 08:00 p.m.
-            else if((numberOfMinutesPastMidnight >= Ten_am) && (numberOfMinutesPastMidnight < Eight_pm))
+            else if ((numberOfMinutesPastMidnight >= Ten_am) && (numberOfMinutesPastMidnight < Eight_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                convenienceStore.image = [UIImage imageNamed: @"green-circle.png"];
+                convenienceStore.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                convenienceStore.image = [UIImage imageNamed: @"red-circle.png"];
+                convenienceStore.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sun
-        if(currentWeekday == Sunday)
+        if (currentWeekday == Sunday)
         {
             //Convenience Store closes at 04:00 p.m.
             if ((numberOfMinutesPastMidnight >= Four_pm - 20) && (numberOfMinutesPastMidnight < Four_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                convenienceStore.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                convenienceStore.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Twelve_pm - 20) && (numberOfMinutesPastMidnight < Twelve_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                convenienceStore.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                convenienceStore.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Convenience Store  12:00 p.m. – 04:00 p.m.
-            else if((numberOfMinutesPastMidnight >= Twelve_pm) && (numberOfMinutesPastMidnight < Four_pm))
+            else if ((numberOfMinutesPastMidnight >= Twelve_pm) && (numberOfMinutesPastMidnight < Four_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                convenienceStore.image = [UIImage imageNamed: @"green-circle.png"];
+                convenienceStore.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                convenienceStore.image = [UIImage imageNamed: @"red-circle.png"];
+                convenienceStore.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
-
     }
 
-    if (indexPath.row == 0 && indexPath.section == 3){
-
+    if (indexPath.row == 0 && indexPath.section == 3)
+    {
         ////////////////////////////
         // Post Office Calculations
         ////////////////////////////
 
         //Mon-Fri
-        if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday || currentWeekday == Friday)
+        if (currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday || currentWeekday == Friday)
         {
             //Post Office closes at 05:00 p.m.
             if ((numberOfMinutesPastMidnight >= Five_pm - 20) && (numberOfMinutesPastMidnight < Five_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                postOfficeCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                postOfficeCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Eight_am - 20) && (numberOfMinutesPastMidnight < Eight_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                postOfficeCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                postOfficeCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Post Office  08:00 a.m. – 05:00 p.m.
             else if ((numberOfMinutesPastMidnight >= Eight_am) && (numberOfMinutesPastMidnight < Five_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                postOfficeCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                postOfficeCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                postOfficeCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                postOfficeCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sat
-        if(currentWeekday == Saturday)
+        if (currentWeekday == Saturday)
         {
             //Post Office closes at 01:00 p.m.
             if ((numberOfMinutesPastMidnight >= One_pm - 20) && (numberOfMinutesPastMidnight < One_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                postOfficeCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                postOfficeCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             else if ((numberOfMinutesPastMidnight >= Ten_am - 20) && (numberOfMinutesPastMidnight < Ten_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                postOfficeCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                postOfficeCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Post Office  10:00 a.m. – 01:00 p.m.
-            else if((numberOfMinutesPastMidnight >= Ten_am) && (numberOfMinutesPastMidnight < One_pm))
+            else if ((numberOfMinutesPastMidnight >= Ten_am) && (numberOfMinutesPastMidnight < One_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                postOfficeCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                postOfficeCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                postOfficeCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                postOfficeCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
     }
 
-    if (indexPath.row == 0 && indexPath.section == 4){
-
+    if (indexPath.row == 0 && indexPath.section == 4)
+    {
         ////////////////////
         // Gym Calculations
         ////////////////////
 
         //Mon-Thur
-        if(currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
+        if (currentWeekday == Monday || currentWeekday == Tuesday || currentWeekday == Wednesday || currentWeekday == Thursday)
         {
             //Gym closes at 10:45 p.m.
             if ((numberOfMinutesPastMidnight >= Ten_fourty_five_pm - 20) && (numberOfMinutesPastMidnight < Ten_fourty_five_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                skoglundCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             if ((numberOfMinutesPastMidnight >= Six_thirty_am - 20) && (numberOfMinutesPastMidnight < Six_thirty_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                skoglundCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Gym  06:30 a.m. – 10:45 p.m.
-           else if ((numberOfMinutesPastMidnight >= Six_thirty_am) && (numberOfMinutesPastMidnight < Ten_fourty_five_pm))
+            else if ((numberOfMinutesPastMidnight >= Six_thirty_am) && (numberOfMinutesPastMidnight < Ten_fourty_five_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                skoglundCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                skoglundCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Fri
-        if(currentWeekday == Friday)
+        if (currentWeekday == Friday)
         {
             //Gym closes at 08:45 p.m.
             if ((numberOfMinutesPastMidnight >= Eight_fourty_five_pm - 20) && (numberOfMinutesPastMidnight < Eight_fourty_five_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                skoglundCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             if ((numberOfMinutesPastMidnight >= Six_thirty_am - 20) && (numberOfMinutesPastMidnight < Six_thirty_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                skoglundCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Gym  6:30 a.m. – 08:45 p.m.
-            else if((numberOfMinutesPastMidnight >= Six_thirty_am) && (numberOfMinutesPastMidnight < Eight_fourty_five_pm))
+            else if ((numberOfMinutesPastMidnight >= Six_thirty_am) && (numberOfMinutesPastMidnight < Eight_fourty_five_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                skoglundCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                skoglundCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sat
-        if(currentWeekday == Saturday)
+        if (currentWeekday == Saturday)
         {
             //Gym closes at 08:45 p.m.
             if ((numberOfMinutesPastMidnight >= Eight_fourty_five_pm - 20) && (numberOfMinutesPastMidnight < Eight_fourty_five_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                skoglundCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             if ((numberOfMinutesPastMidnight >= Nine_am - 20) && (numberOfMinutesPastMidnight < Nine_am))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                skoglundCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Gym  09:00 a.m. – 08:45 p.m.
-            else if((numberOfMinutesPastMidnight >= Nine_am) && (numberOfMinutesPastMidnight < Eight_fourty_five_pm))
+            else if ((numberOfMinutesPastMidnight >= Nine_am) && (numberOfMinutesPastMidnight < Eight_fourty_five_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                skoglundCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                skoglundCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
 
         //Sun
-        if(currentWeekday == Sunday)
+        if (currentWeekday == Sunday)
         {
             //Gym closes at 10:45 p.m.
             if ((numberOfMinutesPastMidnight >= Ten_fourty_five_pm - 20) && (numberOfMinutesPastMidnight < Ten_fourty_five_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                skoglundCircle.image = [UIImage imageNamed: @"closingSoon-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"closingSoon-circle.png"];
             }
             if ((numberOfMinutesPastMidnight >= Twelve_pm - 20) && (numberOfMinutesPastMidnight < Twelve_pm))
             {
                 //If the current time falls between these calculations, set the circle to be yellow
-                skoglundCircle.image = [UIImage imageNamed: @"openingSoon-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"openingSoon-circle.png"];
             }
             //Gym  12:00 p.m. – 10:45 p.m.
-            else if((numberOfMinutesPastMidnight >= Twelve_pm) && (numberOfMinutesPastMidnight < Ten_fourty_five_pm))
+            else if ((numberOfMinutesPastMidnight >= Twelve_pm) && (numberOfMinutesPastMidnight < Ten_fourty_five_pm))
             {
                 //If the current time falls between these calculations, set the circle to be green
-                skoglundCircle.image = [UIImage imageNamed: @"green-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"green-circle.png"];
             }
-            else{
+            else
+            {
                 //If the current time does not fall between these calculations, set the circle to be red
-                skoglundCircle.image = [UIImage imageNamed: @"red-circle.png"];
+                skoglundCircle.image = [UIImage imageNamed:@"red-circle.png"];
             }
         }
     }
@@ -1178,28 +1199,25 @@ enum numberOfMinutesPastMidnightType : NSInteger {
     return cell;
 }
 
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(BOOL)shouldAutorotate
+- (BOOL)shouldAutorotate
 {
     return NO;
 }
 
--(NSUInteger)supportedInterfaceOrientations
+- (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
 }
-
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end
