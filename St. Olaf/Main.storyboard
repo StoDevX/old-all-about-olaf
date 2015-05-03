@@ -4807,7 +4807,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="music 1" translatesAutoresizingMaskIntoConstraints="NO" id="DZn-vQ-w6D">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="music" translatesAutoresizingMaskIntoConstraints="NO" id="DZn-vQ-w6D">
                                                     <rect key="frame" x="20" y="6" width="32" height="32"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KSTO Radio" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQ0-8o-oOP">
@@ -5005,7 +5005,7 @@
         <image name="loc" width="128" height="128"/>
         <image name="menu-icon" width="76" height="80"/>
         <image name="movie" width="256" height="256"/>
-        <image name="music 1" width="128" height="128"/>
+        <image name="music" width="128" height="128"/>
         <image name="network" width="128" height="128"/>
         <image name="red-circle" width="80" height="80"/>
         <image name="rss" width="128" height="128"/>
