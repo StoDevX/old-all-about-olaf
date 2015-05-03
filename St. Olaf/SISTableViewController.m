@@ -199,13 +199,13 @@
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     username.delegate = self;
     password.delegate = self;
 
     //Username and Password
-    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [super tableView:table cellForRowAtIndexPath:indexPath];
 
     if (indexPath.row == 0 && indexPath.section == 0)
     {
@@ -222,7 +222,7 @@
         username.returnKeyType = UIReturnKeyNext;
 
         cell.accessoryView = username;
-        [tableView addSubview:username];
+        [table addSubview:username];
     }
 
     if (indexPath.row == 1 && indexPath.section == 0)
@@ -240,7 +240,7 @@
         password.returnKeyType = UIReturnKeyDone;
         [password setClearButtonMode:UITextFieldViewModeWhileEditing];
         cell.accessoryView = password;
-        [tableView addSubview:password];
+        [table addSubview:password];
     }
 
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -429,7 +429,7 @@
         HTMLNode *bodyNode = [parser body];
 
         NSArray *tdNodes = [bodyNode findChildTags:@"td"];
-        NSMutableDictionary *balances = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *localBalances = [[NSMutableDictionary alloc] init];
         for (HTMLNode *tdNode in tdNodes)
         {
             if ([[tdNode getAttributeNamed:@"class"] isEqualToString:@"sis-right"])
@@ -443,7 +443,7 @@
                 value = [value stringByReplacingOccurrencesOfString:@" " withString:@""];
                 value = [value stringByReplacingOccurrencesOfString:@"NotAvailable" withString:@"Not Available"];
 
-                balances[final] = value;
+                localBalances[final] = value;
             }
         }
 
@@ -453,9 +453,9 @@
         _path = [_documentsDirectory stringByAppendingPathComponent:@"special.plist"];
         _fileManager = [NSFileManager defaultManager];
 
-        [_data setObject:balances[@"Flex Dollars"] forKey:@"flexDollars"];
-        [_data setObject:balances[@"Student Copy/Print"] forKey:@"printMoney"];
-        [_data setObject:balances[@"Ole Dollars"] forKey:@"oleDollars"];
+        [_data setObject:localBalances[@"Flex Dollars"] forKey:@"flexDollars"];
+        [_data setObject:localBalances[@"Student Copy/Print"] forKey:@"printMoney"];
+        [_data setObject:localBalances[@"Ole Dollars"] forKey:@"oleDollars"];
         [_data writeToFile:_path atomically:YES];
 
         // Change the login/logout button text

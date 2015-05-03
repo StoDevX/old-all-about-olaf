@@ -262,11 +262,11 @@ UIButton *button;
     self.hidesBottomBarWhenPushed = NO;
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)_webView
+- (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     if (_segment.selectedSegmentIndex == 1)
     {
-        _webView.scrollView.contentOffset = CGPointMake(0, 55);
+        webView.scrollView.contentOffset = CGPointMake(0, 55);
     }
 
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -276,11 +276,11 @@ UIButton *button;
     [_textView setHidden:YES];
 
     //canGoBack and canGoForward are properties which indicate if there is any forward or backward history
-    if (_webView.canGoBack == YES)
+    if (webView.canGoBack)
     {
         _back.enabled = YES;
     }
-    if (_webView.canGoForward == YES)
+    if (webView.canGoForward)
     {
         _forward.enabled = YES;
     }

@@ -235,7 +235,7 @@
     self.hidesBottomBarWhenPushed = NO;
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)_mobileSite
+- (void)webViewDidFinishLoad:(UIWebView *)mobileSite
 {
     //stop the activity indicator when done loading
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -246,11 +246,11 @@
     [_loadingMenuSpinner stopAnimating];
 
     //canGoBack and canGoForward are properties which indicate if there is any forward or backward history
-    if (_mobileSite.canGoBack == YES)
+    if (mobileSite.canGoBack)
     {
         _back.enabled = YES;
     }
-    if (_mobileSite.canGoForward == YES)
+    if (mobileSite.canGoForward)
     {
         _forward.enabled = YES;
     }

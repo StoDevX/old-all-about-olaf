@@ -176,7 +176,7 @@ bool shouldDisplayLoading = true;
     [_mobileSite goForward];
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)_mobileSite
+- (void)webViewDidFinishLoad:(UIWebView *)site
 {
     //stop the activity indicator when done loading
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -186,11 +186,11 @@ bool shouldDisplayLoading = true;
     [_loadingMenuSpinner stopAnimating];
 
     //canGoBack and canGoForward are properties which indicate if there is any forward or backward history
-    if (_mobileSite.canGoBack == YES)
+    if (site.canGoBack)
     {
         _back.enabled = YES;
     }
-    if (_mobileSite.canGoForward == YES)
+    if (site.canGoForward)
     {
         _forward.enabled = YES;
     }

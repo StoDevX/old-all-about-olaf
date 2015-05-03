@@ -146,9 +146,9 @@
     return [_EventArray count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    UITableViewCell *cell = [table dequeueReusableCellWithIdentifier:@"Cell"];
 
     // If we have an empty cell, bind it to the identifying cell we setup called "Cell"
     if (cell == nil)
@@ -181,9 +181,9 @@
     NSString *hourEnd = [dateFormat stringFromDate:eventLcl.EndDate];
 
     // The header view
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 23)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, table.frame.size.width, 23)];
     // Create custom view to display section header
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width, 25)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, table.frame.size.width, 25)];
     [label setFont:[UIFont boldSystemFontOfSize:16]];
     label.textColor = [UIColor blackColor];
     // Section header
