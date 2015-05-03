@@ -146,11 +146,11 @@ NSString *trailer = @"";
 {
     [super viewDidLoad];
 
-    /*
+    
     //********************************
     // Begin the web-scraping process
     //********************************
-
+    /*
     //Get the URL we want to parse and throw that baby into a NSURL
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:
                              [NSURL URLWithString:[NSString stringWithFormat:@"http://oleville.com/sac/sac-movies/"]]];
