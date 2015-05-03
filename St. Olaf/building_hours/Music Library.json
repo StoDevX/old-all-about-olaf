@@ -1,0 +1,15 @@
+{
+    "category": "Libraries",
+    "name": "Halvorson Music Library",
+    "times": {
+        "Hours": {
+            "Mon": ["7:45am", "11:00pm"],
+            "Tue": ["7:45am", "11:00pm"],
+            "Wed": ["7:45am", "11:00pm"],
+            "Thu": ["7:45am", "11:00pm"],
+            "Fri": ["7:45am", "8:00pm"],
+            "Sat": ["9:00am", "6:00pm"],
+            "Sun": ["12:00pm", "11:00pm"]
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "category": "Food",
+    "name": "The Cage",
+    "notes": "The kitchen stops cooking at 8 p.m.",
+    "times": {
+        "Hours": {
+            "Mon": ["7:30am", "11:00pm"],
+            "Tue": ["7:30am", "11:00pm"],
+            "Wed": ["7:30am", "11:00pm"],
+            "Thu": ["7:30am", "11:00pm"],
+            "Fri": ["7:30am", "8:00pm"],
+            "Sat": ["9:00am", "8:00pm"],
+            "Sun": ["9:00am", "11:00pm"]
+        }
+    }
+}

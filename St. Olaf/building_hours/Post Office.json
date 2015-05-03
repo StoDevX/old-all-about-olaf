@@ -1,0 +1,15 @@
+{
+    "category": "Mail and Packages",
+    "name": "Post Office",
+    "times": {
+        "Hours": {
+            "from": "June 1",
+            "to": "August 31",
+            "Mon": ["7:30am", "4:30pm"],
+            "Tue": ["7:30am", "4:30pm"],
+            "Fri": ["7:30am", "12:00pm"],
+            "Thu": ["7:30am", "4:30pm"],
+            "Wed": ["7:30am", "4:30pm"]
+        }
+    }
+}
