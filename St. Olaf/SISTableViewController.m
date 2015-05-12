@@ -344,6 +344,10 @@
     // Header response from the server
     NSURLResponse *response;
 
+    
+    // Our data from the URL
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    
     // Code to see if we have had any server errors or pages not found...
     int code = [(NSHTTPURLResponse *)response statusCode];
     // URL to search for the failure URL
