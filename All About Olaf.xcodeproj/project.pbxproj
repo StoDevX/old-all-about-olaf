@@ -33,6 +33,8 @@
 		3A5175C017C744250098EEA0 /* RSSItem4.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5175BE17C744250098EEA0 /* RSSItem4.m */; };
 		3A51762217CAF2090098EEA0 /* RSSItem3.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A51761F17CAF2090098EEA0 /* RSSItem3.m */; };
 		3A51762317CAF2090098EEA0 /* RSSLoader3.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A51762117CAF2090098EEA0 /* RSSLoader3.m */; };
+		3A5228E31B0D257A00C3006C /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5228E21B0D257A00C3006C /* OnePasswordExtension.m */; };
+		3A5228E51B0D25C000C3006C /* 1Password.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5228E41B0D25C000C3006C /* 1Password.xcassets */; };
 		3A58303318E5D81D008583F8 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A58302C18E5D81D008583F8 /* Recipe.m */; };
 		3A58303418E5D81D008583F8 /* RecipeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A58302E18E5D81D008583F8 /* RecipeDetailViewController.m */; };
 		3A58303518E5D81D008583F8 /* RecipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A58303018E5D81D008583F8 /* RecipeTableCell.m */; };
@@ -204,6 +206,9 @@
 		3A51761F17CAF2090098EEA0 /* RSSItem3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSItem3.m; sourceTree = "<group>"; };
 		3A51762017CAF2090098EEA0 /* RSSLoader3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSLoader3.h; sourceTree = "<group>"; };
 		3A51762117CAF2090098EEA0 /* RSSLoader3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSLoader3.m; sourceTree = "<group>"; };
+		3A5228E11B0D257A00C3006C /* OnePasswordExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnePasswordExtension.h; sourceTree = "<group>"; };
+		3A5228E21B0D257A00C3006C /* OnePasswordExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
+		3A5228E41B0D25C000C3006C /* 1Password.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = 1Password.xcassets; sourceTree = "<group>"; };
 		3A58302B18E5D81D008583F8 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
 		3A58302C18E5D81D008583F8 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 		3A58302D18E5D81D008583F8 /* RecipeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailViewController.h; sourceTree = "<group>"; };
@@ -597,6 +602,15 @@
 			name = Social;
 			sourceTree = "<group>";
 		};
+		3A5228E01B0D255800C3006C /* 1password */ = {
+			isa = PBXGroup;
+			children = (
+				3A5228E11B0D257A00C3006C /* OnePasswordExtension.h */,
+				3A5228E21B0D257A00C3006C /* OnePasswordExtension.m */,
+			);
+			name = 1password;
+			sourceTree = "<group>";
+		};
 		3A58301B18E574EF008583F8 /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
@@ -844,6 +858,7 @@
 		3ADFA5F617B75B70008E6251 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A5228E01B0D255800C3006C /* 1password */,
 				3A01CD4C1AACC3960001E536 /* libstdc++.6.dylib */,
 				3A01CD461AACC26F0001E536 /* libstdc++.6.0.9.dylib */,
 				3A5912DB1AACB5D0001DEDD8 /* Accounts.framework */,
@@ -897,6 +912,7 @@
 		3ADFA5FE17B75B70008E6251 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A5228E41B0D25C000C3006C /* 1Password.xcassets */,
 				3ADFA65817B75CD9008E6251 /* St. Olaf-Prefix.pch */,
 				3ADFA60017B75B70008E6251 /* InfoPlist.strings */,
 				3ADFA60317B75B70008E6251 /* main.m */,
@@ -1142,6 +1158,7 @@
 			files = (
 				009EB51D1AF6C97C003FDCE9 /* Convenience Store.json in Resources */,
 				009EB5211AF6C97C003FDCE9 /* Rolvaag Library.json in Resources */,
+				3A5228E51B0D25C000C3006C /* 1Password.xcassets in Resources */,
 				3AF70B7C18F9CDB2005CBD92 /* Images.xcassets in Resources */,
 				00F1A3801AF69454006DB1FE /* .clang-format in Resources */,
 				3ADFA67B17B75E1D008E6251 /* Main.storyboard in Resources */,
@@ -1229,6 +1246,7 @@
 				3AFB027A1997F5AE00560AAC /* NSObject+SBJson.m in Sources */,
 				3AF6AA761A012B20002AFE66 /* StreamingTableViewController.m in Sources */,
 				3AEC493E17B8396F00C8195B /* tomsonWestViewController.m in Sources */,
+				3A5228E31B0D257A00C3006C /* OnePasswordExtension.m in Sources */,
 				3AFB02811997F5AE00560AAC /* SBJsonStreamWriterAccumulator.m in Sources */,
 				3A449A7C17BB05010072A00D /* CameraListViewController.m in Sources */,
 				3AAF0ED119B374BC00727937 /* HTMLParser.m in Sources */,
