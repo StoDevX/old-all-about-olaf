@@ -15,6 +15,8 @@
 @property (strong, nonatomic) IBOutlet UIRefreshControl *refreshControl;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *onepasswordSigninButton;
+@property (strong, nonatomic) UIView *OnePasswordLoginView;
 
 // Stored Secure Data
 @property (strong, nonatomic) UITextField *username;

@@ -17,6 +17,7 @@
 #import <netinet/in.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "HTMLParser.h"
+#import "OnePasswordExtension.h"
 
 @interface SISTableViewController ()
 {
@@ -29,6 +30,8 @@
 //View elements
 @synthesize tableView;
 @synthesize loginButton;
+@synthesize onepasswordSigninButton;
+@synthesize OnePasswordLoginView;
 // UI general
 @synthesize refreshControl;
 
@@ -129,8 +132,67 @@
     else
     {
         loginButton.title = @"Login";
+        
+        // Display the 1Password sign-in button
+        [self.onepasswordSigninButton setHidden:![[OnePasswordExtension sharedExtension] isAppExtensionAvailable]];
     }
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    // Add target action to 1Password button
+    [self.onepasswordSigninButton addTarget:self action:@selector(findLoginFrom1Password:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    return @"";
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *theView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    
+    // If we are in the footer of the first section and we are logged out
+    if (section == 0 && [[_savedInfo objectForKey:@"loggedIn"] intValue] == 0) {
+        
+        _paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        _documentsDirectory = [_paths objectAtIndex:0];
+        _path = [_documentsDirectory stringByAppendingPathComponent:@"special.plist"];
+        _fileManager = [NSFileManager defaultManager];
+        _savedInfo = [[NSMutableDictionary alloc] initWithContentsOfFile:_path];
+        
+        CGFloat width = [UIScreen mainScreen].bounds.size.width;
+        
+        OnePasswordLoginView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 120)];
+        UIButton *OnePasswordButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        
+        OnePasswordButton.frame = CGRectMake(width - 130, 10.0f, 120.0f, 50.0f);
+        [OnePasswordButton setImage:[UIImage imageNamed:@"onepassword-button"] forState:UIControlStateNormal];
+        [OnePasswordButton setTitle:@" 1Password" forState:UIControlStateNormal];
+        [OnePasswordButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+        [OnePasswordButton addTarget:self action:@selector(findLoginFrom1Password:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [OnePasswordLoginView addSubview:OnePasswordButton];
+        
+        tableView.tableFooterView = OnePasswordLoginView;
+        theView = OnePasswordLoginView;
+    }
+    
+    return theView;
+}
+    
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    CGFloat height = 0;
+    
+    if (section == 0){
+        height = 30;
+    }
+    
+    return height;
+}
+
 
 - (void)logInOrOut
 {
@@ -216,7 +278,6 @@
 
         username.autocorrectionType = UITextAutocorrectionTypeNo;
         username.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        [username setClearButtonMode:UITextFieldViewModeWhileEditing];
 
         username.keyboardType = UIKeyboardTypeDefault;
         username.returnKeyType = UIReturnKeyNext;
@@ -238,7 +299,6 @@
         password.keyboardType = UIKeyboardTypeDefault;
 
         password.returnKeyType = UIReturnKeyDone;
-        [password setClearButtonMode:UITextFieldViewModeWhileEditing];
         cell.accessoryView = password;
         [table addSubview:password];
     }
@@ -290,6 +350,34 @@
     return YES;
 }
 
+// Handle 1Password button press
+- (void)handle1PasswordInputs
+{    
+    [prefs setObject:username.text forKey:@"userName"];
+    [prefs setObject:password.text forKey:@"password"];
+    [prefs synchronize];
+    
+    [self tryLoggingUserIn];
+}
+
+// Handle finding correct SIS login credentials from 1Password
+- (IBAction)findLoginFrom1Password:(id)sender {
+    [[OnePasswordExtension sharedExtension] findLoginForURLString:@"https://www.stolaf.edu" forViewController:self sender:sender completion:^(NSDictionary *loginDict, NSError *error) {
+        if (!loginDict) {
+            if (error.code != AppExtensionErrorCodeCancelledByUser) {
+                NSLog(@"Error invoking 1Password App Extension for login: %@", error);
+            }
+            return;
+        }
+        
+        self.username.text = loginDict[AppExtensionUsernameKey];
+        self.password.text = loginDict[AppExtensionPasswordKey];
+        
+        [self handle1PasswordInputs];
+    }];
+}
+
+
 // Handle when the log-in button is pressed
 - (void)loginTapped:(UIButton *)button
 {
@@ -303,7 +391,7 @@
     // Pull the user's credentials from NSUserDefaults
     NSString *tokenUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
     NSString *tokenPass = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
-
+    
     // if we have a username and password
     if ((tokenUser != NULL && ![tokenUser isEqual:@""] && tokenPass != NULL && ![tokenPass isEqual:@""]))
     {
@@ -340,18 +428,19 @@
     [request setHTTPShouldHandleCookies:YES];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setHTTPBody:postData];
-
+    
     // Header response from the server
     NSURLResponse *response;
-
     
     // Our data from the URL
     [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     
     // Code to see if we have had any server errors or pages not found...
     int code = [(NSHTTPURLResponse *)response statusCode];
+
     // URL to search for the failure URL
     NSString *responseURL = [[response URL] absoluteString];
+
 
     if ([responseURL rangeOfString:@"Sorry"].location != NSNotFound)
     {
@@ -501,7 +590,6 @@
         // Handle response
         NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
         NSInteger statusCode = [httpResponse statusCode];
-        NSLog(@"%ld", (long)statusCode);
 
         if(error == nil) {
             
