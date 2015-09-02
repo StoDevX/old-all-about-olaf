@@ -44,13 +44,12 @@
     [urlArrBike addObject:[NSURL URLWithString:@"http://wp.stolaf.edu/sa/transportation/greenbikes/"]];
 
     // Car array
-    [urlArrCar addObject:[NSURL URLWithString:@"http://www.wecar.com/content/car-sharing/en_US/join-wecar/program-details-stolaf.html"]];
-    [urlArrCar addObject:[NSURL URLWithString:@"http://www.stolaf.edu/apps/rideboard"]];
+    [urlArrCar addObject:[NSURL URLWithString:@"https://www.enterprisecarshare.com/us/en/programs/university/st-olaf.html"]];
+    [urlArrCar addObject:[NSURL URLWithString:@"http://www.stolaf.edu/apps/rideboard/index.cfm?fuseaction=agree"]];
 
     // Bus array
     [urlArrBus addObject:[NSURL URLWithString:@"https://webstore.northfieldlines.com/ticketing/"]];
     [urlArrBus addObject:[NSURL URLWithString:@"http://youarriveontime.com"]];
-    [urlArrBus addObject:[NSURL URLWithString:@"http://www.threeriverscap.org/transportation/hiawathaland-transit/northfield-service-area"]];
     [urlArrBus addObject:[NSURL URLWithString:@"http://wp.stolaf.edu/sa/transportation/localexpressbus/"]];
     [urlArrBus addObject:[NSURL URLWithString:@"http://www.northfieldlines.com/content/stop-location-maps"]];
     [urlArrBus addObject:[NSURL URLWithString:@"http://van-go.info/schedule/"]];
@@ -156,20 +155,15 @@
         }
         else if (indexPath.row == 2)
         {
-            cell.textLabel.text = @"Hiawathaland Transit";
-            cell.detailTextLabel.text = @"This shuttle operates Monday - Friday and will pick you up from any location in Northfield. You must call first.";
-        }
-        else if (indexPath.row == 3)
-        {
             cell.textLabel.text = @"Local Bus";
             cell.detailTextLabel.text = @"Free route bus that stops at both colleges, Division Street, Target/Cub, and El Tequila/Culvers.";
         }
-        else if (indexPath.row == 4)
+        else if (indexPath.row == 3)
         {
             cell.textLabel.text = @"Northfield Metro Express";
             cell.detailTextLabel.text = @"Shuttle service 3 times daily/7 days a week that stops at Carleton, St. Olaf, Northfield Park & Ride, and MSP Airport.";
         }
-        else if (indexPath.row == 5)
+        else if (indexPath.row == 4)
         {
             cell.textLabel.text = @"Van-GO!";
             cell.detailTextLabel.text = @"Van service that operates Monday - Friday from 7 a.m. to 6 p.m. Business use only.";

@@ -60,7 +60,7 @@
 
         [_webView setDelegate:self];
 
-        NSString *urlString = @"http://m.stolaf.edu/#/directory";
+        NSString *urlString = @"http://www.stolaf.edu/personal/";
         //2
         NSURL *url = [NSURL URLWithString:urlString];
         //3
