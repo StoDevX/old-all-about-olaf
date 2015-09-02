@@ -24,6 +24,7 @@
 @implementation MasterViewController
 @synthesize subView;
 @synthesize segmentedControl;
+@synthesize noNewsText;
 
 BOOL firstSelected = true;
 BOOL secondSelected = false;
@@ -256,6 +257,8 @@ BOOL thirdSelected = false;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [self.activityIndicator startAnimating];
     self.tableView.scrollEnabled = NO;
+    //Remove no stories label
+    [noNewsText removeFromSuperview];
 
     RSSLoader *rss = [[RSSLoader alloc] init];
     [rss fetchRssWithURL:feedURL
@@ -268,6 +271,18 @@ BOOL thirdSelected = false;
                         
                         _objects = results;
                         [self.tableView reloadData];
+                        
+                        //count the number of objects returned
+                        if (_objects.count == 0 || _objects == NULL) {
+                            //show text saying no news was found
+                            noNewsText = [[UILabel alloc] initWithFrame:CGRectMake(65, 150, 300, 100)];
+                            noNewsText.text = @"No Stories Found";
+                            noNewsText.numberOfLines = 0;
+                            noNewsText.font = [UIFont fontWithName:@"Helvetica-Bold" size:22];
+                            noNewsText.textColor = [UIColor blackColor];
+                            [self.view addSubview:noNewsText];
+                            [self.view bringSubviewToFront:noNewsText];
+                        }
                         
                         // Stop refresh control
                         [refreshControl endRefreshing];

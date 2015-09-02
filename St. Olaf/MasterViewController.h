@@ -19,5 +19,5 @@
 - (IBAction)changeWebsite;
 @property (weak, nonatomic) IBOutlet UILabel *noInternet;
 @property (strong, nonatomic) UISegmentedControl *segmentedControl;
-
+@property (strong, nonatomic) UILabel *noNewsText;
 @end
