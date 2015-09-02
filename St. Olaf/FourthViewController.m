@@ -218,7 +218,14 @@
 {
     //stop the activity indicator when done loading
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    _webView.scrollView.contentOffset = CGPointMake(0, 700);
+
+    // Current webpage
+    NSString *currentURL = _webView.request.URL.absoluteString;
+
+    if([currentURL  isEqual: @"http://www.stolaf.edu/personal/"]) {
+        _webView.scrollView.contentOffset = CGPointMake(0, 600);
+    }
+        
     [self.overlayView removeFromSuperview];
     [_loadingText setHidden:YES];
     [_loadingSpinner setHidden:YES];
