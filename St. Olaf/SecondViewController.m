@@ -150,6 +150,12 @@ NSArray *uniqueDateArray;
    return [[arrOfDateArrays objectAtIndex:section] count];
 }
 
+// Header Titles Setion Heights
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40;
+}
+
 // Headers for tableview cells
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
@@ -165,17 +171,6 @@ NSArray *uniqueDateArray;
     NSString *convertedString = [dateFormatter stringFromDate:date];
     
     return convertedString;
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Change cell background colors
-    if (indexPath.row % 2) {
-        cell.contentView.backgroundColor = [UIColor colorWithRed:0.96 green:0.95 blue:0.95 alpha:1.0];
-        cell.backgroundColor = [UIColor colorWithRed:0.96 green:0.95 blue:0.95 alpha:1.0];
-    } else {
-        cell.contentView.backgroundColor = [UIColor whiteColor];
-        cell.backgroundColor = [UIColor whiteColor];
-    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath
