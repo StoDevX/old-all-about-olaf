@@ -17,7 +17,6 @@
 
 @interface SecondViewController : UITableViewController <UIActionSheetDelegate>
 {
-    NSMutableArray *_EventArray;
     UIActionSheet *AddEventSheet;
     NSInteger selectedRow;
 }

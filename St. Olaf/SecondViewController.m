@@ -16,10 +16,15 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 
 @implementation SecondViewController
-@synthesize EventArray = _EventArray;
 @synthesize selectedRow;
 @synthesize subView;
 @synthesize tableView;
+
+NSString *prevDateHeader = @"";
+NSInteger arrIndexCount = 0;
+NSMutableArray *arrOfDateArrays;
+NSMutableArray *dateOfevents;
+NSArray *uniqueDateArray;
 
 #define CELL_CONTENT_MARGIN 10.0f
 
@@ -121,7 +126,7 @@
 // Auto calculate the height of the cells
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GoogCal *eventLcl = (GoogCal *)[_EventArray objectAtIndex:[indexPath row]];
+    GoogCal *eventLcl = (GoogCal *)[arrOfDateArrays[indexPath.section] objectAtIndex:[indexPath row]];
     NSString *text = eventLcl.Title;
     UIFont *systemFont = [UIFont systemFontOfSize:16];
 
@@ -129,21 +134,48 @@
     CGSize expectedLabelSize = [text sizeWithFont:systemFont constrainedToSize:maximumLabelSize lineBreakMode:UILineBreakModeCharacterWrap];
 
     //adjust the label the the new height.
-    return expectedLabelSize.height + 80;
+    return expectedLabelSize.height + 40;
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+    return [arrOfDateArrays count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_EventArray count];
+   return [[arrOfDateArrays objectAtIndex:section] count];
+}
+
+// Headers for tableview cells
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *dateStr = [uniqueDateArray objectAtIndex:section];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"M/d/yy"];
+    
+    NSDate *date = [dateFormatter dateFromString: dateStr];
+    
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"E  MMM d"];
+    
+    NSString *convertedString = [dateFormatter stringFromDate:date];
+    
+    return convertedString;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Change cell background colors
+    if (indexPath.row % 2) {
+        cell.contentView.backgroundColor = [UIColor colorWithRed:0.96 green:0.95 blue:0.95 alpha:1.0];
+        cell.backgroundColor = [UIColor colorWithRed:0.96 green:0.95 blue:0.95 alpha:1.0];
+    } else {
+        cell.contentView.backgroundColor = [UIColor whiteColor];
+        cell.backgroundColor = [UIColor whiteColor];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -163,7 +195,7 @@
     }
 
     // Configure the cell...
-    GoogCal *eventLcl = (GoogCal *)[_EventArray objectAtIndex:[indexPath row]];
+    GoogCal *eventLcl = (GoogCal *)[arrOfDateArrays[indexPath.section] objectAtIndex:[indexPath row]];
 
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     NSLocale *locale = [NSLocale currentLocale];
@@ -172,47 +204,22 @@
     // Make the calendar look like Apple's... ex: Mon  Nov 5
     [dateFormat setDateFormat:@"E  MMM d"];
 
-    NSString *startDateStr = [dateFormat stringFromDate:eventLcl.StartDate];
-    NSString *endDateStr = [dateFormat stringFromDate:eventLcl.EndDate];
-
     [dateFormat setDateFormat:@"h:mm a"];
 
     NSString *hourStart = [dateFormat stringFromDate:eventLcl.StartDate];
     NSString *hourEnd = [dateFormat stringFromDate:eventLcl.EndDate];
-
-    // The header view
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, table.frame.size.width, 23)];
-    // Create custom view to display section header
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, table.frame.size.width, 25)];
-    [label setFont:[UIFont boldSystemFontOfSize:16]];
-    label.textColor = [UIColor blackColor];
-    // Section header
-
-    // If this event lasts more than one day...
-    if ([startDateStr isEqualToString:endDateStr])
-    {
-        [label setText:startDateStr];
-    }
-    // If this event lasts one or less days...
-    else
-    {
-        [label setText:[NSString stringWithFormat:@"%@%@%@", startDateStr, @"  -  ", endDateStr]];
-    }
-
-    [view addSubview:label];
-    [view setBackgroundColor:[UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0]];
-    [cell addSubview:view];
+    
 
     // Hours label
     // Start hour
-    UILabel *hourStartLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 10, 100, 90)];
+    UILabel *hourStartLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, -20, 100, 90)];
     hourStartLabel.textColor = [UIColor blackColor];
     [hourStartLabel setFont:[UIFont systemFontOfSize:13]];
     hourStartLabel.backgroundColor = [UIColor clearColor];
     hourStartLabel.text = hourStart;
     [cell.contentView addSubview:hourStartLabel];
     // End hour
-    UILabel *hourEndLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 25, 100, 90)];
+    UILabel *hourEndLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, -5, 100, 90)];
     hourEndLabel.textColor = [UIColor lightGrayColor];
     [hourEndLabel setFont:[UIFont systemFontOfSize:13]];
     hourEndLabel.backgroundColor = [UIColor clearColor];
@@ -227,13 +234,13 @@
     [cell.textLabel setFont:[UIFont systemFontOfSize:16]];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     // Assign the text...while hackily moving it down in the cell 2 lines
-    cell.textLabel.text = [NSString stringWithFormat:@"%@%@", @"\n", eventLcl.Title];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", eventLcl.Title];
 
     /* Hide UISelection on table view cells...hackery to hide mysterious duplicate (incorrect) labels on selection.
      * Go ahead. Comment this guy out and see what I mean. Man. Whoever wrote this needs to be yelled at...
      */
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+    
     return cell;
 }
 
@@ -286,8 +293,12 @@
 
 - (void)fetchedData:(NSData *)responseData
 {
-    _EventArray = [[NSMutableArray alloc] init];
-
+    // Initialize
+    arrOfDateArrays = [[NSMutableArray alloc] init];
+    [arrOfDateArrays removeAllObjects];
+    
+    arrIndexCount = 0;
+    
     //parse out the json data
     NSError *error;
     NSDictionary *json = [NSJSONSerialization
@@ -295,6 +306,7 @@
                    options:kNilOptions
                      error:&error];
 
+    dateOfevents = [[NSMutableArray alloc] init];
     NSDictionary *latestEvents = [json objectForKey:@"items"];
 
     for (NSDictionary *event in latestEvents)
@@ -364,13 +376,126 @@
 
         googCalObj.StartDate = startDate; //[startDate addTimeInterval:-3600*6];
         googCalObj.EndDate = endDate;     //[endDate addTimeInterval:-3600*6];
-
+        
         //locations are stored in a dictionary
         NSString *loc = [event objectForKey:@"location"];
         googCalObj.Location = loc;
-
-        [_EventArray addObject:googCalObj];
+        
+        
+        //extract the start date and convert to string
+        NSString *theEventDateStr = [NSDateFormatter localizedStringFromDate:startDate
+                                                                   dateStyle:NSDateFormatterShortStyle
+                                                                   timeStyle:NSDateFormatterFullStyle];
+        //split string up at commas
+        NSArray *arrayWithStrings = [theEventDateStr componentsSeparatedByString:@","];
+        
+        //add event titles to separate array (substring of just date)
+        [dateOfevents addObject: arrayWithStrings[0]];
     }
+    
+    //get unique number of dates
+    uniqueDateArray = [[NSOrderedSet orderedSetWithArray: dateOfevents] array];
+
+    
+    //get count of unique dates
+    long numOfUniqueDates = [uniqueDateArray count];
+    
+    //create unique date number of arrays to store dates by day
+    for (int i = 0; i <= numOfUniqueDates; ++i) {
+        NSMutableArray *myUniqueArr$i = [[NSMutableArray alloc] init];
+        [arrOfDateArrays addObject: myUniqueArr$i];
+    }
+    
+    for (NSDictionary *event in latestEvents)
+    {
+        // Calendar object
+        GoogCal *googCalObj = [[GoogCal alloc] init];
+        
+        // Event title
+        googCalObj.Title = [event objectForKey:@"summary"];
+        
+        // Clean up the HTML (if any) in the title
+        googCalObj.Title = [googCalObj.Title stripHtml];
+        // Clean up whitespace (if any) in the title
+        googCalObj.Title = [googCalObj.Title stringByTrimmingCharactersInSet:
+                            [NSCharacterSet whitespaceCharacterSet]];
+        
+        // Convert string to date object
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        NSLocale *enUSPOSIXLocale;
+        enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        [dateFormat setLocale:enUSPOSIXLocale];
+        [dateFormat setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
+        [dateFormat setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+        
+        // Dictionary to hold a start date
+        NSMutableDictionary *dateArrStart2 = [event objectForKey:@"start"];
+        // Start date
+        NSString *dateStart;
+        
+        // If it does not contain a time (aka multiple day-spanning event...)
+        if ([dateArrStart2 objectForKey:@"dateTime"] == NULL)
+        {
+            dateStart = [dateArrStart2 objectForKey:@"date"];
+        }
+        // If it does contain a time...
+        else
+        {
+            dateStart = [dateArrStart2 objectForKey:@"dateTime"];
+        }
+        // Convert back to a date
+        enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
+        
+        NSDate *startDate = [formatter dateFromString:dateStart];
+        
+        // Dictionary to hold an end date
+        NSMutableDictionary *dateArrEnd = [event objectForKey:@"end"];
+        // Start date
+        NSString *dateEnd;
+        
+        // If it does not contain a time (aka multiple day-spanning event...)
+        if ([dateArrEnd objectForKey:@"dateTime"] == NULL)
+        {
+            dateEnd = [dateArrEnd objectForKey:@"date"];
+        }
+        // If it does contain a time...
+        else
+        {
+            dateEnd = [dateArrEnd objectForKey:@"dateTime"];
+        }
+        // Convert back to a date
+        enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        formatter = [[ISO8601DateFormatter alloc] init];
+        
+        NSDate *endDate = [formatter dateFromString:dateEnd];
+        dateFormat = nil;
+        
+        googCalObj.StartDate = startDate; //[startDate addTimeInterval:-3600*6];
+        googCalObj.EndDate = endDate;     //[endDate addTimeInterval:-3600*6];
+        
+        //locations are stored in a dictionary
+        NSString *loc = [event objectForKey:@"location"];
+        googCalObj.Location = loc;
+        
+        
+        //split string up at the timestamp to get only the date
+        NSArray *arrayWithStrings = [dateStart componentsSeparatedByString:@"T"];
+        
+        //add the items to separated date arrays
+        if (![arrayWithStrings[0] isEqualToString: prevDateHeader]) {
+            arrIndexCount++;
+            [arrOfDateArrays[arrIndexCount] addObject:googCalObj];
+        }
+        else {
+            [arrOfDateArrays[arrIndexCount] addObject: googCalObj];
+        }
+        
+        //assign the previous date header for comparison later
+        prevDateHeader = arrayWithStrings[0];
+    }
+    //hack...fix me... remove first empty array from larger array
+    [arrOfDateArrays removeObjectAtIndex:0];
 }
 
 #pragma mark - Action Sheet delegate
@@ -386,8 +511,9 @@
 {
     EKEventStore *eventStore = [[EKEventStore alloc] init];
     GoogCal *calEvent = [[GoogCal alloc] init];
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
 
-    calEvent = [_EventArray objectAtIndex:selectedRow];
+    calEvent = [arrOfDateArrays[indexPath.section] objectAtIndex:[indexPath row]];
     EKEvent *event = [EKEvent eventWithEventStore:eventStore];
     event.title = calEvent.Title;
     event.startDate = calEvent.StartDate;
@@ -403,7 +529,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    GoogCal *object = self.EventArray[indexPath.row];
+    GoogCal *object = arrOfDateArrays[indexPath.section][indexPath.row];
 
     if ([[segue identifier] isEqualToString:@"showMore"])
     {
