@@ -262,7 +262,7 @@ NSArray *uniqueDateArray;
         [DateFormatter setDateFormat:@"HH:mm:ss"];
         //NSString *timeIs = [DateFormatter stringFromDate:[NSDate date]];
 
-        NSString *dateAndTimeIs = [NSString stringWithFormat:@"%@%@%@%@", dateIs, @"T", "00:00:00", @".03Z"];
+        NSString *dateAndTimeIs = [NSString stringWithFormat:@"%@%@%@%@", dateIs, @"T", @"00:00:00", @".03Z"];
         
         // URL to fetch 25 events
         NSString *kGoogleCalendarStr = [NSString stringWithFormat:
