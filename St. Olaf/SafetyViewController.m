@@ -14,14 +14,18 @@
 
 @implementation SafetyViewController
 
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self)
-    {
+    
+    if (self) {
+        
     }
+    
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -46,6 +50,11 @@
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     cell.textLabel.numberOfLines = 0;
     cell.detailTextLabel.numberOfLines = 0;
+    
+    UIImageView *accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [accessoryView setImage:[UIImage imageNamed:@"phone"]];
+    [cell setAccessoryView:accessoryView];
+    
     return cell;
 }
 

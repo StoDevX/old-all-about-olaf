@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E81951362B7B6D77D8766434BD43F4C364F07188",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E81951362B7B6D77D8766434BD43F4C364F07188" : 0,
+    "336F5BD7815C20A142FC7E96D85D77275F8986B7" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0BAA2EB8-34F3-44E0-B2EF-144F825E282F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E81951362B7B6D77D8766434BD43F4C364F07188" : "all-about-olaf",
+    "336F5BD7815C20A142FC7E96D85D77275F8986B7" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "All About Olaf",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "All About Olaf.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/drewvolz\/all-about-olaf.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "336F5BD7815C20A142FC7E96D85D77275F8986B7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/drewvolz\/all-about-olaf.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E81951362B7B6D77D8766434BD43F4C364F07188"
+    }
+  ]
+}

@@ -832,6 +832,8 @@
 
     // Set-up for the center map button
     [centerMap addTarget:self action:@selector(centerMap:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.myMapView bringSubviewToFront:centerMap];
 }
 
 - (IBAction)centerMap:(UIButton *)sender

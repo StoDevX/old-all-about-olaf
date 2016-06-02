@@ -265,17 +265,20 @@
 {
     username.delegate = self;
     password.delegate = self;
+    
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
 
     //Username and Password
     UITableViewCell *cell = [super tableView:table cellForRowAtIndexPath:indexPath];
 
     if (indexPath.row == 0 && indexPath.section == 0)
     {
-        username = [[UITextField alloc] initWithFrame:CGRectMake(5, 0, 280, 21)];
+        username = [[UITextField alloc] initWithFrame:CGRectMake(5, 0, screenWidth - 30, 21)];
 
         username.placeholder = @"Username";
         username.text = [prefs stringForKey:@"userName"];
-
+        
+        username.textAlignment = NSTextAlignmentLeft;
         username.autocorrectionType = UITextAutocorrectionTypeNo;
         username.autocapitalizationType = UITextAutocapitalizationTypeNone;
 
@@ -288,11 +291,12 @@
 
     if (indexPath.row == 1 && indexPath.section == 0)
     {
-        password = [[UITextField alloc] initWithFrame:CGRectMake(5, 0, 280, 21)];
+        password = [[UITextField alloc] initWithFrame:CGRectMake(5, 0, screenWidth - 30, 21)];
 
         password.placeholder = @"Password";
         password.text = [prefs stringForKey:@"password"];
-
+       
+        password.textAlignment = NSTextAlignmentLeft;
         password.secureTextEntry = YES;
         password.autocorrectionType = UITextAutocorrectionTypeNo;
         password.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -442,7 +446,7 @@
     NSString *responseURL = [[response URL] absoluteString];
 
 
-    if ([responseURL rangeOfString:@"Sorry"].location != NSNotFound)
+    if ([responseURL rangeOfString:@"message=1"].location != NSNotFound || ([responseURL rangeOfString:@"Sorry"].location != NSNotFound))
     {
         [refreshControl endRefreshing];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could Not Log-In" message:@"Please check your username and password and try again." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];

@@ -60,8 +60,9 @@ BOOL thirdSelected = false;
     {
         [_noInternet setHidden:YES];
 
-        //Set the segmented control to be where we want it to be
+        // Set the segmented control to be where we want it to be
         segmentedControl = [[UISegmentedControl alloc] initWithItems:@[ @"St. Olaf", @"Manitou", @"PoliticOle" ]];
+        
         firstSelected = true;
 
         // Olaf news
@@ -341,12 +342,18 @@ BOOL thirdSelected = false;
 
         return segmentedControl;
     }
+     
     return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return section == 0 ? 0 : 36;
+    return section == 0;
+    
+    // Although we have the ability to show Manitou Messenger and PoliticOle, we will hide them as of 2/27/16
+    // If this ever should change, use the below
+
+    //return section == 0 ? 0 : 36;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

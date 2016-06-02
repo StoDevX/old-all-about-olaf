@@ -69,11 +69,12 @@
 
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
+    CGFloat screenWidth = screenRect.size.width;
 
-    UITextView *myUITextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 275, screenHeight - 65)];
+    UITextView *myUITextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight - 65)];
 
     NSString *one = item.title;
-    NSString *lineBreak = @"________________________________";
+    NSString *lineBreak = @"";
     NSString *two = item.contentEncoded;
 
     //NSDataDetector* detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:nil];
@@ -88,6 +89,10 @@
     [myUITextView setBackgroundColor:[UIColor clearColor]];
     myUITextView.editable = NO;
     myUITextView.scrollEnabled = YES;
+    myUITextView.textAlignment = NSTextAlignmentNatural;
+    // Adds padding to the story text on left and right
+    myUITextView.textContainerInset = UIEdgeInsetsMake(0, 20, 0, 20);
+
     //myUITextView.dataDetectorTypes = UIDataDetectorTypeAll;
 
     [_fullStory addSubview:myUITextView];

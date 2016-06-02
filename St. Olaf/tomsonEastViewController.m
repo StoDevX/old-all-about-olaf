@@ -56,21 +56,8 @@
         CGFloat height = [UIScreen mainScreen].bounds.size.height;
         self.streamPlayer.view.center = self.view.center;
 
-        // Screen size detection...
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-        {
-            CGSize calc = [[UIScreen mainScreen] bounds].size;
-            if (calc.height <= 480)
-            {
-                // iPhone Classic
-                [self.streamPlayer.view setFrame:CGRectMake(0, 0, height = 320, width = 480)];
-            }
-            if (calc.height >= 568)
-            {
-                // iPhone 5
-                [self.streamPlayer.view setFrame:CGRectMake(5, 10, height = 310, width = 580)];
-            }
-        }
+        // Size...
+        [self.streamPlayer.view setFrame:CGRectMake(5, 0, width, height)];
 
         [self.streamPlayer.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
         self.streamPlayer.controlStyle = MPMovieControlStyleNone;

@@ -35,15 +35,6 @@
 		3A51762317CAF2090098EEA0 /* RSSLoader3.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A51762117CAF2090098EEA0 /* RSSLoader3.m */; };
 		3A5228E31B0D257A00C3006C /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5228E21B0D257A00C3006C /* OnePasswordExtension.m */; };
 		3A5228E51B0D25C000C3006C /* 1Password.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5228E41B0D25C000C3006C /* 1Password.xcassets */; };
-		3A58303318E5D81D008583F8 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A58302C18E5D81D008583F8 /* Recipe.m */; };
-		3A58303418E5D81D008583F8 /* RecipeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A58302E18E5D81D008583F8 /* RecipeDetailViewController.m */; };
-		3A58303518E5D81D008583F8 /* RecipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A58303018E5D81D008583F8 /* RecipeTableCell.m */; };
-		3A58303618E5D81D008583F8 /* RecipeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A58303218E5D81D008583F8 /* RecipeTableViewController.m */; };
-		3A5912D61AACB4B2001DEDD8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5912D11AACB4B2001DEDD8 /* Bolts.framework */; };
-		3A5912D71AACB4B2001DEDD8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5912D21AACB4B2001DEDD8 /* Parse.framework */; };
-		3A5912D81AACB4B2001DEDD8 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5912D31AACB4B2001DEDD8 /* ParseCrashReporting.framework */; };
-		3A5912D91AACB4B2001DEDD8 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5912D41AACB4B2001DEDD8 /* ParseFacebookUtils.framework */; };
-		3A5912DA1AACB4B2001DEDD8 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5912D51AACB4B2001DEDD8 /* ParseUI.framework */; };
 		3A5912DC1AACB5D0001DEDD8 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5912DB1AACB5D0001DEDD8 /* Accounts.framework */; };
 		3A62D72517BC716800A1BF10 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A62D72417BC716800A1BF10 /* SystemConfiguration.framework */; };
 		3A62D72E17BC997F00A1BF10 /* CalendarLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A62D72D17BC997F00A1BF10 /* CalendarLinkViewController.m */; };
@@ -57,6 +48,9 @@
 		3A75FAA517BB5E4200FACF0B /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A75FAA417BB5E4200FACF0B /* NavigationController.m */; };
 		3A75FAA817BBD60800FACF0B /* GeneralTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A75FAA717BBD60800FACF0B /* GeneralTableViewController.m */; };
 		3A78F28817B807EE0010DE4E /* WebcamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78F28717B807EE0010DE4E /* WebcamsViewController.m */; };
+		3A7EB9421CFF88BD00C9FC3C /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7EB93D1CFF88BD00C9FC3C /* TFHpple.m */; };
+		3A7EB9431CFF88BD00C9FC3C /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7EB93F1CFF88BD00C9FC3C /* TFHppleElement.m */; };
+		3A7EB9441CFF88BD00C9FC3C /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7EB9411CFF88BD00C9FC3C /* XPathQuery.m */; };
 		3A8B00A717C51A3900D6094B /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B00A617C51A3900D6094B /* ClassViewController.m */; };
 		3A8FADF818BFFD0E0007419E /* TheCageMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8FADF718BFFD0E0007419E /* TheCageMenuViewController.m */; };
 		3AA65857182F3DB90056C3AA /* CageScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA65856182F3DB90056C3AA /* CageScheduleViewController.m */; };
@@ -69,14 +63,9 @@
 		3AAF0ED119B374BC00727937 /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF0ECF19B374BC00727937 /* HTMLParser.m */; };
 		3AAFB0D21876293F007819E0 /* AlumniHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAFB0D11876293F007819E0 /* AlumniHallViewController.m */; };
 		3AAFB0D618762E6B007819E0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAFB0D518762E6B007819E0 /* AudioToolbox.framework */; };
-		3AB910C01A2EF8E30053D1D4 /* AddWordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB910BF1A2EF8E30053D1D4 /* AddWordTableViewController.m */; };
 		3ABF1E1B190C037600D8F82E /* PrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABF1E1A190C037600D8F82E /* PrivacyViewController.m */; };
 		3AC92B5218F225D80027A156 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC92B4D18F225D80027A156 /* CustomCell.m */; };
 		3ACB4F1D17BC2C0F00C8C26D /* SafetyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB4F1C17BC2C0F00C8C26D /* SafetyViewController.m */; };
-		3ACC9A2418B16A7200607FFB /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC9A2318B16A7200607FFB /* MovieViewController.m */; };
-		3ACC9A2C18B1990C00607FFB /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC9A2718B1990C00607FFB /* TFHpple.m */; };
-		3ACC9A2D18B1990C00607FFB /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC9A2918B1990C00607FFB /* TFHppleElement.m */; };
-		3ACC9A2E18B1990C00607FFB /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC9A2B18B1990C00607FFB /* XPathQuery.m */; };
 		3ACE56AD198DA7BF0045D711 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE56AC198DA7BF0045D711 /* Course.m */; };
 		3ACE56B6198DB22A0045D711 /* CourseLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE56B5198DB22A0045D711 /* CourseLoader.m */; };
 		3ADBE0BF198C844900296032 /* MyCoursesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBE0BE198C844900296032 /* MyCoursesTableViewController.m */; };
@@ -209,19 +198,6 @@
 		3A5228E11B0D257A00C3006C /* OnePasswordExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnePasswordExtension.h; sourceTree = "<group>"; };
 		3A5228E21B0D257A00C3006C /* OnePasswordExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
 		3A5228E41B0D25C000C3006C /* 1Password.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = 1Password.xcassets; sourceTree = "<group>"; };
-		3A58302B18E5D81D008583F8 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
-		3A58302C18E5D81D008583F8 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
-		3A58302D18E5D81D008583F8 /* RecipeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailViewController.h; sourceTree = "<group>"; };
-		3A58302E18E5D81D008583F8 /* RecipeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailViewController.m; sourceTree = "<group>"; };
-		3A58302F18E5D81D008583F8 /* RecipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeTableCell.h; sourceTree = "<group>"; };
-		3A58303018E5D81D008583F8 /* RecipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableCell.m; sourceTree = "<group>"; };
-		3A58303118E5D81D008583F8 /* RecipeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeTableViewController.h; sourceTree = "<group>"; };
-		3A58303218E5D81D008583F8 /* RecipeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableViewController.m; sourceTree = "<group>"; };
-		3A5912D11AACB4B2001DEDD8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		3A5912D21AACB4B2001DEDD8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		3A5912D31AACB4B2001DEDD8 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
-		3A5912D41AACB4B2001DEDD8 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		3A5912D51AACB4B2001DEDD8 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		3A5912DB1AACB5D0001DEDD8 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		3A62D72417BC716800A1BF10 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3A62D72C17BC997F00A1BF10 /* CalendarLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarLinkViewController.h; sourceTree = "<group>"; };
@@ -241,6 +217,12 @@
 		3A75FAA717BBD60800FACF0B /* GeneralTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralTableViewController.m; sourceTree = "<group>"; };
 		3A78F28617B807EE0010DE4E /* WebcamsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamsViewController.h; sourceTree = "<group>"; };
 		3A78F28717B807EE0010DE4E /* WebcamsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebcamsViewController.m; sourceTree = "<group>"; };
+		3A7EB93C1CFF88BD00C9FC3C /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		3A7EB93D1CFF88BD00C9FC3C /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		3A7EB93E1CFF88BD00C9FC3C /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		3A7EB93F1CFF88BD00C9FC3C /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		3A7EB9401CFF88BD00C9FC3C /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		3A7EB9411CFF88BD00C9FC3C /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		3A8B00A517C51A3900D6094B /* ClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewController.h; sourceTree = "<group>"; };
 		3A8B00A617C51A3900D6094B /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewController.m; sourceTree = "<group>"; };
 		3A8FADF618BFFD0E0007419E /* TheCageMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheCageMenuViewController.h; sourceTree = "<group>"; };
@@ -265,22 +247,12 @@
 		3AAFB0D11876293F007819E0 /* AlumniHallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlumniHallViewController.m; sourceTree = "<group>"; };
 		3AAFB0D318762DE8007819E0 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		3AAFB0D518762E6B007819E0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		3AB910BE1A2EF8E30053D1D4 /* AddWordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWordTableViewController.h; sourceTree = "<group>"; };
-		3AB910BF1A2EF8E30053D1D4 /* AddWordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddWordTableViewController.m; sourceTree = "<group>"; };
 		3ABF1E19190C037600D8F82E /* PrivacyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyViewController.h; sourceTree = "<group>"; };
 		3ABF1E1A190C037600D8F82E /* PrivacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyViewController.m; sourceTree = "<group>"; };
 		3AC92B4C18F225D80027A156 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
 		3AC92B4D18F225D80027A156 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 		3ACB4F1B17BC2C0F00C8C26D /* SafetyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafetyViewController.h; sourceTree = "<group>"; };
 		3ACB4F1C17BC2C0F00C8C26D /* SafetyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafetyViewController.m; sourceTree = "<group>"; };
-		3ACC9A2218B16A7200607FFB /* MovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieViewController.h; sourceTree = "<group>"; };
-		3ACC9A2318B16A7200607FFB /* MovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
-		3ACC9A2618B1990C00607FFB /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
-		3ACC9A2718B1990C00607FFB /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
-		3ACC9A2818B1990C00607FFB /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
-		3ACC9A2918B1990C00607FFB /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
-		3ACC9A2A18B1990C00607FFB /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
-		3ACC9A2B18B1990C00607FFB /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		3ACE56AB198DA7BF0045D711 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		3ACE56AC198DA7BF0045D711 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		3ACE56B4198DB22A0045D711 /* CourseLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseLoader.h; sourceTree = "<group>"; };
@@ -398,21 +370,16 @@
 				3A0ACE4717BFE7BB00975991 /* Social.framework in Frameworks */,
 				3A6D21C51A7210C500EE7719 /* libsqlite3.dylib in Frameworks */,
 				3ADFA5FC17B75B70008E6251 /* UIKit.framework in Frameworks */,
-				3A5912DA1AACB4B2001DEDD8 /* ParseUI.framework in Frameworks */,
 				3A3A7BEF19FAB79000D39E34 /* EventKit.framework in Frameworks */,
 				3ADFA5F817B75B70008E6251 /* Foundation.framework in Frameworks */,
 				3A6DE1D9189C553B001B2A77 /* Security.framework in Frameworks */,
-				3A5912D71AACB4B2001DEDD8 /* Parse.framework in Frameworks */,
-				3A5912D61AACB4B2001DEDD8 /* Bolts.framework in Frameworks */,
 				3A6DE1D7189C552E001B2A77 /* MobileCoreServices.framework in Frameworks */,
 				3A6DE1D5189C5521001B2A77 /* CoreLocation.framework in Frameworks */,
 				3ADFA5FA17B75B70008E6251 /* CoreGraphics.framework in Frameworks */,
 				3A6DE1D3189C5512001B2A77 /* CFNetwork.framework in Frameworks */,
 				3AAFB0D618762E6B007819E0 /* AudioToolbox.framework in Frameworks */,
 				3A4D904418751C170041E503 /* AVFoundation.framework in Frameworks */,
-				3A5912D91AACB4B2001DEDD8 /* ParseFacebookUtils.framework in Frameworks */,
 				320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */,
-				3A5912D81AACB4B2001DEDD8 /* ParseCrashReporting.framework in Frameworks */,
 				3A62D72517BC716800A1BF10 /* SystemConfiguration.framework in Frameworks */,
 				3A392BD717B7655000378C9A /* MapKit.framework in Frameworks */,
 				3ADFA67917B75D54008E6251 /* MessageUI.framework in Frameworks */,
@@ -611,23 +578,6 @@
 			name = 1password;
 			sourceTree = "<group>";
 		};
-		3A58301B18E574EF008583F8 /* Dictionary */ = {
-			isa = PBXGroup;
-			children = (
-				3A58303118E5D81D008583F8 /* RecipeTableViewController.h */,
-				3A58303218E5D81D008583F8 /* RecipeTableViewController.m */,
-				3A58302B18E5D81D008583F8 /* Recipe.h */,
-				3A58302C18E5D81D008583F8 /* Recipe.m */,
-				3A58302D18E5D81D008583F8 /* RecipeDetailViewController.h */,
-				3A58302E18E5D81D008583F8 /* RecipeDetailViewController.m */,
-				3A58302F18E5D81D008583F8 /* RecipeTableCell.h */,
-				3A58303018E5D81D008583F8 /* RecipeTableCell.m */,
-				3AB910BE1A2EF8E30053D1D4 /* AddWordTableViewController.h */,
-				3AB910BF1A2EF8E30053D1D4 /* AddWordTableViewController.m */,
-			);
-			name = Dictionary;
-			sourceTree = "<group>";
-		};
 		3A58304518EC6562008583F8 /* SIS */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,25 +609,37 @@
 		3A78F28517B767950010DE4E /* Other Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3AF6AA6C1A0129C3002AFE66 /* Streaming */,
 				3A5175FF17CA68690098EEA0 /* About */,
 				3A8B00A417C51A0F00D6094B /* Class and Lab */,
-				3A58301B18E574EF008583F8 /* Dictionary */,
 				3A51760317CA68EA0098EEA0 /* Hours */,
 				3AE2254917B961B0006762FE /* Legal Files */,
 				3A5175B717C7400D0098EEA0 /* Menus */,
 				3A51760117CA68AD0098EEA0 /* Mobile Site */,
-				3ACC9A2118B16A5D00607FFB /* Movie */,
 				3AB36AFA17B9A84000FF35B3 /* News */,
-				3ABF1E18190C035B00D8F82E /* Privacy */,
 				3A51760417CA68F60098EEA0 /* Pub Safe */,
+				3ABF1E18190C035B00D8F82E /* Privacy */,
 				3A75FAA917BBD97F00FACF0B /* Rotation Settings */,
 				3A58304518EC6562008583F8 /* SIS */,
+				3AF6AA6C1A0129C3002AFE66 /* Streaming */,
 				3A51760517CA690E0098EEA0 /* Social */,
 				3AEBB08718E0B26200A47FE5 /* Transportation */,
 				3AEC493017B8363900C8195B /* Webcams */,
+				3A7EB93B1CFF88A400C9FC3C /* TFHpple */,
 			);
 			name = "Other Classes";
+			sourceTree = "<group>";
+		};
+		3A7EB93B1CFF88A400C9FC3C /* TFHpple */ = {
+			isa = PBXGroup;
+			children = (
+				3A7EB93C1CFF88BD00C9FC3C /* TFHpple.h */,
+				3A7EB93D1CFF88BD00C9FC3C /* TFHpple.m */,
+				3A7EB93E1CFF88BD00C9FC3C /* TFHppleElement.h */,
+				3A7EB93F1CFF88BD00C9FC3C /* TFHppleElement.m */,
+				3A7EB9401CFF88BD00C9FC3C /* XPathQuery.h */,
+				3A7EB9411CFF88BD00C9FC3C /* XPathQuery.m */,
+			);
+			name = TFHpple;
 			sourceTree = "<group>";
 		};
 		3A89947F18B9074E00778695 /* Olaf RSS */ = {
@@ -789,29 +751,6 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
-		3ACC9A2118B16A5D00607FFB /* Movie */ = {
-			isa = PBXGroup;
-			children = (
-				3ACC9A2218B16A7200607FFB /* MovieViewController.h */,
-				3ACC9A2318B16A7200607FFB /* MovieViewController.m */,
-				3ACC9A2518B1990C00607FFB /* TFHpple */,
-			);
-			name = Movie;
-			sourceTree = "<group>";
-		};
-		3ACC9A2518B1990C00607FFB /* TFHpple */ = {
-			isa = PBXGroup;
-			children = (
-				3ACC9A2618B1990C00607FFB /* TFHpple.h */,
-				3ACC9A2718B1990C00607FFB /* TFHpple.m */,
-				3ACC9A2818B1990C00607FFB /* TFHppleElement.h */,
-				3ACC9A2918B1990C00607FFB /* TFHppleElement.m */,
-				3ACC9A2A18B1990C00607FFB /* XPathQuery.h */,
-				3ACC9A2B18B1990C00607FFB /* XPathQuery.m */,
-			);
-			path = TFHpple;
-			sourceTree = "<group>";
-		};
 		3ACE56A7198DA7640045D711 /* CourseObj */ = {
 			isa = PBXGroup;
 			children = (
@@ -862,11 +801,6 @@
 				3A01CD4C1AACC3960001E536 /* libstdc++.6.dylib */,
 				3A01CD461AACC26F0001E536 /* libstdc++.6.0.9.dylib */,
 				3A5912DB1AACB5D0001DEDD8 /* Accounts.framework */,
-				3A5912D11AACB4B2001DEDD8 /* Bolts.framework */,
-				3A5912D21AACB4B2001DEDD8 /* Parse.framework */,
-				3A5912D31AACB4B2001DEDD8 /* ParseCrashReporting.framework */,
-				3A5912D41AACB4B2001DEDD8 /* ParseFacebookUtils.framework */,
-				3A5912D51AACB4B2001DEDD8 /* ParseUI.framework */,
 				3A6D21C41A7210C500EE7719 /* libsqlite3.dylib */,
 				3A3A7BEE19FAB79000D39E34 /* EventKit.framework */,
 				3A6DE1D8189C553B001B2A77 /* Security.framework */,
@@ -1069,7 +1003,6 @@
 				3ADFA5F017B75B70008E6251 /* Sources */,
 				3ADFA5F117B75B70008E6251 /* Frameworks */,
 				3ADFA5F217B75B70008E6251 /* Resources */,
-				3A5912CA1AACB1B4001DEDD8 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -1185,36 +1118,17 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		3A5912CA1AACB1B4001DEDD8 /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ $USER != \"Drew\" ]; then\n    exit 0\nfi\n\nexport PATH=/usr/local/bin:$PATH\ncd /Users/Drew/Dropbox/Apps/All\\ About\\ Olaf\\ Plugins/CloudCode/CloudCode/\n\nparse symbols \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		3ADFA5F017B75B70008E6251 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ACC9A2D18B1990C00607FFB /* TFHppleElement.m in Sources */,
 				3ADFA65D17B75CD9008E6251 /* DetailViewController.m in Sources */,
 				3ADFA65E17B75CD9008E6251 /* FirstViewController.m in Sources */,
 				3A5175BA17C742740098EEA0 /* CafScheduleViewController.m in Sources */,
 				3AAF0EC419AFF8B900727937 /* MapNavController.m in Sources */,
 				3ADFA66317B75CD9008E6251 /* MasterViewController.m in Sources */,
 				3A5175C017C744250098EEA0 /* RSSItem4.m in Sources */,
-				3ACC9A2C18B1990C00607FFB /* TFHpple.m in Sources */,
 				3AFB027E1997F5AE00560AAC /* SBJsonStreamParserAdapter.m in Sources */,
 				3A7505A217C5ABA500CD85D8 /* InfoTableViewController.m in Sources */,
 				3ADFA66817B75CD9008E6251 /* RSSItem.m in Sources */,
@@ -1228,18 +1142,18 @@
 				3ADFA63717B75CAB008E6251 /* AboutViewController.m in Sources */,
 				3AAEDD6517B81566006B3661 /* mobileSiteViewController.m in Sources */,
 				3A3DAB2E18BECDFC009BA2E8 /* StavMenuViewController.m in Sources */,
-				3A58303318E5D81D008583F8 /* Recipe.m in Sources */,
+				3A7EB9421CFF88BD00C9FC3C /* TFHpple.m in Sources */,
 				3ACE56B6198DB22A0045D711 /* CourseLoader.m in Sources */,
 				3AEBB08618E0B25D00A47FE5 /* TransportationTableViewController.m in Sources */,
 				3A75FAA517BB5E4200FACF0B /* NavigationController.m in Sources */,
 				3AE5647917BF385500949B9F /* NSString_stripHtml.m in Sources */,
+				3A7EB9431CFF88BD00C9FC3C /* TFHppleElement.m in Sources */,
 				3ADBE0C5198C84C600296032 /* CourseDetailTableViewController.m in Sources */,
 				3A51762317CAF2090098EEA0 /* RSSLoader3.m in Sources */,
 				3ADFA66717B75CD9008E6251 /* RXMLElement.m in Sources */,
 				3A3A7BF619FABB9000D39E34 /* ISO8601DateFormatter.m in Sources */,
 				3A8FADF818BFFD0E0007419E /* TheCageMenuViewController.m in Sources */,
 				3ADFA66B17B75CD9008E6251 /* socialViewController.m in Sources */,
-				3ACC9A2418B16A7200607FFB /* MovieViewController.m in Sources */,
 				3ADBE0BF198C844900296032 /* MyCoursesTableViewController.m in Sources */,
 				3ADFA66D17B75CD9008E6251 /* ThirdViewController.m in Sources */,
 				3AFB02821997F5AE00560AAC /* SBJsonStreamWriterState.m in Sources */,
@@ -1253,7 +1167,6 @@
 				3AEBB09618E0E8FB00A47FE5 /* TransportationWebViewController.m in Sources */,
 				3AAFB0D21876293F007819E0 /* AlumniHallViewController.m in Sources */,
 				3AA74A9418F0500200D13AF1 /* SISTableViewController.m in Sources */,
-				3A58303618E5D81D008583F8 /* RecipeTableViewController.m in Sources */,
 				3AAF0ED019B374BC00727937 /* HTMLNode.m in Sources */,
 				3ADFA66017B75CD9008E6251 /* GTMNSString+HTML.m in Sources */,
 				3AEC493617B8367D00C8195B /* eastquadViewController.m in Sources */,
@@ -1262,20 +1175,17 @@
 				3AC92B5218F225D80027A156 /* CustomCell.m in Sources */,
 				3AFB027D1997F5AE00560AAC /* SBJsonStreamParserAccumulator.m in Sources */,
 				3ACE56AD198DA7BF0045D711 /* Course.m in Sources */,
-				3A58303518E5D81D008583F8 /* RecipeTableCell.m in Sources */,
+				3A7EB9441CFF88BD00C9FC3C /* XPathQuery.m in Sources */,
 				3ADFA66917B75CD9008E6251 /* RSSLoader.m in Sources */,
 				3ABF1E1B190C037600D8F82E /* PrivacyViewController.m in Sources */,
-				3ACC9A2E18B1990C00607FFB /* XPathQuery.m in Sources */,
 				3ADFA65F17B75CD9008E6251 /* FourthViewController.m in Sources */,
 				3A51762217CAF2090098EEA0 /* RSSItem3.m in Sources */,
 				3AEC493B17B836A200C8195B /* tomsonEastViewController.m in Sources */,
 				3AFB02801997F5AE00560AAC /* SBJsonStreamWriter.m in Sources */,
 				3ADFA66A17B75CD9008E6251 /* SecondViewController.m in Sources */,
-				3A58303418E5D81D008583F8 /* RecipeDetailViewController.m in Sources */,
 				3AFB02841997F5AE00560AAC /* SBJsonUTF8Stream.m in Sources */,
 				3A75FAA817BBD60800FACF0B /* GeneralTableViewController.m in Sources */,
 				3A62D72E17BC997F00A1BF10 /* CalendarLinkViewController.m in Sources */,
-				3AB910C01A2EF8E30053D1D4 /* AddWordTableViewController.m in Sources */,
 				3A75FAA217BB5DAC00FACF0B /* TabBarController.m in Sources */,
 				3AFB027F1997F5AE00560AAC /* SBJsonStreamParserState.m in Sources */,
 				3AFB02831997F5AE00560AAC /* SBJsonTokeniser.m in Sources */,
@@ -1362,6 +1272,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1401,6 +1312,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -1424,6 +1336,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1436,7 +1349,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "St. Olaf/All About Olaf-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "All About Olaf";
@@ -1459,6 +1372,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1471,7 +1385,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "St. Olaf/All About Olaf-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "All About Olaf";
@@ -1486,6 +1400,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/All About Olaf.app/All About Olaf";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1508,6 +1423,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/All About Olaf.app/All About Olaf";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
