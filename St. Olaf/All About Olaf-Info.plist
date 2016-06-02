@@ -22,6 +22,19 @@
 	<string>1.4</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>NFMTHAZVS9.com.drewvolz.stolaf</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>AllAboutOlaf</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1.24</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
@@ -29,7 +42,9 @@
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSApplicationQueriesSchemes</key>
-	<string>KSTORadio</string>
+	<array>
+		<string>KSTORadio</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
