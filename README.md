@@ -4,7 +4,7 @@ All About Olaf
 __All About Olaf__ is a custom, student-oriented mobile application that provides simple and intuitive access to campus information and resources. This is an application created by a student; this is not the official iPhone application of St. Olaf College.
 
 ### News
-Stay connected to the St. Olaf community with notable stories about campus, current students, faculty, and alumni with news aggregated from the St. Olaf homepage, The Manitou Messenger, and The PoliticOle.
+Stay connected to the St. Olaf community with notable stories about campus, current students, faculty, and alumni with news aggregated from the St. Olaf homepage.
 
 ### Events
 Find campus sports, musical performances, art shows, religious services, wellness talks, and other activities that occur on or around The Hill.
