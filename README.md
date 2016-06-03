@@ -33,4 +33,4 @@ There are a variety of options for students to get around in Northfield and the 
 ### Webcams
 Whether you want to wave to yourself at the "Hi Mom!" camera or you just want to watch the sunset from the Alumni Hall West camera, explore the views of campus from the five live-streams.
 
-<img src="https://raw.githubusercontent.com/StoDevX/all-about-olaf/master/.github/screenshot.png" width="320px" alt="Screenshot of the All About Olaf main menu" />
+<img src="./.github/screenshot.png" width="320px" alt="Screenshot of the All About Olaf main menu" />
