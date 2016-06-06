@@ -1,6 +1,8 @@
 All About Olaf
 ==============
 
+<p align="center"><img src="./.github/screenshot.png" width="320px" alt="Screenshot of the All About Olaf main menu" /></p>
+
 **All About Olaf** is a custom, student-oriented mobile application that provides simple and intuitive access to campus information and resources. This is an application created by a student; this is not the official iPhone application of St. Olaf College.
 
 - **News:** Stay connected to the St. Olaf community with notable stories about campus, current students, faculty, and alumni with news aggregated from the St. Olaf homepage.
@@ -22,5 +24,3 @@ All About Olaf
 - **Transportation:** There are a variety of options for students to get around in Northfield and the surrounding areas. Discover new ways to get around Northfield by bike, car, and bus.
 
 - **Webcams:** Whether you want to wave to yourself at the “Hi Mom!” camera or you just want to watch the sunset from the Alumni Hall West camera, explore the views of campus from the five live-streams.
-
-<img align="center" src="./.github/screenshot.png" width="320px" alt="Screenshot of the All About Olaf main menu" />
