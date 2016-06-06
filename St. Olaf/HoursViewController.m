@@ -94,14 +94,14 @@ enum numberOfMinutesPastMidnightType : NSInteger
 - (void)viewDidLoad
 {
     //Initialize a calendar
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
 
     //Assign the time zone we want
     [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"CST"]];
 
     //Set up our tracker for seconds after midnight
     NSDate *now = [NSDate date];
-    unsigned int unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit | NSWeekdayCalendarUnit;
+    unsigned int unitFlags = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitWeekday;
     NSDateComponents *components = [calendar components:unitFlags fromDate:now];
 
     // Just take the number of hours and minutes, and multiply them together ourselves.

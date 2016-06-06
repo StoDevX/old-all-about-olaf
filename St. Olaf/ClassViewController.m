@@ -43,7 +43,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd MMM, yyy"];
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSInteger units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
+    NSInteger units = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday;
     NSDateComponents *components = [calendar components:units fromDate:date];
     NSInteger year = [components year];
     NSInteger month = [components month];
@@ -278,7 +278,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd MMM, yyy"];
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSInteger units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
+    NSInteger units = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday;
     NSDateComponents *components = [calendar components:units fromDate:date];
     NSInteger year = [components year];
     NSInteger month = [components month];
