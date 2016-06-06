@@ -1040,7 +1040,7 @@
 		3ADFA5EC17B75B70008E6251 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Drew Volz";
 				TargetAttributes = {
 					3ADFA5F317B75B70008E6251 = {
@@ -1273,6 +1273,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1352,6 +1353,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = NFMTHAZVS9.com.drewvolz.stolaf;
 				PRODUCT_NAME = "All About Olaf";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1388,6 +1390,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = NFMTHAZVS9.com.drewvolz.stolaf;
 				PRODUCT_NAME = "All About Olaf";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1413,6 +1416,7 @@
 				);
 				INFOPLIST_FILE = "St. OlafTests/All About OlafTests-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "Drew-Volz.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "All About OlafTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1432,6 +1436,7 @@
 				GCC_PREFIX_HEADER = "St. Olaf/All About Olaf-Prefix.pch";
 				INFOPLIST_FILE = "St. OlafTests/All About OlafTests-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "Drew-Volz.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "All About OlafTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
