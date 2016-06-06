@@ -180,7 +180,7 @@
     return NO;
 }
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
 }
@@ -214,16 +214,16 @@
     [_webView goForward];
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)_webView
+- (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     //stop the activity indicator when done loading
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 
     // Current webpage
-    NSString *currentURL = _webView.request.URL.absoluteString;
+    NSString *currentURL = webView.request.URL.absoluteString;
 
     if([currentURL  isEqual: @"http://www.stolaf.edu/personal/"]) {
-        _webView.scrollView.contentOffset = CGPointMake(0, 600);
+        webView.scrollView.contentOffset = CGPointMake(0, 600);
     }
         
     [self.overlayView removeFromSuperview];
@@ -232,12 +232,10 @@
     [_loadingSpinner stopAnimating];
 
     //canGoBack and canGoForward are properties which indicate if there is any forward or backward history
-    if (_webView.canGoBack == YES)
-    {
+    if (webView.canGoBack == YES) {
         _back.enabled = YES;
     }
-    if (_webView.canGoForward == YES)
-    {
+    if (webView.canGoForward == YES) {
         _forward.enabled = YES;
     }
 }

@@ -33,7 +33,6 @@
     // size up the toolbar and set its frame
     // please note that it will work only for views without Navigation toolbars.
     CGFloat toolbarHeight = [toolbar frame].size.height;
-    CGFloat navbarHeight = [navBar frame].size.height;
 
     CGRect mainViewBounds = self.view.bounds;
     [toolbar setFrame:CGRectMake(CGRectGetMinX(mainViewBounds),
@@ -62,7 +61,7 @@
     return NO;
 }
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
 }

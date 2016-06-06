@@ -43,7 +43,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd MMM, yyy"];
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSInteger units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
+    NSInteger units = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday;
     NSDateComponents *components = [calendar components:units fromDate:date];
     NSInteger month = [components month];
     NSDateFormatter *weekDay = [[NSDateFormatter alloc] init];
@@ -354,7 +354,7 @@
     return NO;
 }
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
 }

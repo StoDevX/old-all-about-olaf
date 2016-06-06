@@ -1070,7 +1070,6 @@
 				de,
 				fr,
 				ru,
-				ua,
 				"zh-Hans",
 			);
 			mainGroup = 3ADFA5EB17B75B70008E6251;
