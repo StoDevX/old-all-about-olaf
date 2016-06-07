@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0070CC711D061131000761C9 /* HoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0070CC701D061131000761C9 /* HoursViewController.swift */; };
 		009EB51B1AF6C97C003FDCE9 /* Bookstore.json in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5111AF6C97C003FDCE9 /* Bookstore.json */; };
 		009EB51C1AF6C97C003FDCE9 /* Cage.json in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5121AF6C97C003FDCE9 /* Cage.json */; };
 		009EB51D1AF6C97C003FDCE9 /* Convenience Store.json in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5131AF6C97C003FDCE9 /* Convenience Store.json */; };
@@ -158,6 +159,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0070CC6F1D061131000761C9 /* All About Olaf-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "All About Olaf-Bridging-Header.h"; sourceTree = "<group>"; };
+		0070CC701D061131000761C9 /* HoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoursViewController.swift; sourceTree = "<group>"; };
 		009EB5111AF6C97C003FDCE9 /* Bookstore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Bookstore.json; path = building_hours/Bookstore.json; sourceTree = "<group>"; };
 		009EB5121AF6C97C003FDCE9 /* Cage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Cage.json; path = building_hours/Cage.json; sourceTree = "<group>"; };
 		009EB5131AF6C97C003FDCE9 /* Convenience Store.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Convenience Store.json"; path = "building_hours/Convenience Store.json"; sourceTree = "<group>"; };
@@ -547,6 +550,8 @@
 				009EB4FC1AF69E40003FDCE9 /* Building Hours */,
 				3ADFA64317B75CD9008E6251 /* HoursViewController.h */,
 				3ADFA64417B75CD9008E6251 /* HoursViewController.m */,
+				0070CC701D061131000761C9 /* HoursViewController.swift */,
+				0070CC6F1D061131000761C9 /* All About Olaf-Bridging-Header.h */,
 			);
 			name = Hours;
 			sourceTree = "<group>";
@@ -1154,6 +1159,7 @@
 				3A8FADF818BFFD0E0007419E /* TheCageMenuViewController.m in Sources */,
 				3ADFA66B17B75CD9008E6251 /* socialViewController.m in Sources */,
 				3ADBE0BF198C844900296032 /* MyCoursesTableViewController.m in Sources */,
+				0070CC711D061131000761C9 /* HoursViewController.swift in Sources */,
 				3ADFA66D17B75CD9008E6251 /* ThirdViewController.m in Sources */,
 				3AFB02821997F5AE00560AAC /* SBJsonStreamWriterState.m in Sources */,
 				3AFB027A1997F5AE00560AAC /* NSObject+SBJson.m in Sources */,
@@ -1333,6 +1339,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1350,12 +1357,15 @@
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "St. Olaf/All About Olaf-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = NFMTHAZVS9.com.drewvolz.stolaf;
 				PRODUCT_NAME = "All About Olaf";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "St. Olaf/All About Olaf-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "arm64 armv7 armv7s arm32";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1371,6 +1381,7 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1387,12 +1398,14 @@
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "St. Olaf/All About Olaf-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = NFMTHAZVS9.com.drewvolz.stolaf;
 				PRODUCT_NAME = "All About Olaf";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "St. Olaf/All About Olaf-Bridging-Header.h";
 				VALID_ARCHS = "arm64 armv7 armv7s arm32";
 				WRAPPER_EXTENSION = app;
 			};
