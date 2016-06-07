@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		005B327C1D061E9F00CA34A4 /* building_hours.json in Resources */ = {isa = PBXBuildFile; fileRef = 005B327B1D061E9F00CA34A4 /* building_hours.json */; };
 		0070CC711D061131000761C9 /* HoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0070CC701D061131000761C9 /* HoursViewController.swift */; };
 		009EB51B1AF6C97C003FDCE9 /* Bookstore.json in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5111AF6C97C003FDCE9 /* Bookstore.json */; };
 		009EB51C1AF6C97C003FDCE9 /* Cage.json in Resources */ = {isa = PBXBuildFile; fileRef = 009EB5121AF6C97C003FDCE9 /* Cage.json */; };
@@ -159,6 +160,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		005B327B1D061E9F00CA34A4 /* building_hours.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = building_hours.json; sourceTree = "<group>"; };
 		0070CC6F1D061131000761C9 /* All About Olaf-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "All About Olaf-Bridging-Header.h"; sourceTree = "<group>"; };
 		0070CC701D061131000761C9 /* HoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoursViewController.swift; sourceTree = "<group>"; };
 		009EB5111AF6C97C003FDCE9 /* Bookstore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Bookstore.json; path = building_hours/Bookstore.json; sourceTree = "<group>"; };
@@ -551,6 +553,7 @@
 				3ADFA64317B75CD9008E6251 /* HoursViewController.h */,
 				3ADFA64417B75CD9008E6251 /* HoursViewController.m */,
 				0070CC701D061131000761C9 /* HoursViewController.swift */,
+				005B327B1D061E9F00CA34A4 /* building_hours.json */,
 				0070CC6F1D061131000761C9 /* All About Olaf-Bridging-Header.h */,
 			);
 			name = Hours;
@@ -1094,6 +1097,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				009EB51D1AF6C97C003FDCE9 /* Convenience Store.json in Resources */,
+				005B327C1D061E9F00CA34A4 /* building_hours.json in Resources */,
 				009EB5211AF6C97C003FDCE9 /* Rolvaag Library.json in Resources */,
 				3A5228E51B0D25C000C3006C /* 1Password.xcassets in Resources */,
 				3AF70B7C18F9CDB2005CBD92 /* Images.xcassets in Resources */,
